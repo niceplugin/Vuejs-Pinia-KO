@@ -1,25 +1,33 @@
-# Testing stores
+---
+title: 스토어 테스트
+---
 
-Stores will, by design, be used at many places and can make testing much harder than it should be. Fortunately, this doesn't have to be the case. We need to take care of three things when testing stores:
+# 스토어 테스트 %{#testing-stores}%
 
-- The `pinia` instance: Stores cannot work without it
-- `actions`: most of the time, they contain the most complex logic of our stores. Wouldn't it be nice if they were mocked by default?
-- Plugins: If you rely on plugins, you will have to install them for tests too
+스토어는 설계상 많은 장소에서 사용되며,
+테스트를 예상보다 훨씬 어렵게 만들 수 있습니다.
+다행히도 반드시 그러지는 않습니다.
+스토어를 테스트할 때 세 가지 사항을 고려해야 합니다:
 
-Depending on what or how you are testing, we need to take care of these three differently:
+- `pinia` 인스턴스: 스토어는 이것 없이는 작동할 수 없음.
+- `actions`: 대부분의 경우 스토어에서 가장 복잡한 논리를 가짐.
+  기본적으로 모의(mock)되면 좋지 않을까요?
+- 플러그인: 플러그인에 의존하는 경우, 테스트를 위해 플러그인도 설치해야 함.
 
-- [Testing stores](#testing-stores)
-  - [Unit testing a store](#unit-testing-a-store)
-  - [Unit testing components](#unit-testing-components)
-    - [Initial State](#initial-state)
-    - [Customizing behavior of actions](#customizing-behavior-of-actions)
-    - [Specifying the createSpy function](#specifying-the-createspy-function)
-    - [Mocking getters](#mocking-getters)
-    - [Pinia Plugins](#pinia-plugins)
-  - [E2E tests](#e2e-tests)
-  - [Unit test components (Vue 2)](#unit-test-components-vue-2)
+테스트 대상 또는 방법에 따라 다음 세 가지를 다르게 처리해야 합니다:
 
-## Unit testing a store
+- [스토어 테스트](#testing-stores)
+  - [스토어 단위 테스트](#unit-testing-a-store)
+  - [컴포넌트 단위 테스트](#unit-testing-components)
+    - [초기 상태](#initial-state)
+    - [액션의 작동 커스터마이징](#customizing-behavior-of-actions)
+    - [createSpy 함수 지정](#specifying-the-createspy-function)
+    - [게터 모의(mock)하기](#mocking-getters)
+    - [피니아 플러그인](#pinia-plugins)
+  - [E2E 테스트](#e2e-tests)
+  - [컴포넌트 단위 테스트 (Vue 2)](#unit-test-components-vue-2)
+
+## 스토어 단위 테스트 %{#unit-testing-a-store}%
 
 To unit test a store, the most important part is creating a `pinia` instance:
 
@@ -69,7 +77,7 @@ beforeEach(() => {
 })
 ```
 
-## Unit testing components
+## 컴포넌트 단위 테스트 %{#unit-testing-components}%
 
 This can be achieved with `createTestingPinia()`, which returns a pinia instance designed to help unit tests components.
 
@@ -109,7 +117,7 @@ expect(store.someAction).toHaveBeenLastCalledWith()
 
 Please note that if you are using Vue 2, `@vue/test-utils` requires a [slightly different configuration](#unit-test-components-vue-2).
 
-### Initial State
+### 초기 상태 %{#initial-state}%
 
 You can set the initial state of **all of your stores** when creating a testing pinia by passing an `initialState` object. This object will be used by the testing pinia to _patch_ stores when they are created. Let's say you want to initialize the state of this store:
 
@@ -142,7 +150,7 @@ const store = useSomeStore() // uses the testing pinia!
 store.n // 20
 ```
 
-### Customizing behavior of actions
+### 액션의 작동 커스터마이징 %{#customizing-behavior-of-actions}%
 
 `createTestingPinia` stubs out all store actions unless told otherwise. This allows you to test your components and stores separately.
 
@@ -164,7 +172,7 @@ store.someAction()
 expect(store.someAction).toHaveBeenCalledTimes(1)
 ```
 
-### Specifying the createSpy function
+### createSpy 함수 지정 %{#specifying-the-createspy-function}%
 
 When using Jest, or vitest with `globals: true`, `createTestingPinia` automatically stubs actions using the spy function based on the existing test framework (`jest.fn` or `vitest.fn`). If you are using a different framework, you'll need to provide a [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy) option:
 
@@ -178,7 +186,7 @@ createTestingPinia({
 
 You can find more examples in [the tests of the testing package](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts).
 
-### Mocking getters
+### 게터 모의(mock)하기 %{#mocking-getters}%
 
 By default, any getter will be computed like regular usage but you can manually force a value by setting the getter to anything you want:
 
@@ -204,7 +212,7 @@ counter.double = undefined
 counter.double // 2 (=1 x 2)
 ```
 
-### Pinia Plugins
+### 피니아 플러그인 %{#pinia-plugins}%
 
 If you have any pinia plugins, make sure to pass them when calling `createTestingPinia()` so they are properly applied. **Do not add them with `testingPinia.use(MyPlugin)`** like you would do with a regular pinia:
 
@@ -225,11 +233,11 @@ const wrapper = mount(Counter, {
 })
 ```
 
-## E2E tests
+## E2E 테스트 %{#e2e-tests}%
 
 When it comes to pinia, you don't need to change anything for e2e tests, that's the whole point of e2e tests! You could maybe test HTTP requests, but that's way beyond the scope of this guide 😄.
 
-## Unit test components (Vue 2)
+## 컴포넌트 단위 테스트 (Vue 2) %{#unit-test-components-vue-2}%
 
 When using [Vue Test Utils 1](https://v1.test-utils.vuejs.org/), install Pinia on a `localVue`:
 
