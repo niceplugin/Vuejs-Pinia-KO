@@ -56,26 +56,22 @@ const config = defineConfig({
         link: '/guide/getting-started.html',
       },
       {
-        text: 'API (공식 페이지로 이동)',
-        link: 'https://pinia.vuejs.org/api/',
+        text: 'API (모듈별)',
+        items: [
+          {
+            text: 'pinia',
+            link: '/api/modules/pinia.html'
+          },
+          {
+            text: '@pinia/nuxt',
+            link: '/api/modules/pinia_nuxt.html'
+          },
+          {
+            text: '@pinia/testing',
+            link: '/api/modules/pinia_testing.html'
+          },
+        ],
       },
-      // {
-      //   text: 'API 참고서',
-      //   items: [
-      //     {
-      //       text: '@pinia/nuxt',
-      //       link: '/api/modules/pinia_nuxt.html'
-      //     },
-      //     {
-      //       text: '@pinia/testing',
-      //       link: '/api/modules/pinia_testing.html'
-      //     },
-      //     {
-      //       text: 'pinia',
-      //       link: '/api/modules/pinia.html'
-      //     },
-      //   ],
-      // },
       {
         text: '변경사항',
         link: 'https://github.com/vuejs/pinia/blob/v2/packages/pinia/CHANGELOG.md',
