@@ -33,7 +33,7 @@ ___
 
 ### options
 
-• **options**: [`DefineStoreOptionsInPlugin`](pinia.DefineStoreOptionsInPlugin.md)<`Id`, `S`, `G`, `A`\>
+• **options**: [`DefineStoreOptionsInPlugin`](DefineStoreOptionsInPlugin.md)<`Id`, `S`, `G`, `A`\>
 
 Initial options defining the store when calling `defineStore()`.
 
@@ -41,7 +41,7 @@ ___
 
 ### pinia
 
-• **pinia**: [`Pinia`](pinia.Pinia.md)
+• **pinia**: [`Pinia`](Pinia.md)
 
 pinia instance.
 

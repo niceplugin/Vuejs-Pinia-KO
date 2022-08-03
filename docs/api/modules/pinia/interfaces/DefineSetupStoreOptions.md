@@ -4,31 +4,31 @@ editLinks: false
 sidebarDepth: 3
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / DefineSetupStoreOptions
+[API Documentation](../../../index.md) / [pinia](../index.md) / DefineSetupStoreOptions
 
 # Interface: DefineSetupStoreOptions<Id, S, G, A\>
 
-[pinia](../modules/pinia.md).DefineSetupStoreOptions
+[pinia](../index.md).DefineSetupStoreOptions
 
 Options parameter of `defineStore()` for setup stores. Can be extended to
 augment stores with the plugin API.
 
 **`See`**
 
-[DefineStoreOptionsBase](pinia.DefineStoreOptionsBase.md).
+[DefineStoreOptionsBase](DefineStoreOptionsBase.md).
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#statetree) |
+| `S` | extends [`StateTree`](../index.md#statetree) |
 | `G` | `G` |
 | `A` | `A` |
 
 ## Hierarchy
 
-- [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)<`S`, [`Store`](../modules/pinia.md#store)<`Id`, `S`, `G`, `A`\>\>
+- [`DefineStoreOptionsBase`](DefineStoreOptionsBase.md)<`S`, [`Store`](../index.md#store)<`Id`, `S`, `G`, `A`\>\>
 
   ↳ **`DefineSetupStoreOptions`**
 

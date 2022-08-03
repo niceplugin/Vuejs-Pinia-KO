@@ -4,11 +4,11 @@ editLinks: false
 sidebarDepth: 3
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / \_StoreWithState
+[API Documentation](../../../index.md) / [pinia](../index.md) / \_StoreWithState
 
 # Interface: \_StoreWithState<Id, S, G, A\>
 
-[pinia](../modules/pinia.md)._StoreWithState
+[pinia](../index.md)._StoreWithState
 
 Base store with state and functions. Should not be used directly.
 
@@ -17,13 +17,13 @@ Base store with state and functions. Should not be used directly.
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#statetree) |
+| `S` | extends [`StateTree`](../index.md#statetree) |
 | `G` | `G` |
 | `A` | `A` |
 
 ## Hierarchy
 
-- [`StoreProperties`](pinia.StoreProperties.md)<`Id`\>
+- [`StoreProperties`](StoreProperties.md)<`Id`\>
 
   ↳ **`_StoreWithState`**
 
@@ -37,13 +37,13 @@ Unique identifier of the store
 
 #### Inherited from
 
-[StoreProperties](pinia.StoreProperties.md).[$id](pinia.StoreProperties.md#$id)
+[StoreProperties](StoreProperties.md).[$id](StoreProperties.md#$id)
 
 ___
 
 ### $state
 
-• **$state**: `UnwrapRef`<`S`\> & [`PiniaCustomStateProperties`](pinia.PiniaCustomStateProperties.md)<`S`\>
+• **$state**: `UnwrapRef`<`S`\> & [`PiniaCustomStateProperties`](PiniaCustomStateProperties.md)<`S`\>
 
 State of the Store. Setting it will replace the whole state.
 
@@ -59,7 +59,7 @@ that should be displayed in devtools.
 
 #### Inherited from
 
-[StoreProperties](pinia.StoreProperties.md).[_customProperties](pinia.StoreProperties.md#_customproperties)
+[StoreProperties](StoreProperties.md).[_customProperties](StoreProperties.md#_customproperties)
 
 ## Methods
 
@@ -116,7 +116,7 @@ store.$onAction(({ after, onError }) => {
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `callback` | [`StoreOnActionListener`](../modules/pinia.md#storeonactionlistener)<`Id`, `S`, `G`, `A`\> | callback called before every action |
+| `callback` | [`StoreOnActionListener`](../index.md#storeonactionlistener)<`Id`, `S`, `G`, `A`\> | callback called before every action |
 | `detached?` | `boolean` | detach the subscription from the context this is called from |
 
 #### Returns
@@ -176,7 +176,7 @@ Applies a state patch to current state. Allows passing nested values
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `partialState` | [`_DeepPartial`](../modules/pinia.md#_deeppartial)<`UnwrapRef`<`S`\>\> | patch to apply to the state |
+| `partialState` | [`_DeepPartial`](../index.md#_deeppartial)<`UnwrapRef`<`S`\>\> | patch to apply to the state |
 
 #### Returns
 
@@ -231,7 +231,7 @@ component gets unmounted unless `detached` is set to true.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `callback` | [`SubscriptionCallback`](../modules/pinia.md#subscriptioncallback)<`S`\> | callback passed to the watcher |
+| `callback` | [`SubscriptionCallback`](../index.md#subscriptioncallback)<`S`\> | callback passed to the watcher |
 | `options?` | { `detached?`: `boolean`  } & `WatchOptions`<`boolean`\> | `watch` options + `detached` to detach the subscription from the context (usually a component) this is called from. Note that the `flush` option does not affect calls to `store.$patch()`. |
 
 #### Returns

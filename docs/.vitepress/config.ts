@@ -60,15 +60,15 @@ const config = defineConfig({
         items: [
           {
             text: 'pinia',
-            link: '/api/modules/pinia.html'
+            link: '/api/modules/pinia/index.html'
           },
           {
             text: '@pinia/nuxt',
-            link: '/api/modules/pinia_nuxt.html'
+            link: '/api/modules/pinia_nuxt/index.html'
           },
           {
             text: '@pinia/testing',
-            link: '/api/modules/pinia_testing.html'
+            link: '/api/modules/pinia_testing/index.html'
           },
         ],
       },
@@ -152,6 +152,155 @@ const config = defineConfig({
               link: '/guide/cookbook/composing-stores.html',
             },
           ],
+        },
+      ],
+      '/api/modules/pinia/': [
+        {
+          text: '',
+          items: [
+            {
+              text: 'Type Aliases',
+              link: '/api/modules/pinia/type_aliases'
+            },
+            {
+              text: 'Variables',
+              link: '/api/modules/pinia/variables'
+            },
+            {
+              text: 'Functions',
+              link: '/api/modules/pinia/functions'
+            },
+          ]
+        },
+        {
+          text: 'Enumerations',
+          items: [
+            {
+              text: 'MutationType',
+              link: '/api/modules/pinia/enums/MutationType'
+            },
+          ],
+        },
+        {
+          text: 'Interfaces',
+          items: [
+            {
+              text: 'DefineSetupStoreOptions',
+              link: '/api/modules/pinia/interfaces/DefineSetupStoreOptions.md'
+            },
+            {
+              text: 'DefineStoreOptions',
+              link: '/api/modules/pinia/interfaces/DefineStoreOptions.md'
+            },
+            {
+              text: 'DefineStoreOptionsBase',
+              link: '/api/modules/pinia/interfaces/DefineStoreOptionsBase.md'
+            },
+            {
+              text: 'DefineStoreOptionsInPlugin',
+              link: '/api/modules/pinia/interfaces/DefineStoreOptionsInPlugin.md'
+            },
+            {
+              text: 'MapStoresCustomization',
+              link: '/api/modules/pinia/interfaces/MapStoresCustomization.md'
+            },
+            {
+              text: 'Pinia',
+              link: '/api/modules/pinia/interfaces/Pinia.md'
+            },
+            {
+              text: 'PiniaCustomProperties',
+              link: '/api/modules/pinia/interfaces/PiniaCustomProperties.md'
+            },
+            {
+              text: 'PiniaCustomStateProperties',
+              link: '/api/modules/pinia/interfaces/PiniaCustomStateProperties.md'
+            },
+            {
+              text: 'PiniaPlugin',
+              link: '/api/modules/pinia/interfaces/PiniaPlugin.md'
+            },
+            {
+              text: 'PiniaPluginContext',
+              link: '/api/modules/pinia/interfaces/PiniaPluginContext.md'
+            },
+            {
+              text: 'StoreDefinition',
+              link: '/api/modules/pinia/interfaces/StoreDefinition.md'
+            },
+            {
+              text: 'StoreProperties',
+              link: '/api/modules/pinia/interfaces/StoreProperties.md'
+            },
+            {
+              text: 'SubscriptionCallbackMutationDirect',
+              link: '/api/modules/pinia/interfaces/SubscriptionCallbackMutationDirect.md'
+            },
+            {
+              text: 'SubscriptionCallbackMutationPatchFunction',
+              link: '/api/modules/pinia/interfaces/SubscriptionCallbackMutationPatchFunction.md'
+            },
+            {
+              text: 'SubscriptionCallbackMutationPatchObject',
+              link: '/api/modules/pinia/interfaces/SubscriptionCallbackMutationPatchObject.md'
+            },
+            {
+              text: '\_StoreOnActionListenerContext',
+              link: '/api/modules/pinia/interfaces/_StoreOnActionListenerContext.md'
+            },
+            {
+              text: '\_StoreWithState',
+              link: '/api/modules/pinia/interfaces/_StoreWithState.md'
+            },
+            {
+              text: '\_SubscriptionCallbackMutationBase',
+              link: '/api/modules/pinia/interfaces/_SubscriptionCallbackMutationBase.md'
+            },
+          ],
+        },
+      ],
+      '/api/modules/pinia_nuxt/': [
+        {
+          text: '',
+          items: [
+            {
+              text: '@pinia/nuxt',
+              link: '/api/modules/pinia_nuxt/index.html'
+            },
+          ]
+        },
+        {
+          text: 'Interfaces',
+          items: [
+            {
+              text: 'ModuleOptions ⚠️(자료없음)',
+              link: '/api/modules/pinia_nuxt/interfaces/ModuleOptions.html'
+            },
+          ]
+        },
+      ],
+      '/api/modules/pinia_testing/': [
+        {
+          text: '',
+          items: [
+            {
+              text: '@pinia/testing',
+              link: '/api/modules/pinia_testing/index.html'
+            },
+          ]
+        },
+        {
+          text: 'Interfaces',
+          items: [
+            {
+              text: 'TestingOptions',
+              link: '/api/modules/pinia_testing/interfaces/TestingOptions.html'
+            },
+            {
+              text: 'TestingPinia',
+              link: '/api/modules/pinia_testing/interfaces/TestingPinia.html'
+            },
+          ]
         },
       ]
     },

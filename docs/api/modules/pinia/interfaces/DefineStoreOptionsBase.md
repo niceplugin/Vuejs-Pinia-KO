@@ -25,6 +25,6 @@ of stores.
 
 - **`DefineStoreOptionsBase`**
 
-  ↳ [`DefineStoreOptions`](pinia.DefineStoreOptions.md)
+  ↳ [`DefineStoreOptions`](DefineStoreOptions.md)
 
-  ↳ [`DefineSetupStoreOptions`](pinia.DefineSetupStoreOptions.md)
+  ↳ [`DefineSetupStoreOptions`](DefineSetupStoreOptions.md)

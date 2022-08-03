@@ -4,11 +4,11 @@ editLinks: false
 sidebarDepth: 3
 ---
 
-[API Documentation](../index.md) / [@pinia/testing](../modules/pinia_testing.md) / TestingOptions
+[API Documentation](../../../index.md) / [@pinia/testing](../index.md) / TestingOptions
 
 # Interface: TestingOptions
 
-[@pinia/testing](../modules/pinia_testing.md).TestingOptions
+[@pinia/testing](../index.md).TestingOptions
 
 ## Properties
 
@@ -60,7 +60,7 @@ ___
 
 ### initialState
 
-• `Optional` **initialState**: [`StateTree`](../modules/pinia.md#statetree)
+• `Optional` **initialState**: [`StateTree`](../../pinia/index.md#statetree)
 
 Allows defining a partial initial state of all your stores. This state gets applied after a store is created,
 allowing you to only set a few properties that are required in your test.

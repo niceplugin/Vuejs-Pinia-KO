@@ -4,11 +4,11 @@ editLinks: false
 sidebarDepth: 3
 ---
 
-[API Documentation](../index.md) / [@pinia/testing](../modules/pinia_testing.md) / TestingPinia
+[API Documentation](../../../index.md) / [@pinia/testing](../index.md) / TestingPinia
 
 # Interface: TestingPinia
 
-[@pinia/testing](../modules/pinia_testing.md).TestingPinia
+[@pinia/testing](../index.md).TestingPinia
 
 Pinia instance specifically designed for testing. Extends a regular
 `Pinia` instance with test specific properties.
@@ -55,7 +55,7 @@ ___
 
 ### state
 
-• **state**: `Ref`<`Record`<`string`, [`StateTree`](../modules/pinia.md#statetree)\>\>
+• **state**: `Ref`<`Record`<`string`, [`StateTree`](../../pinia/index.md#statetree)\>\>
 
 root state
 

@@ -57,7 +57,7 @@ ___
 
 ### type
 
-• **type**: [`patchObject`](../enums/pinia.MutationType.md#patchobject)
+• **type**: [`patchObject`](../modules/pinia/enums/MutationType.md#patchobject)
 
 Type of the mutation.
 

@@ -4,28 +4,29 @@ editLinks: false
 sidebarDepth: 3
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationPatchFunction
+[API Documentation](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationDirect
 
-# Interface: SubscriptionCallbackMutationPatchFunction
+# Interface: SubscriptionCallbackMutationDirect
 
-[pinia](../modules/pinia.md).SubscriptionCallbackMutationPatchFunction
+[pinia](../modules/pinia.md).SubscriptionCallbackMutationDirect
 
-Context passed to a subscription callback when `store.$patch()` is called
-with a function.
+Context passed to a subscription callback when directly mutating the state of
+a store with `store.someState = newValue` or `store.$state.someState =
+newValue`.
 
 ## Hierarchy
 
 - [`_SubscriptionCallbackMutationBase`](pinia._SubscriptionCallbackMutationBase.md)
 
-  ↳ **`SubscriptionCallbackMutationPatchFunction`**
+  ↳ **`SubscriptionCallbackMutationDirect`**
 
 ## Properties
 
 ### events
 
-• **events**: `DebuggerEvent`[]
+• **events**: `DebuggerEvent`
 
-DEV ONLY. Array of all the mutations done inside of the callback.
+DEV ONLY. Different mutation calls.
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 ### type
 
-• **type**: [`patchFunction`](../enums/pinia.MutationType.md#patchfunction)
+• **type**: [`direct`](../modules/pinia/enums/MutationType.md#direct)
 
 Type of the mutation.
 

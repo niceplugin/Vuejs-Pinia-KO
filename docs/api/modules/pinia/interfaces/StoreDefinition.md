@@ -31,7 +31,7 @@ Returns a store, creates it if necessary.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `pinia?` | ``null`` \| [`Pinia`](pinia.Pinia.md) | Pinia instance to retrieve the store |
+| `pinia?` | ``null`` \| [`Pinia`](Pinia.md) | Pinia instance to retrieve the store |
 | `hot?` | [`StoreGeneric`](../modules/pinia.md#storegeneric) | dev only hot module replacement |
 
 #### Returns

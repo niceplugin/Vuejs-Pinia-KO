@@ -16,7 +16,7 @@ Every application must own its own pinia to be able to create stores
 
 - **`Pinia`**
 
-  ↳ [`TestingPinia`](pinia_testing.TestingPinia.md)
+  ↳ [`TestingPinia`](TestingPinia.md)
 
 ## Properties
 
@@ -50,7 +50,7 @@ root state
 
 ### use
 
-▸ **use**(`plugin`): [`Pinia`](pinia.Pinia.md)
+▸ **use**(`plugin`): [`Pinia`](Pinia.md)
 
 Adds a store plugin to extend every store
 
@@ -58,8 +58,8 @@ Adds a store plugin to extend every store
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `plugin` | [`PiniaPlugin`](pinia.PiniaPlugin.md) | store plugin to add |
+| `plugin` | [`PiniaPlugin`](PiniaPlugin.md) | store plugin to add |
 
 #### Returns
 
-[`Pinia`](pinia.Pinia.md)
+[`Pinia`](Pinia.md)
