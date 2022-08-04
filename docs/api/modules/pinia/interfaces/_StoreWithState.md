@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../../../index.md) / [pinia](../index.md) / \_StoreWithState
-
 # Interface: \_StoreWithState<Id, S, G, A\>
-
-[pinia](../index.md)._StoreWithState
 
 Base store with state and functions. Should not be used directly.
 
@@ -59,7 +49,7 @@ that should be displayed in devtools.
 
 #### Inherited from
 
-[StoreProperties](StoreProperties.md).[_customProperties](StoreProperties.md#_customproperties)
+[StoreProperties](StoreProperties.md).[_customProperties](StoreProperties.md#customproperties)
 
 ## Methods
 
@@ -99,16 +89,16 @@ up when the component gets unmounted unless `detached` is set to true.
 
 ```js
 store.$onAction(({ after, onError }) => {
- // Here you could share variables between all of the hooks as well as
- // setting up watchers and clean them up
- after((resolvedValue) => {
-   // can be used to cleanup side effects
-.  // `resolvedValue` is the value returned by the action, if it's a
-.  // Promise, it will be the resolved value instead of the Promise
- })
- onError((error) => {
-   // can be used to pass up errors
- })
+  // Here you could share variables between all of the hooks as well as
+  // setting up watchers and clean them up
+  after((resolvedValue) => {
+    // can be used to cleanup side effects
+    // `resolvedValue` is the value returned by the action, if it's a
+    // Promise, it will be the resolved value instead of the Promise
+  })
+  onError((error) => {
+    // can be used to pass up errors
+  })
 })
 ```
 
@@ -145,16 +135,16 @@ up when the component gets unmounted unless `detached` is set to true.
 
 ```js
 store.$onAction(({ after, onError }) => {
- // Here you could share variables between all of the hooks as well as
- // setting up watchers and clean them up
- after((resolvedValue) => {
-   // can be used to cleanup side effects
-.  // `resolvedValue` is the value returned by the action, if it's a
-.  // Promise, it will be the resolved value instead of the Promise
- })
- onError((error) => {
-   // can be used to pass up errors
- })
+  // Here you could share variables between all of the hooks as well as
+  // setting up watchers and clean them up
+  after((resolvedValue) => {
+    // can be used to cleanup side effects
+    // `resolvedValue` is the value returned by the action, if it's a
+    // Promise, it will be the resolved value instead of the Promise
+  })
+  onError((error) => {
+    // can be used to pass up errors
+  })
 })
 ```
 
@@ -176,7 +166,7 @@ Applies a state patch to current state. Allows passing nested values
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `partialState` | [`_DeepPartial`](../index.md#_deeppartial)<`UnwrapRef`<`S`\>\> | patch to apply to the state |
+| `partialState` | [`_DeepPartial`](../index.md#deeppartial)<`UnwrapRef`<`S`\>\> | patch to apply to the state |
 
 #### Returns
 

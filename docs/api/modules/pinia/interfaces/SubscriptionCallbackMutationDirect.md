@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationDirect
-
 # Interface: SubscriptionCallbackMutationDirect
-
-[pinia](../modules/pinia.md).SubscriptionCallbackMutationDirect
 
 Context passed to a subscription callback when directly mutating the state of
 a store with `store.someState = newValue` or `store.$state.someState =
@@ -16,7 +6,7 @@ newValue`.
 
 ## Hierarchy
 
-- [`_SubscriptionCallbackMutationBase`](pinia._SubscriptionCallbackMutationBase.md)
+- [`_SubscriptionCallbackMutationBase`](_SubscriptionCallbackMutationBase.md)
 
   ↳ **`SubscriptionCallbackMutationDirect`**
 
@@ -38,16 +28,16 @@ ___
 
 #### Inherited from
 
-[_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[storeId](pinia._SubscriptionCallbackMutationBase.md#storeid)
+[_SubscriptionCallbackMutationBase](_SubscriptionCallbackMutationBase.md).[storeId](_SubscriptionCallbackMutationBase.md#storeid)
 
 ___
 
 ### type
 
-• **type**: [`direct`](../modules/pinia/enums/MutationType.md#direct)
+• **type**: [`direct`](../enums/MutationType.md#direct)
 
 Type of the mutation.
 
 #### Overrides
 
-[_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[type](pinia._SubscriptionCallbackMutationBase.md#type)
+[_SubscriptionCallbackMutationBase](_SubscriptionCallbackMutationBase.md).[type](_SubscriptionCallbackMutationBase.md#type)

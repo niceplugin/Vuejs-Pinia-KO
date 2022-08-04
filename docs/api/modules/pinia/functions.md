@@ -9,7 +9,7 @@ Creates an _accept_ function to pass to `import.meta.hot` in Vite applications.
 **`Example`**
 
 ```js
-const useUser = defineStore(...)
+const useUser = defineStore(/* ... */)
 if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useUser, import.meta.hot))
 }
@@ -19,7 +19,7 @@ if (import.meta.hot) {
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `initialUseStore` | [`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`string`, [`StateTree`](pinia.md#statetree), [`_GettersTree`](pinia.md#_getterstree)<[`StateTree`](pinia.md#statetree)\>, [`_ActionsTree`](pinia.md#_actionstree)\> | return of the defineStore to hot update |
+| `initialUseStore` | [`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`string`, [`StateTree`](type_aliases.md#statetree), [`_GettersTree`](type_aliases.md#getterstree)<[`StateTree`](type_aliases.md#statetree)\>, [`_ActionsTree`](type_aliases.md#actionstree)\> | return of the defineStore to hot update |
 | `hot` | `any` | `import.meta.hot` |
 
 ### Returns
@@ -63,8 +63,8 @@ Creates a `useStore` function that retrieves the store instance
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) = {} |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> = {} |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) = {} |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> = {} |
 | `A` | {} |
 
 ### Parameters
@@ -87,8 +87,8 @@ Creates a `useStore` function that retrieves the store instance
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) = {} |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> = {} |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) = {} |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> = {} |
 | `A` | {} |
 
 ### Parameters
@@ -101,7 +101,7 @@ Creates a `useStore` function that retrieves the store instance
 
 [`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`Id`, `S`, `G`, `A`\>
 
-▸ **defineStore**<`Id`, `SS`\>(`id`, `storeSetup`, `options?`): [`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`Id`, [`_ExtractStateFromSetupStore`](pinia.md#_extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](pinia.md#_extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](pinia.md#_extractactionsfromsetupstore)<`SS`\>\>
+▸ **defineStore**<`Id`, `SS`\>(`id`, `storeSetup`, `options?`): [`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`Id`, [`_ExtractStateFromSetupStore`](type_aliases.md#extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](type_aliases.md#extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](type_aliases.md#extractactionsfromsetupstore)<`SS`\>\>
 
 Creates a `useStore` function that retrieves the store instance
 
@@ -118,11 +118,11 @@ Creates a `useStore` function that retrieves the store instance
 | :------ | :------ | :------ |
 | `id` | `Id` | id of the store (must be unique) |
 | `storeSetup` | () => `SS` | function that defines the store |
-| `options?` | [`DefineSetupStoreOptions`](/api/modules/pinia/interfaces/DefineSetupStoreOptions.md)<`Id`, [`_ExtractStateFromSetupStore`](pinia.md#_extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](pinia.md#_extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](pinia.md#_extractactionsfromsetupstore)<`SS`\>\> | extra options |
+| `options?` | [`DefineSetupStoreOptions`](/api/modules/pinia/interfaces/DefineSetupStoreOptions.md)<`Id`, [`_ExtractStateFromSetupStore`](type_aliases.md#extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](type_aliases.md#extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](type_aliases.md#extractactionsfromsetupstore)<`SS`\>\> | extra options |
 
 ### Returns
 
-[`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`Id`, [`_ExtractStateFromSetupStore`](pinia.md#_extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](pinia.md#_extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](pinia.md#_extractactionsfromsetupstore)<`SS`\>\>
+[`StoreDefinition`](/api/modules/pinia/interfaces/StoreDefinition.md)<`Id`, [`_ExtractStateFromSetupStore`](type_aliases.md#extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](type_aliases.md#extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](type_aliases.md#extractactionsfromsetupstore)<`SS`\>\>
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 ## mapActions
 
-▸ **mapActions**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapActionsObjectReturn`](pinia.md#_mapactionsobjectreturn)<`A`, `KeyMapper`\>
+▸ **mapActions**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapActionsObjectReturn`](type_aliases.md#mapactionsobjectreturn)<`A`, `KeyMapper`\>
 
 Allows directly using actions from your store without using the composition
 API (`setup()`) by generating an object to be spread in the `methods` field
@@ -169,8 +169,8 @@ export default {
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
 | `KeyMapper` | extends `Record`<`string`, keyof `A`\> |
 
@@ -183,9 +183,9 @@ export default {
 
 ### Returns
 
-[`_MapActionsObjectReturn`](pinia.md#_mapactionsobjectreturn)<`A`, `KeyMapper`\>
+[`_MapActionsObjectReturn`](type_aliases.md#mapactionsobjectreturn)<`A`, `KeyMapper`\>
 
-▸ **mapActions**<`Id`, `S`, `G`, `A`\>(`useStore`, `keys`): [`_MapActionsReturn`](pinia.md#_mapactionsreturn)<`A`\>
+▸ **mapActions**<`Id`, `S`, `G`, `A`\>(`useStore`, `keys`): [`_MapActionsReturn`](type_aliases.md#mapactionsreturn)<`A`\>
 
 Allows directly using actions from your store without using the composition
 API (`setup()`) by generating an object to be spread in the `methods` field
@@ -212,8 +212,8 @@ export default {
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
 
 ### Parameters
@@ -225,13 +225,13 @@ export default {
 
 ### Returns
 
-[`_MapActionsReturn`](pinia.md#_mapactionsreturn)<`A`\>
+[`_MapActionsReturn`](type_aliases.md#mapactionsreturn)<`A`\>
 
 ___
 
 ## mapGetters
 
-▸ **mapGetters**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapStateObjectReturn`](pinia.md#_mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
+▸ **mapGetters**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapStateObjectReturn`](type_aliases.md#mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
 
 Allows using state and getters from one store without using the composition
 API (`setup()`) by generating an object to be spread in the `computed` field
@@ -271,10 +271,10 @@ export default {
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
-| `KeyMapper` | extends `Record`<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](pinia.md#store)<`Id`, `S`, `G`, `A`\>) => `any`\> |
+| `KeyMapper` | extends `Record`<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](type_aliases.md#store)<`Id`, `S`, `G`, `A`\>) => `any`\> |
 
 ### Parameters
 
@@ -285,9 +285,9 @@ export default {
 
 ### Returns
 
-[`_MapStateObjectReturn`](pinia.md#_mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
+[`_MapStateObjectReturn`](type_aliases.md#mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
 
-▸ **mapGetters**<`Id`, `S`, `G`, `A`, `Keys`\>(`useStore`, `keys`): [`_MapStateReturn`](pinia.md#_mapstatereturn)<`S`, `G`, `Keys`\>
+▸ **mapGetters**<`Id`, `S`, `G`, `A`, `Keys`\>(`useStore`, `keys`): [`_MapStateReturn`](type_aliases.md#mapstatereturn)<`S`, `G`, `Keys`\>
 
 Allows using state and getters from one store without using the composition
 API (`setup()`) by generating an object to be spread in the `computed` field
@@ -314,8 +314,8 @@ export default {
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
 | `Keys` | extends `string` \| `number` \| `symbol` |
 
@@ -328,13 +328,13 @@ export default {
 
 ### Returns
 
-[`_MapStateReturn`](pinia.md#_mapstatereturn)<`S`, `G`, `Keys`\>
+[`_MapStateReturn`](type_aliases.md#mapstatereturn)<`S`, `G`, `Keys`\>
 
 ___
 
 ## mapState
 
-▸ **mapState**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapStateObjectReturn`](pinia.md#_mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
+▸ **mapState**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapStateObjectReturn`](type_aliases.md#mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
 
 Allows using state and getters from one store without using the composition
 API (`setup()`) by generating an object to be spread in the `computed` field
@@ -374,10 +374,10 @@ export default {
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
-| `KeyMapper` | extends `Record`<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](pinia.md#store)<`Id`, `S`, `G`, `A`\>) => `any`\> |
+| `KeyMapper` | extends `Record`<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](type_aliases.md#store)<`Id`, `S`, `G`, `A`\>) => `any`\> |
 
 ### Parameters
 
@@ -388,9 +388,9 @@ export default {
 
 ### Returns
 
-[`_MapStateObjectReturn`](pinia.md#_mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
+[`_MapStateObjectReturn`](type_aliases.md#mapstateobjectreturn)<`Id`, `S`, `G`, `A`, `KeyMapper`\>
 
-▸ **mapState**<`Id`, `S`, `G`, `A`, `Keys`\>(`useStore`, `keys`): [`_MapStateReturn`](pinia.md#_mapstatereturn)<`S`, `G`, `Keys`\>
+▸ **mapState**<`Id`, `S`, `G`, `A`, `Keys`\>(`useStore`, `keys`): [`_MapStateReturn`](type_aliases.md#mapstatereturn)<`S`, `G`, `Keys`\>
 
 Allows using state and getters from one store without using the composition
 API (`setup()`) by generating an object to be spread in the `computed` field
@@ -417,8 +417,8 @@ export default {
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
 | `Keys` | extends `string` \| `number` \| `symbol` |
 
@@ -431,13 +431,13 @@ export default {
 
 ### Returns
 
-[`_MapStateReturn`](pinia.md#_mapstatereturn)<`S`, `G`, `Keys`\>
+[`_MapStateReturn`](type_aliases.md#mapstatereturn)<`S`, `G`, `Keys`\>
 
 ___
 
 ## mapStores
 
-▸ **mapStores**<`Stores`\>(...`stores`): [`_Spread`](pinia.md#_spread)<`Stores`\>
+▸ **mapStores**<`Stores`\>(...`stores`): [`_Spread`](type_aliases.md#spread)<`Stores`\>
 
 Allows using stores without the composition API (`setup()`) by generating an
 object to be spread in the `computed` field of a component. It accepts a list
@@ -473,13 +473,13 @@ export default {
 
 ### Returns
 
-[`_Spread`](pinia.md#_spread)<`Stores`\>
+[`_Spread`](type_aliases.md#spread)<`Stores`\>
 
 ___
 
 ## mapWritableState
 
-▸ **mapWritableState**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapWritableStateObjectReturn`](pinia.md#_mapwritablestateobjectreturn)<`S`, `KeyMapper`\>
+▸ **mapWritableState**<`Id`, `S`, `G`, `A`, `KeyMapper`\>(`useStore`, `keyMapper`): [`_MapWritableStateObjectReturn`](type_aliases.md#mapwritablestateobjectreturn)<`S`, `KeyMapper`\>
 
 Same as `mapState()` but creates computed setters as well so the state can be
 modified. Differently from `mapState()`, only `state` properties can be
@@ -490,8 +490,8 @@ added.
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
 | `KeyMapper` | extends `Record`<`string`, keyof `S`\> |
 
@@ -504,9 +504,9 @@ added.
 
 ### Returns
 
-[`_MapWritableStateObjectReturn`](pinia.md#_mapwritablestateobjectreturn)<`S`, `KeyMapper`\>
+[`_MapWritableStateObjectReturn`](type_aliases.md#mapwritablestateobjectreturn)<`S`, `KeyMapper`\>
 
-▸ **mapWritableState**<`Id`, `S`, `G`, `A`\>(`useStore`, `keys`): [`_MapWritableStateReturn`](pinia.md#_mapwritablestatereturn)<`S`\>
+▸ **mapWritableState**<`Id`, `S`, `G`, `A`\>(`useStore`, `keys`): [`_MapWritableStateReturn`](type_aliases.md#mapwritablestatereturn)<`S`\>
 
 Allows using state and getters from one store without using the composition
 API (`setup()`) by generating an object to be spread in the `computed` field
@@ -517,8 +517,8 @@ of a component.
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` |
-| `S` | extends [`StateTree`](pinia.md#statetree) |
-| `G` | extends [`_GettersTree`](pinia.md#_getterstree)<`S`\> |
+| `S` | extends [`StateTree`](type_aliases.md#statetree) |
+| `G` | extends [`_GettersTree`](type_aliases.md#getterstree)<`S`\> |
 | `A` | `A` |
 
 ### Parameters
@@ -530,7 +530,7 @@ of a component.
 
 ### Returns
 
-[`_MapWritableStateReturn`](pinia.md#_mapwritablestatereturn)<`S`\>
+[`_MapWritableStateReturn`](type_aliases.md#mapwritablestatereturn)<`S`\>
 
 ___
 
@@ -602,7 +602,7 @@ ___
 
 ## storeToRefs
 
-▸ **storeToRefs**<`SS`\>(`store`): `ToRefs`<[`StoreState`](pinia.md#storestate)<`SS`\> & [`StoreGetters`](pinia.md#storegetters)<`SS`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<[`StoreState`](pinia.md#storestate)<`SS`\>\>\>
+▸ **storeToRefs**<`SS`\>(`store`): `ToRefs`<[`StoreState`](type_aliases.md#storestate)<`SS`\> & [`StoreGetters`](type_aliases.md#storegetters)<`SS`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<[`StoreState`](type_aliases.md#storestate)<`SS`\>\>\>
 
 Creates an object of references with all the state, getters, and plugin-added
 state properties of the store. Similar to `toRefs()` but specifically
@@ -613,7 +613,7 @@ completely ignored.
 
 | Name | Type |
 | :------ | :------ |
-| `SS` | extends [`_StoreWithState`](/api/modules/pinia/interfaces/_StoreWithState.md)<`string`, [`StateTree`](pinia.md#statetree), [`_GettersTree`](pinia.md#_getterstree)<[`StateTree`](pinia.md#statetree)\>, [`_ActionsTree`](pinia.md#_actionstree), `SS`\> & [`StateTree`](pinia.md#statetree) & [`_StoreWithGetters`](pinia.md#_storewithgetters)<[`_GettersTree`](pinia.md#_getterstree)<[`StateTree`](pinia.md#statetree)\>\> & [`PiniaCustomProperties`](/api/modules/pinia/interfaces/PiniaCustomProperties.md)<`string`, [`StateTree`](pinia.md#statetree), [`_GettersTree`](pinia.md#_getterstree)<[`StateTree`](pinia.md#statetree)\>, [`_ActionsTree`](pinia.md#_actionstree), `SS`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<[`StateTree`](pinia.md#statetree), `SS`\> |
+| `SS` | extends [`_StoreWithState`](/api/modules/pinia/interfaces/_StoreWithState.md)<`string`, [`StateTree`](type_aliases.md#statetree), [`_GettersTree`](type_aliases.md#getterstree)<[`StateTree`](type_aliases.md#statetree)\>, [`_ActionsTree`](type_aliases.md#actionstree), `SS`\> & [`StateTree`](type_aliases.md#statetree) & [`_StoreWithGetters`](type_aliases.md#storewithgetters)<[`_GettersTree`](type_aliases.md#getterstree)<[`StateTree`](type_aliases.md#statetree)\>\> & [`PiniaCustomProperties`](/api/modules/pinia/interfaces/PiniaCustomProperties.md)<`string`, [`StateTree`](type_aliases.md#statetree), [`_GettersTree`](type_aliases.md#getterstree)<[`StateTree`](type_aliases.md#statetree)\>, [`_ActionsTree`](type_aliases.md#actionstree), `SS`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<[`StateTree`](type_aliases.md#statetree), `SS`\> |
 
 ### Parameters
 
@@ -623,4 +623,4 @@ completely ignored.
 
 ### Returns
 
-`ToRefs`<[`StoreState`](pinia.md#storestate)<`SS`\> & [`StoreGetters`](pinia.md#storegetters)<`SS`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<[`StoreState`](pinia.md#storestate)<`SS`\>\>\>
+`ToRefs`<[`StoreState`](type_aliases.md#storestate)<`SS`\> & [`StoreGetters`](type_aliases.md#storegetters)<`SS`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<[`StoreState`](type_aliases.md#storestate)<`SS`\>\>\>

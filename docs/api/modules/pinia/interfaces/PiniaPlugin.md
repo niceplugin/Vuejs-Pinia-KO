@@ -1,20 +1,10 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / PiniaPlugin
-
 # Interface: PiniaPlugin
-
-[pinia](../modules/pinia.md).PiniaPlugin
 
 ## Callable
 
 ### PiniaPlugin
 
-▸ **PiniaPlugin**(`context`): `void` \| `Partial`<[`PiniaCustomProperties`](PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#statetree), [`_GettersTree`](../modules/pinia.md#_getterstree)<[`StateTree`](../modules/pinia.md#statetree)\>, [`_ActionsTree`](../modules/pinia.md#_actionstree)\> & [`PiniaCustomStateProperties`](PiniaCustomStateProperties.md)<[`StateTree`](../modules/pinia.md#statetree)\>\>
+▸ **PiniaPlugin**(`context`): `void` \| `Partial`<[`PiniaCustomProperties`](PiniaCustomProperties.md)<`string`, [`StateTree`](../type_aliases.md#statetree), [`_GettersTree`](../type_aliases.md#getterstree)<[`StateTree`](../type_aliases.md#statetree)\>, [`_ActionsTree`](../type_aliases.md#actionstree)\> & [`PiniaCustomStateProperties`](PiniaCustomStateProperties.md)<[`StateTree`](../type_aliases.md#statetree)\>\>
 
 Plugin to extend every store. Returns an object to extend the store or
 nothing.
@@ -23,8 +13,8 @@ nothing.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `context` | [`PiniaPluginContext`](PiniaPluginContext.md)<`string`, [`StateTree`](../modules/pinia.md#statetree), [`_GettersTree`](../modules/pinia.md#_getterstree)<[`StateTree`](../modules/pinia.md#statetree)\>, [`_ActionsTree`](../modules/pinia.md#_actionstree)\> | Context |
+| `context` | [`PiniaPluginContext`](PiniaPluginContext.md)<`string`, [`StateTree`](../type_aliases.md#statetree), [`_GettersTree`](../type_aliases.md#getterstree)<[`StateTree`](../type_aliases.md#statetree)\>, [`_ActionsTree`](../type_aliases.md#actionstree)\> | Context |
 
 #### Returns
 
-`void` \| `Partial`<[`PiniaCustomProperties`](PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#statetree), [`_GettersTree`](../modules/pinia.md#_getterstree)<[`StateTree`](../modules/pinia.md#statetree)\>, [`_ActionsTree`](../modules/pinia.md#_actionstree)\> & [`PiniaCustomStateProperties`](PiniaCustomStateProperties.md)<[`StateTree`](../modules/pinia.md#statetree)\>\>
+`void` \| `Partial`<[`PiniaCustomProperties`](PiniaCustomProperties.md)<`string`, [`StateTree`](../type_aliases.md#statetree), [`_GettersTree`](../type_aliases.md#getterstree)<[`StateTree`](../type_aliases.md#statetree)\>, [`_ActionsTree`](../type_aliases.md#actionstree)\> & [`PiniaCustomStateProperties`](PiniaCustomStateProperties.md)<[`StateTree`](../type_aliases.md#statetree)\>\>

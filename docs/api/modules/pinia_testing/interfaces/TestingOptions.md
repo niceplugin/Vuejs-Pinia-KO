@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../../../index.md) / [@pinia/testing](../index.md) / TestingOptions
-
 # Interface: TestingOptions
-
-[@pinia/testing](../index.md).TestingOptions
 
 ## Properties
 
@@ -69,7 +59,7 @@ ___
 
 ### plugins
 
-• `Optional` **plugins**: [`PiniaPlugin`](pinia.PiniaPlugin.md)[]
+• `Optional` **plugins**: [`PiniaPlugin`](../../pinia/interfaces/PiniaPlugin.md)[]
 
 Plugins to be installed before the testing plugin. Add any plugins used in
 your application that will be used while testing.

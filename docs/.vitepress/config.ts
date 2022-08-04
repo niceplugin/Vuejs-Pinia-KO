@@ -53,22 +53,22 @@ const config = defineConfig({
     nav: [
       {
         text: '가이드',
-        link: '/guide/getting-started.html',
+        link: '/guide/getting-started.md',
       },
       {
         text: 'API (모듈별)',
         items: [
           {
             text: 'pinia',
-            link: '/api/modules/pinia/index.html'
+            link: '/api/modules/pinia/index.md'
           },
           {
             text: '@pinia/nuxt',
-            link: '/api/modules/pinia_nuxt/index.html'
+            link: '/api/modules/pinia_nuxt/index.md'
           },
           {
             text: '@pinia/testing',
-            link: '/api/modules/pinia_testing/index.html'
+            link: '/api/modules/pinia_testing/index.md'
           },
         ],
       },
@@ -85,11 +85,11 @@ const config = defineConfig({
           items: [
             {
               text: '피니아란?',
-              link: '/guide/introduction.html',
+              link: '/guide/introduction.md',
             },
             {
               text: '시작하기',
-              link: '/guide/getting-started.html',
+              link: '/guide/getting-started.md',
             },
           ],
         },
@@ -97,13 +97,13 @@ const config = defineConfig({
           text: '핵심 개념',
           items: [
             { text: 'Store (스토어) 다루기', link: '/guide/core-concepts/' },
-            { text: 'State (상태)', link: '/guide/core-concepts/state.html' },
-            { text: 'Getters (게터)', link: '/guide/core-concepts/getters.html' },
-            { text: 'Actions (액션)', link: '/guide/core-concepts/actions.html' },
-            { text: 'Plugins (플러그인)', link: '/guide/core-concepts/plugins.html' },
+            { text: 'State (상태)', link: '/guide/core-concepts/state.md' },
+            { text: 'Getters (게터)', link: '/guide/core-concepts/getters.md' },
+            { text: 'Actions (액션)', link: '/guide/core-concepts/actions.md' },
+            { text: 'Plugins (플러그인)', link: '/guide/core-concepts/plugins.md' },
             {
               text: '컴포넌트 외부의 스토어',
-              link: '/guide/core-concepts/outside-component-usage.html',
+              link: '/guide/core-concepts/outside-component-usage.md',
             },
           ],
         },
@@ -116,7 +116,7 @@ const config = defineConfig({
             },
             {
               text: 'Nuxt.js',
-              link: '/guide/ssr/nuxt.html',
+              link: '/guide/ssr/nuxt.md',
             },
             {
               text: '컴포저블 다루기',
@@ -133,23 +133,23 @@ const config = defineConfig({
             },
             {
               text: 'Vuex ≤4에서 마이그레이션',
-              link: '/guide/cookbook/migration-vuex.html',
+              link: '/guide/cookbook/migration-vuex.md',
             },
             {
               text: '핫 모듈 교체 (HMR)',
-              link: '/guide/cookbook/hot-module-replacement.html',
+              link: '/guide/cookbook/hot-module-replacement.md',
             },
             {
-              text: '테스팅 (번역중)',
-              link: '/guide/cookbook/testing.html',
+              text: '테스팅',
+              link: '/guide/cookbook/testing.md',
             },
             {
               text: 'setup() 없이 사용하기',
-              link: '/guide/cookbook/options-api.html',
+              link: '/guide/cookbook/options-api.md',
             },
             {
               text: '스토어 구성하기',
-              link: '/guide/cookbook/composing-stores.html',
+              link: '/guide/cookbook/composing-stores.md',
             },
           ],
         },
@@ -265,7 +265,7 @@ const config = defineConfig({
           items: [
             {
               text: '@pinia/nuxt',
-              link: '/api/modules/pinia_nuxt/index.html'
+              link: '/api/modules/pinia_nuxt/index.md'
             },
           ]
         },
@@ -274,7 +274,7 @@ const config = defineConfig({
           items: [
             {
               text: 'ModuleOptions ⚠️(자료없음)',
-              link: '/api/modules/pinia_nuxt/interfaces/ModuleOptions.html'
+              link: '/api/modules/pinia_nuxt/interfaces/ModuleOptions.md'
             },
           ]
         },
@@ -285,7 +285,7 @@ const config = defineConfig({
           items: [
             {
               text: '@pinia/testing',
-              link: '/api/modules/pinia_testing/index.html'
+              link: '/api/modules/pinia_testing/index.md'
             },
           ]
         },
@@ -294,11 +294,11 @@ const config = defineConfig({
           items: [
             {
               text: 'TestingOptions',
-              link: '/api/modules/pinia_testing/interfaces/TestingOptions.html'
+              link: '/api/modules/pinia_testing/interfaces/TestingOptions.md'
             },
             {
               text: 'TestingPinia',
-              link: '/api/modules/pinia_testing/interfaces/TestingPinia.html'
+              link: '/api/modules/pinia_testing/interfaces/TestingPinia.md'
             },
           ]
         },

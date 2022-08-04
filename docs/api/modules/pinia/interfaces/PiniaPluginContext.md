@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / PiniaPluginContext
-
 # Interface: PiniaPluginContext<Id, S, G, A\>
-
-[pinia](../modules/pinia.md).PiniaPluginContext
 
 Context argument passed to Pinia plugins.
 
@@ -17,9 +7,9 @@ Context argument passed to Pinia plugins.
 | Name | Type |
 | :------ | :------ |
 | `Id` | extends `string` = `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#statetree) = [`StateTree`](../modules/pinia.md#statetree) |
-| `G` | [`_GettersTree`](../modules/pinia.md#_getterstree)<`S`\> |
-| `A` | [`_ActionsTree`](../modules/pinia.md#_actionstree) |
+| `S` | extends [`StateTree`](../type_aliases.md#statetree) = [`StateTree`](../type_aliases.md#statetree) |
+| `G` | [`_GettersTree`](../type_aliases.md#getterstree)<`S`\> |
+| `A` | [`_ActionsTree`](../type_aliases.md#actionstree) |
 
 ## Properties
 
@@ -49,6 +39,6 @@ ___
 
 ### store
 
-• **store**: [`Store`](../modules/pinia.md#store)<`Id`, `S`, `G`, `A`\>
+• **store**: [`Store`](../type_aliases.md#store)<`Id`, `S`, `G`, `A`\>
 
 Current store being extended.

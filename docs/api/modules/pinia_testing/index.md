@@ -1,11 +1,3 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../../index.md) / @pinia/testing
-
 # Module: @pinia/testing
 
 ## Interfaces

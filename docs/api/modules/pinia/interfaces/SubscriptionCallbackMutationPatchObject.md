@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationPatchObject
-
 # Interface: SubscriptionCallbackMutationPatchObject<S\>
-
-[pinia](../modules/pinia.md).SubscriptionCallbackMutationPatchObject
 
 Context passed to a subscription callback when `store.$patch()` is called
 with an object.
@@ -21,7 +11,7 @@ with an object.
 
 ## Hierarchy
 
-- [`_SubscriptionCallbackMutationBase`](pinia._SubscriptionCallbackMutationBase.md)
+- [`_SubscriptionCallbackMutationBase`](_SubscriptionCallbackMutationBase.md)
 
   ↳ **`SubscriptionCallbackMutationPatchObject`**
 
@@ -37,7 +27,7 @@ ___
 
 ### payload
 
-• **payload**: [`_DeepPartial`](../modules/pinia.md#_deeppartial)<`S`\>
+• **payload**: [`_DeepPartial`](../type_aliases.md#deeppartial)<`S`\>
 
 Object passed to `store.$patch()`.
 
@@ -51,16 +41,16 @@ ___
 
 #### Inherited from
 
-[_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[storeId](pinia._SubscriptionCallbackMutationBase.md#storeid)
+[_SubscriptionCallbackMutationBase](_SubscriptionCallbackMutationBase.md).[storeId](_SubscriptionCallbackMutationBase.md#storeid)
 
 ___
 
 ### type
 
-• **type**: [`patchObject`](../modules/pinia/enums/MutationType.md#patchobject)
+• **type**: [`patchObject`](../enums/MutationType.md#patchobject)
 
 Type of the mutation.
 
 #### Overrides
 
-[_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[type](pinia._SubscriptionCallbackMutationBase.md#type)
+[_SubscriptionCallbackMutationBase](_SubscriptionCallbackMutationBase.md).[type](_SubscriptionCallbackMutationBase.md#type)

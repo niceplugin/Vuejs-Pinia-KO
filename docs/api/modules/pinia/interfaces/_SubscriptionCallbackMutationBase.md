@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../../../index.md) / [pinia](../index.md) / \_SubscriptionCallbackMutationBase
-
 # Interface: \_SubscriptionCallbackMutationBase
-
-[pinia](../index.md)._SubscriptionCallbackMutationBase
 
 Base type for the context passed to a subscription callback. Internal type.
 

@@ -1,14 +1,4 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../../../index.md) / [pinia](../index.md) / DefineSetupStoreOptions
-
 # Interface: DefineSetupStoreOptions<Id, S, G, A\>
-
-[pinia](../index.md).DefineSetupStoreOptions
 
 Options parameter of `defineStore()` for setup stores. Can be extended to
 augment stores with the plugin API.

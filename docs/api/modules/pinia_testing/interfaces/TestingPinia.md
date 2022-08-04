@@ -1,21 +1,11 @@
----
-sidebar: "auto"
-editLinks: false
-sidebarDepth: 3
----
-
-[API Documentation](../../../index.md) / [@pinia/testing](../index.md) / TestingPinia
-
 # Interface: TestingPinia
-
-[@pinia/testing](../index.md).TestingPinia
 
 Pinia instance specifically designed for testing. Extends a regular
 `Pinia` instance with test specific properties.
 
 ## Hierarchy
 
-- [`Pinia`](pinia.Pinia.md)
+- [`Pinia`](../../pinia/interfaces/Pinia.md)
 
   ↳ **`TestingPinia`**
 
@@ -49,7 +39,7 @@ ___
 
 #### Inherited from
 
-[Pinia](pinia.Pinia.md).[install](pinia.Pinia.md#install)
+[Pinia](../../pinia/interfaces/Pinia.md).[install](../../pinia/interfaces/Pinia.md#install)
 
 ___
 
@@ -61,13 +51,13 @@ root state
 
 #### Inherited from
 
-[Pinia](pinia.Pinia.md).[state](pinia.Pinia.md#state)
+[Pinia](../../pinia/interfaces/Pinia.md).[state](../../pinia/interfaces/Pinia.md#state)
 
 ## Methods
 
 ### use
 
-▸ **use**(`plugin`): [`Pinia`](pinia.Pinia.md)
+▸ **use**(`plugin`): [`Pinia`](../../pinia/interfaces/Pinia.md)
 
 Adds a store plugin to extend every store
 
@@ -75,12 +65,12 @@ Adds a store plugin to extend every store
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `plugin` | [`PiniaPlugin`](pinia.PiniaPlugin.md) | store plugin to add |
+| `plugin` | [`PiniaPlugin`](../../pinia/interfaces/PiniaPlugin.md) | store plugin to add |
 
 #### Returns
 
-[`Pinia`](pinia.Pinia.md)
+[`Pinia`](../../pinia/interfaces/Pinia.md)
 
 #### Inherited from
 
-[Pinia](pinia.Pinia.md).[use](pinia.Pinia.md#use)
+[Pinia](../../pinia/interfaces/Pinia.md).[use](../../pinia/interfaces/Pinia.md#use)
