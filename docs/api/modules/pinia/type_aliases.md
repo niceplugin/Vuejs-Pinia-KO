@@ -20,7 +20,7 @@
 
 Ƭ **Store**<`Id`, `S`, `G`, `A`\>: [`_StoreWithState`](/api/modules/pinia/interfaces/_StoreWithState.md)<`Id`, `S`, `G`, `A`\> & `UnwrapRef`<`S`\> & [`_StoreWithGetters`](#storewithgetters)<`G`\> & [`_ActionsTree`](#actionstree) extends `A` ? {} : `A` & [`PiniaCustomProperties`](/api/modules/pinia/interfaces/PiniaCustomProperties.md)<`Id`, `S`, `G`, `A`\> & [`PiniaCustomStateProperties`](/api/modules/pinia/interfaces/PiniaCustomStateProperties.md)<`S`\>
 
-스토어를 만들기 위한 스토어 타입.
+스토어를 만들기 위한 스토어의 타입.
 
 ### 타입 파라미터
 
@@ -47,16 +47,16 @@
 
 Ƭ **StoreGeneric**: [`Store`](#store)<`string`, [`StateTree`](#statetree), [`_GettersTree`](#getterstree)<[`StateTree`](#statetree)\>, [`_ActionsTree`](#actionstree)\>
 
-Generic and type-unsafe version of Store. Doesn't fail on access with
-strings, making it much easier to write generic functions that do not care
-about the kind of store that is passed.
+스토어의 제네릭 및 type-unsafe 버전입니다.
+문자열 접근에 실패하지 않으므로,
+전달되는 스토어의 종류를 신경 쓰지 않는 제네릭 함수를 훨씬 쉽게 작성할 수 있습니다.
 
 ## StoreGetters
 
 Ƭ **StoreGetters**<`SS`\>: `SS` extends [`Store`](#store)<`string`, [`StateTree`](#statetree), infer G, [`_ActionsTree`](#actionstree)\> ? [`_StoreWithGetters`](#storewithgetters)<`G`\> : [`_ExtractGettersFromSetupStore`](#extractgettersfromsetupstore)<`SS`\>
 
-Extract the getters of a store type. Works with both a Setup Store or an
-Options Store.
+스토어 유형의 getter를 추출합니다.
+셋업 스토어 또는 옵션 스토어 모두에서 작동합니다.
 
 ### 타입 파라미터
 
@@ -113,8 +113,9 @@ TODO: should have only the Id, the Store and Actions to generate the proper obje
 
 Ƭ **StoreState**<`SS`\>: `SS` extends [`Store`](#store)<`string`, infer S, [`_GettersTree`](#getterstree)<[`StateTree`](#statetree)\>, [`_ActionsTree`](#actionstree)\> ? `UnwrapRef`<`S`\> : [`_ExtractStateFromSetupStore`](#extractstatefromsetupstore)<`SS`\>
 
-Extract the state of a store type. Works with both a Setup Store or an
-Options Store. Note this unwraps refs.
+스토어 유형의 상태를 추출합니다.
+셋업 스토어 또는 옵션 스토어 모두에서 작동합니다.
+이것은 refs를 언래핑합니다.
 
 ### 타입 파라미터
 
