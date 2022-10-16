@@ -398,7 +398,7 @@ Store 유형에서 게터를 추출하는 `StoreGetters` 유형도 있습니다.
 이렇게 하면 `pinia` 인스턴스에 접근할 수 있습니다:
 
 ```ts
-// plugins/myPiniaPlugin.js
+// plugins/myPiniaPlugin.ts
 import { PiniaPluginContext } from 'pinia'
 
 function MyPiniaPlugin({ store }: PiniaPluginContext) {
@@ -421,6 +421,8 @@ export default defineNuxtPlugin(({ $pinia }) => {
 `PiniaPluginContext`와 `Plugin`를 유형 주석으로 사용하는 부분과 `import` 부분을 제거해야 합니다.
 
 ### Nuxt.js 2
+
+Nuxt.js 2를 사용하는 경우 유형이 약간 다릅니다.
 
 ```ts
 // plugins/myPiniaPlugin.ts
