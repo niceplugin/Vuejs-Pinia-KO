@@ -2,7 +2,7 @@
 
 다음은 개발을 더 쉽게 만들기 위해 VSCode에 사용한 일부 스니펫입니다.
 
-Manage user snippets with <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd> / <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>P</kbd> and then `Snippets: Configure User Snippets`.
+Manage user snippets with <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd> / <kbd>⇧</kbd> <kbd>⌃</kbd> <kbd>P</kbd> and then `Snippets: Configure User Snippets`.
 
 ```json
 {
