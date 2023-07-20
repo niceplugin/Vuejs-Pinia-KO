@@ -1,59 +1,50 @@
----
-title: 스토어 구성하기
----
+# Composing Stores
 
-# 스토어 구성하기 %{#composing-stores}%
+Composing stores is about having stores that use each other, and this is supported in Pinia. There is one rule to follow:
 
-스토어를 구성한다는 것은 서로를 사용하는 스토어을 갖는 것이며, 이는 피니아에서 지원됩니다.
-단, 따라야 할 한 가지 규칙이 있습니다:
-
-**두 개 이상의 스토어가 서로를 사용**하는 경우, 게터 또는 액션을 통해 무한 루프를 생성할 수 없습니다.
-**둘 다** 셋업 함수에서 서로의 상태를 직접 읽을 수 없습니다:
+If **two or more stores use each other**, they cannot create an infinite loop through _getters_ or _actions_. They cannot **both** directly read each other state in their setup function:
 
 ```js
 const useX = defineStore('x', () => {
   const y = useY()
 
-  // ❌ y도 x.name을 읽으려고 하기 때문에 불가능함.
+  // ❌ This is not possible because y also tries to read x.name
   y.name
 
   function doSomething() {
-    // ✅ 계산된 속성(computed) 또는 액션에서 y 속성 읽기
+    // ✅ Read y properties in computed or actions
     const yName = y.name
     // ...
   }
 
   return {
-    name: ref('나는 X 입니다.'),
+    name: ref('I am X'),
   }
 })
 
 const useY = defineStore('y', () => {
   const x = useX()
 
-  // ❌ x도 y.name을 읽으려고 하기 때문에 불가능함.
+  // ❌ This is not possible because x also tries to read y.name
   x.name
 
   function doSomething() {
-    // ✅ 계산된 속성(computed) 또는 액션에서 x 속성 읽기
+    // ✅ Read x properties in computed or actions
     const xName = x.name
     // ...
   }
 
   return {
-    name: ref('나는 Y 입니다.'),
+    name: ref('I am Y'),
   }
 })
 ```
 
-## 중첩된 스토어 %{#nested-stores}%
+## Nested Stores
 
-한 스토어가 다른 스토어를 사용하는 경우,
-액션 및 게터 내에서 `useStore()` 함수를 직접 가져오고 호출할 수 있습니다.
-그런 다음 Vue 컴포넌트 내에서처럼 스토어와 상호 작용할 수 있습니다.
-[공유 게터](#shared-getters)와 [공유 액션](#shared-actions)을 참고하십시오.
+Note that if one store uses another store, you can directly import and call the `useStore()` function within _actions_ and _getters_. Then you can interact with the store just like you would from within a Vue component. See [Shared Getters](#shared-getters) and [Shared Actions](#shared-actions).
 
-스토어 셋업은 단순히 스토어 함수 상단에 있는 스토어를 사용하면 됩니다:
+When it comes to _setup stores_, you can simply use one of the stores **at the top** of the store function:
 
 ```ts
 import { useUserStore } from './user'
@@ -63,7 +54,7 @@ export const useCartStore = defineStore('cart', () => {
   const list = ref([])
 
   const summary = computed(() => {
-    return `안녕하세요 ${user.name} 님! 장바구니에 ${list.value.length} 만큼의 리스트가 있고, 가격은 ${price.value} 입니다.`
+    return `Hi ${user.name}, you have ${list.value.length} items in your cart. It costs ${price.value}.`
   })
 
   function purchase() {
@@ -74,9 +65,9 @@ export const useCartStore = defineStore('cart', () => {
 })
 ```
 
-## 공유 게터 %{#shared-getters}%
+## Shared Getters
 
-게터 내부에서 간단히 `useOtherStore()`를 호출할 수 있습니다:
+You can simply call `useOtherStore()` inside a _getter_:
 
 ```js
 import { defineStore } from 'pinia'
@@ -87,15 +78,15 @@ export const useCartStore = defineStore('cart', {
     summary(state) {
       const user = useUserStore()
 
-      return `안녕하세요 ${user.name} 님! 장바구니에 ${state.list.length} 만큼의 리스트가 있고, 가격은 ${state.price} 입니다.`
+      return `Hi ${user.name}, you have ${state.list.length} items in your cart. It costs ${state.price}.`
     },
   },
 })
 ```
 
-## 공유 액션 %{#shared-actions}%
+## Shared Actions
 
-액션에도 동일하게 적용됩니다:
+The same applies to _actions_:
 
 ```js
 import { defineStore } from 'pinia'
@@ -108,7 +99,33 @@ export const useCartStore = defineStore('cart', {
 
       try {
         await apiOrderCart(user.token, this.items)
-        // 다른 액션
+        // another action
+        this.emptyCart()
+      } catch (err) {
+        displayError(err)
+      }
+    },
+  },
+})
+```
+
+Since actions can be asynchronous, make sure **all of your `useStore()` calls appear before any `await`**. Otherwise, this could lead to using the wrong pinia instance _in SSR apps_:
+
+```js{7-8,11-13}
+import { defineStore } from 'pinia'
+import { useUserStore } from './user'
+
+export const useCartStore = defineStore('cart', {
+  actions: {
+    async orderCart() {
+      // ✅ call at the top of the action before any `await`
+      const user = useUserStore()
+
+      try {
+        await apiOrderCart(user.token, this.items)
+        // ❌ called after an `await` statement
+        const otherStore = useOtherStore()
+        // another action
         this.emptyCart()
       } catch (err) {
         displayError(err)
