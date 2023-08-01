@@ -79,12 +79,11 @@ export const useCounterStore = defineStore('counter', () => {
 - `computed()`는 `getters`가 됨.
 - `function()`은 `actions`가 됨.
 
+Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 **모든 상태 속성**을 반환해야 합니다. 다시 말해, 저장소에서 비공개 상태 속성을 가질 수 없습니다.
 
-셋업 스토어는 스토어 내에서 감시자를 만들고 [컴포저블](https://vuejs.kr/guide/reusability/composables.html#composables)을 자유롭게 사용할 수 있으므로,
-[옵션 스토어](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다.
-그러나 컴포저블을 사용하면 [SSR](/cookbook/composables.md)이 더 복잡해집니다.
+셋업 스토어는 [옵션 스토어](#option-stores)보다 훨씬 더 유연성을 제공합니다. 저장소 내에서 watcher를 생성하고 자유롭게 모든 [composable](https://vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 그러나 [SSR](../cookbook/composables.md)을 사용할 때 composables 사용이 더 복잡해질 수 있습니다.
 
-셋업 스토어는 또한 라우터 또는 경로와 같은 전역적으로 제공되는 속성에 의존할 수 있습니다. [앱 수준에서 제공되는](https://vuejs.org/api/application.html#app-provide) 모든 속성은 컴포넌트에서와 마찬가지로 `inject()`를 사용하여 스토어에서 액세스할 수 있습니다:
+셋업 스토어는 또한 Router나 Route와 같은 전역적으로 제공된 속성에 의존할 수 있습니다. [앱 수준에서 제공된](https://vuejs.org/api/application.html#app-provide) 어떠한 속성이라도 컴포넌트와 마찬가지로 `inject()`를 사용하여 스토어에서 접근할 수 있습니다:
 
 ```ts
 import { inject } from 'vue'
