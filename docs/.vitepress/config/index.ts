@@ -7,10 +7,15 @@ export default defineConfig({
 
   locales: {
     root: { label: '한국어', lang: 'ko-KR', link: '/', ...koConfig },
-    es: {
+    en: {
       label: 'English',
       lang: 'en-US',
       link: 'https://pinia.vuejs.org/',
+    },
+    pt: {
+      label: 'Português',
+      lang: 'pt-PT',
+      link: 'https://pinia-docs-pt.netlify.app/',
     },
   },
 })
