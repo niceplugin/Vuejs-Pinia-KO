@@ -42,6 +42,10 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             text: '변경사항',
             link: 'https://github.com/vuejs/pinia/blob/v2/packages/pinia/CHANGELOG.md',
           },
+          {
+            text: 'Vue.js 자격증',
+            link: 'https://certification.vuejs.org/?friend=VUEROUTER',
+          },
         ],
       },
     ],

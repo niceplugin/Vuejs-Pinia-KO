@@ -6,18 +6,7 @@
 - `actions`: 대부분의 경우, 스토어의 가장 복잡한 로직이 포함됩니다. 기본적으로 이를 모킹할 수 있으면 좋을 것입니다.
 - 플러그인: 플러그인을 사용하는 경우, 테스트를 위해 플러그인을 설치해야 합니다.
 
-테스트하는 내용과 방식에 따라 이 세 가지를 다르게 고려해야 합니다:
-
-- [스토어 테스트](#testing-stores)
-  - [스토어의 단위 테스트](#unit-testing-a-store)
-  - [컴포넌트의 단위 테스트](#unit-testing-components)
-    - [초기 상태](#initial-state)
-    - [액션 동작 수정](#customizing-behavior-of-actions)
-    - [createSpy 함수 지정](#specifying-the-createspy-function)
-    - [게터 모킹](#mocking-getters)
-    - [Pinia 플러그인](#pinia-plugins)
-  - [E2E 테스트](#e2e-tests)
-  - [컴포넌트 단위 테스트 (Vue 2)](#unit-test-components-vue-2)
+테스트하려는 내용이나 방법에 따라서 이 세 가지를 다르게 처리해야 합니다.
 
 ## 스토어의 단위 테스트 %{#unit-testing-a-store}%
 
@@ -229,7 +218,7 @@ const wrapper = mount(Counter, {
 
 ## E2E 테스트 %{#e2e-tests}%
 
-Pinia의 경우, E2E 테스트를 위해 아무런 변경도 필요하지 않습니다. 그게 바로 E2E 테스트의 목적입니다! 아마도 HTTP 요청을 테스트할 수 있을 것입니다. 하지만 그건 이 안내서의 범위를 벗어납니다 😄.
+Pinia의 경우 E2E 테스트를 위해 어떤 내용을 변경할 필요가 없습니다. 이 테스트의 전체 목적이 바로 그것입니다! 아마도 HTTP 요청을 테스트할 수도 있지만, 그건 이 안내서의 범위를 크게 벗어나는 내용입니다 😄.
 
 ## 컴포넌트 단위 테스트 (Vue 2) %{#unit-test-components-vue-2}%
 
