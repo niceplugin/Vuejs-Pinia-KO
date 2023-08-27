@@ -18,6 +18,9 @@ hero:
     - theme: alt
       text: 대모
       link: https://stackblitz.com/github/piniajs/example-vue-3-vite
+    - theme: cta mastering-pinia
+      text: ' '
+      link: https://masteringpinia.com
     - theme: cta vueschool
       text: 동영상 소개 보기
       link: https://vueschool.io/lessons/introduction-to-pinia?friend=vuerouter&utm_source=pinia&utm_medium=link&utm_campaign=homepage
