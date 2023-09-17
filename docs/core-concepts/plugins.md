@@ -425,7 +425,7 @@ Store 유형에서 게터를 추출하는 `StoreGetters` 유형도 있습니다.
 ## Nuxt.js
 
 [Nuxt와 함께 피니아를 사용](/ssr/nuxt.md)하는 경우,
-먼저 [Nuxt 플러그인](https://nuxtjs.org/docs/2.x/directory-structure/plugins)을 만들어야 합니다.
+먼저 [Nuxt 플러그인](https://nuxt.com/docs/guide/directory-structure/plugins)을 만들어야 합니다.
 이렇게 하면 `pinia` 인스턴스에 접근할 수 있습니다:
 
 ```ts
