@@ -139,10 +139,6 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/vscode-snippets.html',
             },
             {
-              text: 'Vuex에서의 마이그레이션',
-              link: '/cookbook/migration-vuex.html',
-            },
-            {
               text: 'v0/v1에서 v2로의 마이그레이션',
               link: '/cookbook/migration-v1-v2.html',
             },

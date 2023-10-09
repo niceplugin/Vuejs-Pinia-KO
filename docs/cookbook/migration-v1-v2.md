@@ -144,7 +144,7 @@ Pinia v2는 더 이상 Vue Devtools v5를 사용하지 않으며, Vue Devtools v
 
 ## Nuxt %{#nuxt}%
 
-Nuxt를 사용하는 경우, pinia는 이제 고유한 Nuxt 패키지를 가지고 있습니다. 다음과 같이 설치하세요:
+Nuxt를 사용하고 있다면, pinia는 이제 자체 전용 Nuxt 패키지를 가지게 되었습니다 🎉. 다음과 같이 설치할 수 있습니다:
 
 ```bash
 npm i @pinia/nuxt
