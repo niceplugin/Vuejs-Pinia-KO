@@ -72,7 +72,8 @@ const { data } = await useAsyncData('user', () => store.fetchUser())
 기본적으로 `@pinia/nuxt`는 몇몇 자동 import를 제공합니다:
 
 - `usePinia()`, 이것은 `getActivePinia()`와 유사하지만 Nuxt와 더 잘 동작합니다. 생활을 더 편리하게 하기 위해 자동 import를 추가할 수 있습니다:
-- `defineStore()`
+- 스토어를 정의하기 위한 `defineStore()`
+- 스토어에서 개별 refs를 추출할 필요가 있을 때 `storeToRefs()`
 - [핫 모듈 교체](../cookbook/hot-module-replacement.md)를 위한 `acceptHMRUpdate()`
 
 또한 자동으로 `stores` 폴더 내에 정의된 **모든 스토어**를 import합니다. 그러나 중첩된 스토어는 찾지 않습니다. `storeDirs` 옵션을 설정하여 이 행동을 사용자 정의 할 수 있습니다:
