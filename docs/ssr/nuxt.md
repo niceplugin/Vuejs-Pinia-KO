@@ -84,7 +84,7 @@ export default defineNuxtConfig({
   // ... 다른 옵션들
   modules: ['@pinia/nuxt'],
   pinia: {
-    storeDirs: ['./stores/**', './custom-folder/stores/**'],
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
   },
 })
 ```
