@@ -76,7 +76,7 @@ const { data } = await useAsyncData('user', () => store.fetchUser())
 - 스토어에서 개별 refs를 추출할 필요가 있을 때 `storeToRefs()`
 - [핫 모듈 교체](../cookbook/hot-module-replacement.md)를 위한 `acceptHMRUpdate()`
 
-또한 자동으로 `stores` 폴더 내에 정의된 **모든 스토어**를 import합니다. 그러나 중첩된 스토어는 찾지 않습니다. `storeDirs` 옵션을 설정하여 이 행동을 사용자 정의 할 수 있습니다:
+또한 자동으로 `stores` 폴더 내에 정의된 **모든 스토어**를 import합니다. 그러나 중첩된 스토어는 찾지 않습니다. `storesDirs` 옵션을 설정하여 이 행동을 사용자 정의 할 수 있습니다:
 
 ```ts
 // nuxt.config.ts
