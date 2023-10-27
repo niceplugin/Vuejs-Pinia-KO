@@ -9,7 +9,7 @@ Pinia는 핫 모듈 리플레이스먼트(Hot Module Replacement)를 지원하�
 // auth.js
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
-const useAuth = defineStore('auth', {
+export const useAuth = defineStore('auth', {
   // 옵션...
 })
 

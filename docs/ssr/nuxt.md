@@ -69,24 +69,27 @@ const { data } = await useAsyncData('user', () => store.fetchUser())
 
 ## 오토 임포트 (import) %{#auto-imports}%
 
-기본적으로 `@pinia/nuxt`는 싱글 오토 임포트 `usePinia()`를 노출합니다.
-이것은 `getActivePinia()`와 유사하지만 Nuxt에서 더 잘 작동합니다.
-오토 임포트를 추가하여 개발을 더 쉽게 할 수 있습니다:
+기본적으로 `@pinia/nuxt`는 몇몇 자동 import를 제공합니다:
 
-```js
-// nuxt.config.js
+- `usePinia()`, 이것은 `getActivePinia()`와 유사하지만 Nuxt와 더 잘 동작합니다. 생활을 더 편리하게 하기 위해 자동 import를 추가할 수 있습니다:
+- 스토어를 정의하기 위한 `defineStore()`
+- 스토어에서 개별 refs를 추출할 필요가 있을 때 `storeToRefs()`
+- [핫 모듈 교체](../cookbook/hot-module-replacement.md)를 위한 `acceptHMRUpdate()`
+
+또한 자동으로 `stores` 폴더 내에 정의된 **모든 스토어**를 import합니다. 그러나 중첩된 스토어는 찾지 않습니다. `storesDirs` 옵션을 설정하여 이 행동을 사용자 정의 할 수 있습니다:
+
+```ts
+// nuxt.config.ts
 export default defineNuxtConfig({
   // ... 다른 옵션들
   modules: ['@pinia/nuxt'],
   pinia: {
-    autoImports: [
-      // `defineStore`를 자동으로 임포트함.
-      'defineStore', // import { defineStore } from 'pinia'
-      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
-    ],
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
   },
 })
 ```
+
+폴더는 프로젝트의 루트에 상대적입니다. `srcDir` 옵션을 변경한다면, 경로를 그에 맞게 조정해야 합니다.
 
 ## Nuxt 2 without bridge %{#nuxt-2-without-bridge}%
 
