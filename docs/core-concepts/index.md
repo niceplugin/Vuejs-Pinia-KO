@@ -144,6 +144,7 @@ const store = useCounterStore()
 
 ```vue
 <script setup>
+import { useCounterStore } from '@/stores/counter'
 const store = useCounterStore()
 // ❌ 반응성을 깨뜨리기 때문에 작동하지 않습니다.
 // `props`에서 디스트럭처링하는 것과 동일합니다.
@@ -170,6 +171,7 @@ const doubleValue = computed(() => store.doubleCount)
 
 ```vue
 <script setup>
+import { useCounterStore } from '@/stores/counter'
 import { storeToRefs } from 'pinia'
 
 const store = useCounterStore()
