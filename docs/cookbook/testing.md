@@ -157,15 +157,28 @@ expect(store.someAction).toHaveBeenCalledTimes(1)
 
 ### createSpy 함수 지정 %{#specifying-the-createspy-function}%
 
-Jest를 사용하거나 `globals: true`와 함께 `vitest`를 사용하는 경우, `createTestingPinia`는 테스트 프레임워크 (`jest.fn` 또는 `vitest.fn`)를 기반으로 액션을 자동으로 모킹하는 스파이 함수를 사용합니다. 다른 프레임워크를 사용하는 경우 [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy) 옵션을 제공해야 합니다:
+Jest나 `globals: true`로 설정된 Vitest를 사용할 때, `createTestingPinia`는 기존 테스트 프레임워크(`jest.fn` 또는 `vitest.fn`)에 기반한 스파이 함수를 사용하여 자동으로 액션을 스터브합니다. `globals: true`를 사용하지 않거나 다른 프레임워크를 사용하는 경우, [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy) 옵션을 제공해야 합니다:
 
-```js
+::: code-group
+
+```ts [vitest]
+// `globals: true`를 사용하는 경우 필요하지 않음
+import { vi } from 'vitest'
+
+createTestingPinia({
+  createSpy: vi.fn,
+})
+```
+
+```ts [sinon]
 import sinon from 'sinon'
 
 createTestingPinia({
-  createSpy: sinon.spy, // 액션을 감싸기 위해 sinon의 spy를 사용합니다
+  createSpy: sinon.spy,
 })
 ```
+
+:::
 
 [테스팅 패키지의 테스트](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts)에서 더 많은 예제를 찾을 수 있습니다.
 
