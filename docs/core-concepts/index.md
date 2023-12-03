@@ -92,7 +92,7 @@ export const useSearchFilters = defineStore('search-filters', () => {
 ```
 
 :::warning
-`useRoute()` 또는 `appProvided`(위의 예에서)와 같은 속성은 스토어 자체에 속하지 않으며, `useRoute()` 및 `inject('appProvided')`를 사용하여 컴포넌트 내에서 직접 액세스할 수 있으므로 반환하지 마십시오.
+`route` 또는 `appProvided`(위의 예에서)와 같은 속성은 스토어 자체에 속하지 않으며, `useRoute()` 및 `inject('appProvided')`를 사용하여 컴포넌트 내에서 직접 액세스할 수 있으므로 반환하지 마십시오.
 :::
 
 ## 어떤 문법을 선택해야 합니까? %{#what-syntax-should-i-pick}%
