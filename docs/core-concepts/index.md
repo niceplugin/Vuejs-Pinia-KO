@@ -1,7 +1,3 @@
----
-title: 스토어 다루기
----
-
 # 스토어 정의하기 %{#defining-a-store}%
 
 <VueSchoolLink
@@ -9,8 +5,7 @@ href="https://vueschool.io/lessons/define-your-first-pinia-store"
 title="Learn how to define and use stores in Pinia"
 />
 
-핵심 개념에 대해 알아보기 전에 스토어가 `defineStore()`를 사용해 정의되고,
-**고유한** 이름이 첫 번째 인자로 전달되어야 한다는 것을 알아야 합니다:
+핵심 개념에 대해 알아보기 전에 스토어가 `defineStore()`를 사용해 정의되고, **고유한** 이름이 첫 번째 인자로 전달되어야 한다는 것을 알아야 합니다:
 
 ```js
 import { defineStore } from 'pinia'
@@ -24,10 +19,7 @@ export const useAlertsStore = defineStore('alerts', {
 })
 ```
 
-`ID`라고도 하는 이 `name`은 필요하며,
-피니아에서 스토어와 devtools를 연결하는 데 사용합니다.
-반환된 함수의 이름을 `use...`로 지정하는 것은,
-사용법을 관용적으로 만들기 위한 컴포저블 전반에 걸친 규칙입니다.
+`ID`라고도 하는 이 `name`은 필요하며, 피니아에서 스토어와 devtools를 연결하는 데 사용합니다. 반환된 함수의 이름을 `use...`로 지정하는 것은, 사용법을 관용적으로 만들기 위한 컴포저블 전반에 걸친 규칙입니다.
 
 `defineStore()`의 두 번째 인자는 두 개의 고유한 값을 허용합니다: 셋업 함수 또는 옵션 객체
 
@@ -55,10 +47,7 @@ export const useCounterStore = defineStore('counter', {
 
 ## 셋업 스토어 %{#setup-stores}%
 
-스토어를 정의하는 또 다른 문법이 있습니다.
-Vue 컴포지션 API의 [셋업 함수](https://vuejs.kr/api/composition-api-setup.html)와 유사하게,
-반응형 속성 및 메서드를 정의하고,
-노출하려는 속성 및 메서드가 있는 객체를 반환하는 함수를 전달할 수 있습니다.
+스토어를 정의하는 또 다른 문법이 있습니다. Vue 컴포지션 API의 [셋업 함수](https://vuejs.kr/api/composition-api-setup.html)와 유사하게, 반응형 속성 및 메서드를 정의하고, 노출하려는 속성 및 메서드가 있는 객체를 반환하는 함수를 전달할 수 있습니다.
 
 ```js
 export const useCounterStore = defineStore('counter', () => {
@@ -79,7 +68,7 @@ export const useCounterStore = defineStore('counter', () => {
 - `computed()`는 `getters`가 됨.
 - `function()`은 `actions`가 됨.
 
-Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 **모든 상태 속성**을 반환해야 합니다. 다시 말해, 저장소에서 비공개 상태 속성을 가질 수 없습니다.
+Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 **모든 상태 속성**을 반환해야 합니다. 다시 말해, 저장소에서 비공개 상태 속성을 가질 수 없습니다. 모든 상태 속성을 반환하지 않으면 SSR, devtools 및 기타 플러그인이 손상될 수 있습니다.
 
 셋업 스토어는 [옵션 스토어](#option-stores)보다 훨씬 더 유연성을 제공합니다. 저장소 내에서 watcher를 생성하고 자유롭게 모든 [composable](https://vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 그러나 [SSR](../cookbook/composables.md)을 사용할 때 composables 사용이 더 복잡해질 수 있습니다.
 
