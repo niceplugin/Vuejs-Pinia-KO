@@ -96,7 +96,7 @@ pinia.use(({ store }) => {
 })
 ```
 
-모든 스토어는 [`reactive`](https://vuejs.kr/api/reactivity-core.html#reactive)로 래핑되며,
+모든 스토어는 [`reactive`](https://ko.vuejs.org/api/reactivity-core#reactive)로 래핑되며,
 모든 Ref(`ref()`, `computed()`, . ..)는 자동으로 언래핑됩니다:
 
 ```js

@@ -9,7 +9,7 @@ href="https://vueschool.io/lessons/synchronous-and-asynchronous-actions-in-pinia
 title="Learn all about actions in Pinia"
 />
 
-액션은 컴포넌트의 [메서드](https://vuejs.kr/guide/essentials/reactivity-fundamentals.html#declaring-methods)와 동일합니다.
+액션은 컴포넌트의 [메서드](https://ko.vuejs.org/api/options-state.html#methods)와 동일합니다.
 이들은 `defineStore()`에서 `actions` 속성으로 정의할 수 있으며,
 **처리해야 할 작업의 로직을 정의하는 데 완벽합니다**:
 
@@ -183,7 +183,7 @@ export default {
 `store.$onAction()`에 콜백을 전달해 액션과 그 결과를 감시할 수 있으며, 액션보다 먼저 실행됩니다.
 `after`는 프라미스(promise)를 처리하고, 액션이 해결(resolve)된 후, 함수를 실행할 수 있도록 합니다.
 비슷한 방식으로 `onError`를 사용하면, 작업이 실패(throw)되거나 거부(reject)되는 경우, 함수를 실행할 수 있습니다.
-이는 [Vue 문서에서 언급하는 팁](https://vuejs.kr/guide/best-practices/production-deployment.html#tracking-runtime-errors)과 유사하게 런타임에 오류를 추적하는 데 유용합니다.
+이는 [Vue 문서에서 언급하는 팁](https://vuejs.org/guide/best-practices/production-deployment#tracking-runtime-errors)과 유사하게 런타임에 오류를 추적하는 데 유용합니다.
 
 다음은 액션을 실행하기 전과 해결/거부 이후를 콘솔에 기록하는 예제입니다.
 
