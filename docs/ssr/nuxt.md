@@ -1,9 +1,6 @@
 # Nuxt.js
 
-[Nuxt.js](https://nuxtjs.com/)와 피니아를 함께 사용하는 것은 Nuxt가 SSR과 관련하여 많은 것을 처리하기 때문에 더 쉽습니다.
-예를 들어 **직렬화나 XSS 공격에 신경 쓸 필요가 없습니다**.
-피니아는 Nuxt Bridge 및 Nuxt 3를 지원합니다.
-Nuxt 2 지원은 [아래를 참조](#nuxt-2-without-bridge)합시다.
+[Nuxt.js](https://nuxtjs.com/)와 피니아를 함께 사용하는 것은 Nuxt가 SSR과 관련하여 많은 것을 처리하기 때문에 더 쉽습니다. 예를 들어 **직렬화나 XSS 공격에 신경 쓸 필요가 없습니다**. 피니아는 Nuxt Bridge 및 Nuxt 3를 지원합니다. Nuxt 2 지원은 [아래를 참조](#nuxt-2-without-bridge)합시다.
 
 ## 설치 %{#installation}%
 
@@ -14,9 +11,7 @@ npm install pinia @pinia/nuxt
 ```
 
 :::tip
-npm을 사용하는 경우,
-종속성 트리 오류를 해결할 수 없는 ERESOLVE 가 발생할 수 있습니다.
-이 경우 `package.json`에 다음을 추가합니다:
+npm을 사용하는 경우, 종속성 트리 오류를 해결할 수 없는 ERESOLVE 가 발생할 수 있습니다. 이 경우 `package.json`에 다음을 추가합니다:
 
 ```js
 "overrides": { 
@@ -26,8 +21,7 @@ npm을 사용하는 경우,
 
 :::
 
-모든 것을 처리할 수 있는 모듈을 제공하므로,
-`nuxt.config.js` 파일의 `modules`에 추가하기만 하면 됩니다:
+모든 것을 처리할 수 있는 모듈을 제공하므로, `nuxt.config.js` 파일의 `modules`에 추가하기만 하면 됩니다:
 
 ```js
 // nuxt.config.js
@@ -42,11 +36,30 @@ export default defineNuxtConfig({
 
 이게 전부입니다, 평소처럼 스토어를 사용하세요!
 
-## `setup()` 외부에서 스토어 사용 %{#using-the-store-outside-of-setup}%
+## 페이지에서 작업 대기 %{#awaiting-for-actions-in-pages}%
 
-`setup()` 외부에서 스토어를 사용하려면,
-`pinia` 객체를 `useStore()`에 전달하는 것을 잊지 마십시오.
-`asyncData()` 및 `fetch()`에서 접근할 수 있도록 [컨텍스트](https://nuxtjs.org/docs/2.x/internals-glossary/context)에 추가되어 있습니다.
+`onServerPrefetch()`와 마찬가지로, `asyncData()` 내에서 스토어 액션을 호출할 수 있습니다. `useASyncData()`의 작동 방식을 고려할 때, **반드시 값을 반환해야 합니다**. 이렇게 하면 Nuxt가 클라이언트 측에서 액션을 실행하지 않고 서버에서의 값을 재사용할 수 있습니다.
+
+```vue{3-4}
+<script setup>
+const store = useStore()
+// 데이터를 추출할 수도 있지만, 이미 스토어에 존재합니다
+await useAsyncData('user', () => store.fetchUser())
+</script>
+```
+
+액션이 값을 반환하지 않는 경우, nullish하지 않은 값을 추가할 수 있습니다:
+
+```vue{3}
+<script setup>
+const store = useStore()
+await useAsyncData('user', () => store.fetchUser().then(() => true))
+</script>
+```
+
+::: tip
+
+`setup()` 밖에서 스토어를 사용하고 싶다면, `useStore()`에 `pinia` 객체를 전달해야 합니다. 우리는 [컨텍스트](https://nuxtjs.org/docs/2.x/internals-glossary/context)에 그것을 추가했으므로 `asyncData()` 및 `fetch()`에서 그것에 접근할 수 있습니다:
 
 ```js
 import { useStore } from '~/stores/myStore'
@@ -58,14 +71,7 @@ export default {
 }
 ```
 
-`onServerPrefetch()`와 마찬가지로 `asyncData()` 내에서 저장 작업을 호출하려는 경우 특별한 작업을 수행할 필요가 없습니다:
-
-```vue
-<script setup>
-const store = useStore()
-const { data } = await useAsyncData('user', () => store.fetchUser())
-</script>
-```
+:::
 
 ## 오토 임포트 (import) %{#auto-imports}%
 
@@ -93,8 +99,7 @@ export default defineNuxtConfig({
 
 ## Nuxt 2 without bridge %{#nuxt-2-without-bridge}%
 
-피니아는 `@pinia/nuxt` v0.2.1부터 Nuxt 2를 지원합니다.
-`pinia`와 더불어 [`@nuxtjs/composition-api`](https://composition-api.nuxtjs.org/)도 설치해야 합니다:
+피니아는 `@pinia/nuxt` v0.2.1부터 Nuxt 2를 지원합니다. `pinia`와 더불어 [`@nuxtjs/composition-api`](https://composition-api.nuxtjs.org/)도 설치해야 합니다:
 
 ```bash
 yarn add pinia @pinia/nuxt@0.2.1 @nuxtjs/composition-api
@@ -119,8 +124,7 @@ export default {
 
 ## TypeScript
 
-TypeScript와 함께 Nuxt2(`@pinia/nuxt` < 0.3.0)를 사용하거나 `jsconfig.json`이 있는 경우,
-`context.pinia`에 대한 유형을 추가해야 합니다:
+TypeScript와 함께 Nuxt2(`@pinia/nuxt` < 0.3.0)를 사용하거나 `jsconfig.json`이 있는 경우, `context.pinia`에 대한 유형을 추가해야 합니다:
 
 ```json
 {
@@ -135,8 +139,7 @@ TypeScript와 함께 Nuxt2(`@pinia/nuxt` < 0.3.0)를 사용하거나 `jsconfig.j
 
 ### Vuex와 함께 피니아 사용 %{#using-pinia-alongside-vuex}%
 
-**피니아와 Vuex를 함께 사용하지 않는 것이 좋지만** 둘 다 사용해야 하는 경우,
-피니아가 Vuex를 비활성화하지 않도록 알려야 합니다:
+**피니아와 Vuex를 함께 사용하지 않는 것이 좋지만** 둘 다 사용해야 하는 경우, 피니아가 Vuex를 비활성화하지 않도록 알려야 합니다:
 
 ```js
 // nuxt.config.js
