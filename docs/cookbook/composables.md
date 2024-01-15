@@ -34,7 +34,7 @@ import { defineStore, skipHydrate } from 'pinia'
 import { useMediaControls } from '@vueuse/core'
 
 export const useVideoPlayer = defineStore('video', () => {
-  // 이 요소를 직접 노출하지 않습니다
+  // 이 요소를 직접 노출(반환)하지 않습니다
   const videoElement = ref<HTMLVideoElement>()
   const src = ref('/data/video.mp4')
   const { playing, volume, currentTime, togglePictureInPicture } =
@@ -56,6 +56,10 @@ export const useVideoPlayer = defineStore('video', () => {
   }
 })
 ```
+
+:::warning
+`ref<HTMLVideoElement>()`은 일반 상태와 달리 DOM 요소에 대한 직렬화할 수 없는 참조를 포함합니다. 이것이 우리가 직접 반환하지 않는 이유입니다. 클라이언트 전용 상태이므로 서버에서 설정되지 않으며 클라이언트에서 **항상** `undefined`로 시작할 것임을 알고 있습니다.
+:::
 
 ## SSR
 
