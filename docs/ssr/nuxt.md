@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 
 ## 페이지에서 작업 대기 %{#awaiting-for-actions-in-pages}%
 
-`onServerPrefetch()`와 마찬가지로, `asyncData()` 내에서 스토어 액션을 호출할 수 있습니다. `useASyncData()`의 작동 방식을 고려할 때, **반드시 값을 반환해야 합니다**. 이렇게 하면 Nuxt가 클라이언트 측에서 액션을 실행하지 않고 서버에서의 값을 재사용할 수 있습니다.
+`onServerPrefetch()`와 마찬가지로, `asyncData()` 내에서 스토어 액션을 호출할 수 있습니다. `useAsyncData()`의 작동 방식을 고려할 때, **반드시 값을 반환해야 합니다**. 이렇게 하면 Nuxt가 클라이언트 측에서 액션을 실행하지 않고 서버에서의 값을 재사용할 수 있습니다.
 
 ```vue{3-4}
 <script setup>
