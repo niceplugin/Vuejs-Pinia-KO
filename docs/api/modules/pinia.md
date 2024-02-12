@@ -22,7 +22,7 @@ editLink: false
 - [PiniaCustomStateProperties](../interfaces/pinia.PiniaCustomStateProperties.md)
 - [PiniaPlugin](../interfaces/pinia.PiniaPlugin.md)
 - [PiniaPluginContext](../interfaces/pinia.PiniaPluginContext.md)
-- [SetupStoreDefinition](../interfaces/pinia.SetupStoreDefinition.md)
+- [SetupStoreDefinition] 링크 죽음 (../interfaces/pinia.SetupStoreDefinition.md)
 - [StoreDefinition](../interfaces/pinia.StoreDefinition.md)
 - [StoreProperties](../interfaces/pinia.StoreProperties.md)
 - [SubscriptionCallbackMutationDirect](../interfaces/pinia.SubscriptionCallbackMutationDirect.md)
