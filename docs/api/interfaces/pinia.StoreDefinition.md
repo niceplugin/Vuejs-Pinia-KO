@@ -23,7 +23,7 @@ Return type of `defineStore()`. Function that allows instantiating a store.
 
 - **`StoreDefinition`**
 
-  ↳ [`SetupStoreDefinition`](pinia.SetupStoreDefinition.md)
+  ↳ [`SetupStoreDefinition`] 링크 죽음 (pinia.SetupStoreDefinition.md)
 
 ## Callable
 
