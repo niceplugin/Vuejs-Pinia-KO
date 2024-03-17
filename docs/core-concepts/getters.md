@@ -76,7 +76,7 @@ export const useCounterStore = defineStore('counter', {
 ```
 
 ```js [counterStore.js]
-// 자바스크립트에서 [JSDoc](https://jsdoc.app/tags-returns.html)을 사용할 수 있습니다.
+// 자바스크립트에서 JSDoc (https://jsdoc.app/tags-returns.html)을 사용할 수 있습니다.
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     count: 0,
