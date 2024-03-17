@@ -68,9 +68,9 @@ export const useCounterStore = defineStore('counter', () => {
 - `computed()`는 `getters`가 됨.
 - `function()`은 `actions`가 됨.
 
-Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 **모든 상태 속성**을 반환해야 합니다. 다시 말해, 저장소에서 비공개 상태 속성을 가질 수 없습니다. 모든 상태 속성을 반환하지 않으면 SSR, devtools 및 기타 플러그인이 손상될 수 있습니다.
+Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 **모든 상태 속성**을 반환해야 합니다. 다시 말해, 스토어에서 _비공개_ 상태 속성을 가질 수 없습니다. 모든 상태 속성을 반환하지 않으면 [SSR](../cookbook/composables.md), 개발 도구, 그리고 다른 플러그인에서 문제가 발생할 수 있습니다.
 
-셋업 스토어는 [옵션 스토어](#option-stores)보다 훨씬 더 유연성을 제공합니다. 저장소 내에서 watcher를 생성하고 자유롭게 모든 [composable](https://vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 그러나 [SSR](../cookbook/composables.md)을 사용할 때 composables 사용이 더 복잡해질 수 있습니다.
+셋업 스토어는 스토어 내에서 감시자를 생성하고 [컴포저블](https://vuejs.org/guide/reusability/composables.html#composables)을 자유롭게 사용할 수 있어 [옵션 스토어](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다. 하지만, SSR을 사용할 때 컴포저블 사용이 더 복잡해질 수 있음을 염두에 두어야 합니다.
 
 셋업 스토어는 또한 Router나 Route와 같은 전역적으로 제공된 속성에 의존할 수 있습니다. [앱 수준에서 제공된](https://vuejs.org/api/application.html#app-provide) 어떠한 속성이라도 컴포넌트와 마찬가지로 `inject()`를 사용하여 스토어에서 접근할 수 있습니다:
 
@@ -97,13 +97,11 @@ export const useSearchFilters = defineStore('search-filters', () => {
 
 ## 어떤 문법을 선택해야 합니까? %{#what-syntax-should-i-pick}%
 
-[Vue의 컴포지션 API 및 옵션 API](https://vuejs.kr/guide/introduction.html#which-to-choose)처럼 가장 편한 것을 선택하면 됩니다.
-잘 모르겠다면 먼저 [옵션 스토어](#option-stores) 스타일로 사용해 보십시오.
+[Vue의 컴포지션 API 및 옵션 API](https://vuejs.kr/guide/introduction.html#which-to-choose)처럼 가장 편한 것을 선택하면 됩니다. 잘 모르겠다면 먼저 [옵션 스토어](#option-stores) 스타일로 사용해 보십시오.
 
 ## 스토어 이용하기 %{#using-the-store}%
 
-스토어는 `<script setup>` 구성요소 내에서(또는 **모든 컴포저블과 마찬가지로** `setup()` 내에서)
-`use...Store()`가 호출될 때까지 스토어가 생성되지 않기 때문에 스토어를 _정의_합니다. :
+스토어는 `<script setup>` 구성요소 내에서(또는 **모든 컴포저블과 마찬가지로** `setup()` 내에서) `use...Store()`가 호출될 때까지 스토어가 생성되지 않기 때문에 스토어를 _정의_합니다. :
 
 ```vue
 <script setup>
@@ -119,17 +117,11 @@ const store = useCounterStore()
 ["맵 헬퍼"로 피니아를 사용할 수 있습니다](/cookbook/options-api.md).
 :::
 
-원하는 만큼 스토어를 정의할 수 있습니다.
-피니아를 최대한 활용하려면(예: 번들이나 코드분할 및 TypeScript 추론을 자동으로 허용),
-**각 스토어는 다른 파일에 정의해야** 합니다.
+원하는 만큼 스토어를 정의할 수 있습니다. 피니아를 최대한 활용하려면(예: 번들이나 코드분할 및 TypeScript 추론을 자동으로 허용), **각 스토어는 다른 파일에 정의해야** 합니다.
 
-스토어가 인스턴스화되면,
-스토어에서 직접 `state`, `getters`, `actions`에 정의된 모든 속성에 접근할 수 있습니다.
-다음 페이지에서 자세히 살펴보겠지만 자동 완성이 도움이 될 것입니다.
+스토어가 인스턴스화되면, 스토어에서 직접 `state`, `getters`, `actions`에 정의된 모든 속성에 접근할 수 있습니다. 다음 페이지에서 자세히 살펴보겠지만 자동 완성이 도움이 될 것입니다.
 
-`store`는 `reactive`로 래핑된 객체입니다.
-즉, getter 뒤에 `.value`를 쓸 필요가 없지만,
-`setup`의 `props`와 같이 **구조화할 수 없습니다**:
+`store`는 `reactive`로 래핑된 객체입니다. 즉, getter 뒤에 `.value`를 쓸 필요가 없지만, `setup`의 `props`와 같이 **구조화할 수 없습니다**:
 
 ```vue
 <script setup>
@@ -153,10 +145,7 @@ const doubleValue = computed(() => store.doubleCount)
 
 ## 저장소에서 디스트럭처링 %{#destructuring-from-a-store}%
 
-반응형을 유지하면서 스토어에서 속성을 추출하려면, `storeToRefs()`를 사용해야 합니다.
-모든 반응형 속성에 대한 참조를 생성합니다.
-이것은 스토어의 상태만 사용하고, 액션을 호출하지 않을 때 유용합니다.
-스토어 자체에도 바인딩되므로, 스토어에서 직접 액션을 구조화할 수 있습니다:
+반응형을 유지하면서 스토어에서 속성을 추출하려면, `storeToRefs()`를 사용해야 합니다. 모든 반응형 속성에 대한 참조를 생성합니다. 이것은 스토어의 상태만 사용하고, 액션을 호출하지 않을 때 유용합니다. 스토어 자체에도 바인딩되므로, 스토어에서 직접 액션을 구조화할 수 있습니다:
 
 ```vue
 <script setup>
