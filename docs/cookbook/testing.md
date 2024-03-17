@@ -155,6 +155,51 @@ store.someAction()
 expect(store.someAction).toHaveBeenCalledTimes(1)
 ```
 
+### 액션의 반환값 모킹 %{#Mocking-the-returned-value-of-an-action}%
+
+액션은 자동으로 스파이되지만(spied) 타입 측면에서 보면 여전히 일반 액션입니다. 올바른 타입을 얻으려면 `Mock` 타입을 각 액션에 적용하는 사용자 정의 타입 래퍼를 구현해야 합니다. **이 타입은 사용하는 테스트 프레임워크에 따라 달라집니다**. Vitest를 사용한 예는 다음과 같습니다:
+
+```ts
+import type { Mock } from 'vitest'
+import type { Store, StoreDefinition } from 'pinia'
+
+function mockedStore<TStoreDef extends () => unknown>(
+  useStore: TStoreDef
+): TStoreDef extends StoreDefinition<
+  infer Id,
+  infer State,
+  infer Getters,
+  infer Actions
+>
+  ? Store<
+      Id,
+      State,
+      Getters,
+      {
+        [K in keyof Actions]: Actions[K] extends (
+          ...args: infer Args
+        ) => infer ReturnT
+          ? // 👇 테스트 프레임워크에 따라 달라짐
+            Mock<Args, ReturnT>
+          : Actions[K]
+      }
+    >
+  : ReturnType<TStoreDef> {
+  return useStore() as any
+}
+```
+
+이를 테스트에서 올바르게 타입이 지정된 스토어를 얻기 위해 사용할 수 있습니다:
+
+```ts
+import { mockedStore } from './mockedStore'
+import { useSomeStore } from '@/stores/myStore'
+
+const store = mockedStore(useSomeStore)
+// 타입 지정됨!
+store.someAction.mockResolvedValue('some value')
+```
+
 ### createSpy 함수 지정 %{#specifying-the-createspy-function}%
 
 Jest나 `globals: true`로 설정된 Vitest를 사용할 때, `createTestingPinia`는 기존 테스트 프레임워크(`jest.fn` 또는 `vitest.fn`)에 기반한 스파이 함수를 사용하여 자동으로 액션을 스터브합니다. `globals: true`를 사용하지 않거나 다른 프레임워크를 사용하는 경우, [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy) 옵션을 제공해야 합니다:
