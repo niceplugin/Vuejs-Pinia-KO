@@ -21,7 +21,7 @@ export const useAlertsStore = defineStore('alerts', {
 
 `ID`라고도 하는 이 `name`은 필요하며, 피니아에서 스토어와 devtools를 연결하는 데 사용합니다. 반환된 함수의 이름을 `use...`로 지정하는 것은, 사용법을 관용적으로 만들기 위한 컴포저블 전반에 걸친 규칙입니다.
 
-`defineStore()`의 두 번째 인자는 두 개의 고유한 값을 허용합니다: 셋업 함수 또는 옵션 객체
+`defineStore()`의 두 번째 인자는 셋업 함수 또는 옵션 객체라는 두 개의 고유한 값을 허용합니다.
 
 ## 옵션 스토어 %{#option-stores}%
 
