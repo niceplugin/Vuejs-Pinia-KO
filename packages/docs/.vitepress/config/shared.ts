@@ -1,5 +1,4 @@
 import { defineConfig, HeadConfig } from 'vitepress'
-import { zhSearch } from './zh'
 
 export const META_IMAGE = 'https://pinia.vuejs.org/social.png'
 export const isProduction =
@@ -123,23 +122,21 @@ export const sharedConfig = defineConfig({
     ],
 
     footer: {
-      copyright: 'Copyright © 2019-present Eduardo San Martin Morote',
-      message: 'Released under the MIT License.',
+      copyright:
+        'MIT Licensed | Copyright © 2019-present Eduardo San Martin Morote',
+      message: 'Translated by pinia.vuejs.kr',
     },
 
     editLink: {
-      pattern: 'https://github.com/vuejs/pinia/edit/v2/packages/docs/:path',
-      text: 'Suggest changes',
+      pattern:
+        'https://github.com/niceplugin/Vuejs-Pinia-KO/edit/main-korean/docs/:path',
+      text: '이 페이지 편집 제안하기',
     },
 
-    search: {
-      provider: 'algolia',
-      options: {
-        appId: '69Y3N7LHI2',
-        apiKey: '45441f4b65a2f80329fd45c7cb371fea',
-        indexName: 'pinia',
-        locales: { ...zhSearch },
-      },
+    algolia: {
+      appId: 'PTO6MRQ22K',
+      apiKey: '0d5e8cf46df833b0dc402e94e5c22537',
+      indexName: 'pinia-vuejs',
     },
 
     carbonAds: {
