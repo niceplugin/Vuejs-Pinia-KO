@@ -116,7 +116,7 @@ import { toRef, ref } from 'vue'
 
 pinia.use(({ store }) => {
   // SSR을 올바르게 처리하려면 기존 값을 재정의하지 않는지 확인해야 함.
-  if (!Object.prototype.hasOwnProperty(store.$state, 'hasError')) {
+  if (!store.$state.hasOwnProperty('hasError')) {
     // hasError는 플러그인 내에서 정의되므로,
     // 각 스토어에는 개별 상태 속성이 있음.
     const hasError = ref(false)
@@ -144,7 +144,7 @@ pinia.use(({ store }) => {
 ```js
 import { set, toRef } from '@vue/composition-api'
 pinia.use(({ store }) => {
-  if (!Object.prototype.hasOwnProperty(store.$state, 'secret')) {
+  if (!store.$state.hasOwnProperty('secret')) {
     const secretRef = ref('secret')
     // 데이터가 SSR 동안 사용되어야 하는 경우,
     // 이것을 `$state` 속성에 설정하여,
@@ -169,7 +169,7 @@ import { toRef, ref } from 'vue'
 
 pinia.use(({ store }) => {
   // 이것은 위 예제 코드와 동일합니다.
-  if (!Object.prototype.hasOwnProperty(store.$state, 'hasError')) {
+  if (!store.$state.hasOwnProperty('hasError')) {
     const hasError = ref(false)
     store.$state.hasError = hasError
   }
