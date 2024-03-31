@@ -1,4 +1,0 @@
-[build]
-command = "pnpm run build"
-ignore = "./deploy-check.sh"
-publish = "dist"
