@@ -5,73 +5,61 @@
 </p>
 <br/>
 <p align="center">
-  <a href="https://npmjs.com/package/pinia"><img src="https://badgen.net/npm/v/pinia" alt="npm package"></a>
-  <a href="https://github.com/vuejs/pinia/actions/workflows/test.yml?query=branch%3Av2"><img src="https://github.com/vuejs/pinia/workflows/test/badge.svg?branch=v2" alt="build status"></a>
-  <a href="https://codecov.io/github/vuejs/pinia"><img src="https://badgen.net/codecov/c/github/vuejs/pinia/v2" alt="code coverage"></a>
+  <a href="https://npmjs.com/package/pinia"><img src="https://badgen.net/npm/v/pinia" alt="npm 패키지"></a>
+  <a href="https://github.com/vuejs/pinia/actions/workflows/test.yml?query=branch%3Av2"><img src="https://github.com/vuejs/pinia/workflows/test/badge.svg?branch=v2" alt="빌드 상태"></a>
+  <a href="https://codecov.io/github/vuejs/pinia"><img src="https://badgen.net/codecov/c/github/vuejs/pinia/v2" alt="코드 커버리지"></a>
 </p>
 <br/>
 
-# 피니아
+# Pinia
 
 > 여기는 Vue 상태관리 라이브러리 Pinia 웹 페이지 한글화를 위해 포크한 저장소 입니다.
 
-> 최신 Vitepress를 사용하여 웹 페이지를 생성하므로,
-공식 사이트와 시각적으로 달라보일 수 있으나,
-내용은 동일하게 유지됩니다.
+> 직관적이고, 타입 안전하며, 유연한 Vue의 Store
 
----
-
-웹 페이지 바로가기: [한글화 문서](https://pinia.vuejs.kr/)
-
-## 브랜치 구조
-
-- `main-korean`: 최신 한글화 문서 브랜치 입니다. 모든 번역 작업은 최종적으로 이곳으로 병합됩니다.
-- `v2`: Fetch upstream으로 `vuejs/pinia`의 최신 원본 문서를 주기적으로 추적합니다.
-- 그외: 포크된 `vuejs/pinia`의 브랜치들 입니다.
-
----
-
-> 직관적이고 유형이 안전하고 유연한 Vue용 Store
-
-- 💡 직관적
-- 🔑 유형 보호
-- ⚙️Devtools 지원
-- 🔌 확장가능
-- 🏗 모듈식 디자인
+- 💡 직관적인
+- 🔑 타입 안전
+- ⚙️ 개발자 도구 지원
+- 🔌 확장 가능
+- 🏗 모듈화 설계
 - 📦 매우 가벼움
 - ⛰️ Nuxt 모듈
 
-피니아는 Vue 2와 Vue 3 모두에서 작동합니다.
+Pinia는 Vue 2와 Vue 3 모두에서 작동합니다.
 
-피니아(pinia)는 스페인어 _pineapple_의 영어 발음과 가장 유사한 _piña_입니다.
-파인애플은 실제로 각각의 꽃들이 하나의 그룹으로 된 과일입니다.
-꽃은 각각 피어나지만, 결국 모두 합쳐지는 모습이 마치 스토어 같습니다.
-남아메리카가 원산지인 맛있는 열대 과일이기도 합니다.
+Pinia는 스페인어로 '파인애플'이라는 단어의 가장 유사한 영어 발음입니다: _piña_. 실제로 파인애플은 여러 개의 개별 꽃들이 모여 하나의 다중 과일을 만드는 것입니다. 스토어들처럼, 각각은 개별적으로 탄생하지만, 결국 모두 연결됩니다. 또한 남아메리카 원산의 맛있는 열대 과일입니다.
 
-## 👉 [StackBlitz에서 Vue 3 데모](https://stackblitz.com/github/piniajs/example-vue-3-vite)
+## 👉 [Vue 3와 함께하는 StackBlitz에서의 데모](https://stackblitz.com/github/piniajs/example-vue-3-vite)
 
-## 👉 [StackBlitz에서 Nuxt 3 데모](https://stackblitz.com/github/piniajs/example-nuxt-3)
+## 👉 [Nuxt 3와 함께하는 StackBlitz에서의 데모](https://stackblitz.com/github/piniajs/example-nuxt-3)
+
+## 이 프로젝트를 계속 진행할 수 있도록 도와주세요 💚
+
+- [GitHub에서 스폰서 되기](https://github.com/sponsors/posva)
+- [PayPal을 통한 일회성 기부](https://paypal.me/posva)
+
+---
 
 ## FAQ
 
-프로젝트 및 가능한 질문에 대한 몇 가지 참고 사항:
+이 프로젝트와 가능한 질문에 대한 몇 가지 노트:
 
-**Q**: 피니아는 Vuex의 차세대 라이브러리입니까?
+**Q**: _Pinia는 Vuex의 후속작인가요?_
 
-**A**: [맞습니다!](https://vuejs.kr/guide/scaling-up/state-management.html#pinia)
+**A**: [예](https://vuejs.org/guide/scaling-up/state-management.html#pinia)
 
-**Q**: 동적 모듈은 어떻습니까?
+**Q**: _동적 모듈은 어떻게 되나요?_
 
-**A**: 동적 모듈은 유형이 안전하지 않지만, 어디에서나 가져올 수 있는 [다른 저장소를 만들 수 있습니다](https://pinia.vuejs.kr/cookbook/composing-stores.html).
+**A**: 동적 모듈은 타입 안전하지 않으므로, 대신 [다른 스토어를 만들 수 있게 허용합니다](https://pinia.vuejs.org/cookbook/composing-stores.html) 그리고 어디서나 임포트할 수 있습니다
 
 ## 설치
 
 ```bash
-# 또는 npm이나 yarn으로
+# 또는 pnpm 또는 yarn
 npm install pinia
 ```
 
-Vue <2.7을 사용하는 경우 최신 `@vue/composition-api`를 설치해야 합니다:
+Vue <2.7을 사용하는 경우, 최신 `@vue/composition-api`를 설치하세요:
 
 ```bash
 npm install pinia @vue/composition-api
@@ -81,7 +69,7 @@ npm install pinia @vue/composition-api
 
 ### 플러그인 설치
 
-피니아(루트 스토어)를 만들고 앱에 전달합니다:
+pinia(루트 스토어)를 생성하고 앱에 전달하세요:
 
 ```js
 // Vue 3
@@ -105,50 +93,49 @@ const pinia = createPinia()
 
 new Vue({
   el: '#app',
-  // 다른 옵션들...
+  // 기타 옵션...
   // ...
-  // 동일한 'pinia' 인스턴스는 동일한 페이지의 여러 Vue 앱에서 사용할 수 있음.
+  // 동일한 페이지에서 여러 Vue 앱에 동일한 `pinia` 인스턴스를 사용할 수 있습니다.
   pinia,
 })
 ```
 
-더 자세한 지침, [Nuxt 구성](https://pinia.vuejs.kr/ssr/nuxt.html#nuxt-js)을 포함한 내용은 [문서](https://pinia.vuejs.kr)를 참조하십시오.
+[Nuxt 구성](https://pinia.vuejs.org/ssr/nuxt.html#nuxt-js)을 포함한 더 자세한 지침은 [문서](https://pinia.vuejs.org)를 확인하세요.
 
-### 스토어 저장소 만들기
+### 스토어 생성
 
-원하는 만큼 스토어를 만들 수 있으며, 각각 다른 파일로 존재해야 합니다:
+원하는 만큼 많은 스토어를 생성할 수 있으며, 각 스토어는 다른 파일에 있어야 합니다:
 
 ```ts
 import { defineStore } from 'pinia'
 
-// main은 스토어 이름.
-// 앱 전체에서 고유하며, devtools에 표시됨.
+// main은 스토어의 이름입니다. 이 이름은 애플리케이션 전체에서 고유하며 개발자 도구에 표시됩니다.
 export const useMainStore = defineStore('main', {
   // 새로운 상태를 반환하는 함수
   state: () => ({
     counter: 0,
     name: 'Eduardo',
   }),
-  // getters (선택적)
+  // 옵션인 getter들
   getters: {
-    // getter는 상태를 첫 번째 파라미터로 받음.
+    // getter들은 첫 번째 매개변수로 상태를 받습니다.
     doubleCounter: (state) => state.counter * 2,
-    // 다른 getter 내부에서 getter 사용.
+    // 다른 getter에서 getter 사용
     doubleCounterPlusOne(): number {
       return this.doubleCounter + 1
     },
   },
-  // actions (선택적)
+  // 옵션인 액션
   actions: {
     reset() {
-      // `this`는 스토어 인스턴스
+      // `this`는 스토어 인스턴스를 의미합니다.
       this.counter = 0
     },
   },
 })
 ```
 
-`defineStore`는 저장소에 접근하기 위해 호출해야 하는 함수를 반환합니다:
+`defineStore`는 스토어에 접근하려면 호출해야 하는 함수를 반환합니다:
 
 ```ts
 import { useMainStore } from '@/stores/main'
@@ -158,16 +145,25 @@ export default defineComponent({
   setup() {
     const main = useMainStore()
 
-    // 특정 스토어 속성 추출
+    // 특정 스토어 속성을 추출합니다.
     const { counter, doubleCounter } = storeToRefs(main)
 
     return {
-      // 템플릿에서 스토어 전체에 접근 가능
+      // 템플릿에서 전체 스토어에 접근을 제공합니다.
       main,
-      // 특정 상태와 getter에만 접근 권한 부여
+      // 특정 상태 또는 getter에만 접근을 제공합니다.
       counter,
       doubleCounter,
     }
   },
 })
 ```
+
+## 문서
+
+Pinia에 대해 더 알아보려면 [한글 문서](https://pinia.vuejs.kr)를 확인하세요.
+
+## 라이센스
+
+[MIT](http://opensource.org/licenses/MIT)
+

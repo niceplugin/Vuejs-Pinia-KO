@@ -1,0 +1,22 @@
+{
+  "name": "@pinia/playground",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "play": "vite",
+    "play:build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.6"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "mande": "^2.0.8",
+    "pinia": "workspace:^2.0.18",
+    "swrv": "^1.0.4",
+    "vue-promised": "^2.2.0",
+    "vue-router": "^4.3.0"
+  }
+}

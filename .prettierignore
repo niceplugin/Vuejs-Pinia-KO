@@ -1,0 +1,5 @@
+__build__
+dist
+coverage
+.vitepress/cache
+temp
