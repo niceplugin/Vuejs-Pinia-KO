@@ -28,7 +28,6 @@ hero:
       text: Pinia 치트 시트 받기
       link: https://www.vuemastery.com/pinia?coupon=PINIA-DOCS&via=eduardo
 
-
 features:
   - icon: 💡
     title: 직관적
@@ -41,7 +40,7 @@ features:
     details: Pinia는 Vue devtools에 연결하여 Vue 2와 Vue 3 모두에서 향상된 개발 경험을 제공합니다.
   - icon: 🔌
     title: 확장 가능
-    details: 트랜잭션, 로컬 스토리지 동기화 등으로 확장한 Pinia의 스토어 변경사항에 반응합니다.
+    details: 트랜잭션, 로컬 스토리지 동기화 등을 통해 Pinia를 확장하기 위한 스토어 변경 및 작업에 반응합니다.
   - icon: 🏗
     title: 모듈식 디자인
     details: 여러 스토어를 구축하고, 번들러 코드가 자동으로 스토어를 분할하도록 합니다.
