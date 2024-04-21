@@ -77,6 +77,7 @@ Pinia가 상태로 인식하게 하려면, 셋업 스토어의 **모든 상태 �
 ```ts
 import { inject } from 'vue'
 import { useRoute } from 'vue-router'
+import { defineStore } from 'pinia'
 
 export const useSearchFilters = defineStore('search-filters', () => {
   const route = useRoute()
