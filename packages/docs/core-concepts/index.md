@@ -68,7 +68,7 @@ export const useCounterStore = defineStore('counter', () => {
 - `computed()`는 `getters`가 됨.
 - `function()`은 `actions`가 됨.
 
-Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 **모든 상태 속성**을 반환해야 합니다. 다시 말해, 스토어에서 _비공개_ 상태 속성을 가질 수 없습니다. 모든 상태 속성을 반환하지 않으면 [SSR](../cookbook/composables.md), 개발 도구, 그리고 다른 플러그인에서 문제가 발생할 수 있습니다.
+Pinia가 상태로 인식하게 하려면, 셋업 스토어의 **모든 상태 속성**을 반드시 반환해야 합니다. 다시 말해서, 스토어에 _비공개_ 상태 속성을 가질 수 없습니다. 모든 상태 속성을 반환하지 않으면 [SSR](../cookbook/composables.md), 개발자 도구 및 기타 플러그인이 제대로 작동하지 않을 수 있습니다.
 
 셋업 스토어는 스토어 내에서 감시자를 생성하고 [컴포저블](https://vuejs.org/guide/reusability/composables.html#composables)을 자유롭게 사용할 수 있어 [옵션 스토어](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다. 하지만, SSR을 사용할 때 컴포저블 사용이 더 복잡해질 수 있음을 염두에 두어야 합니다.
 
@@ -77,6 +77,7 @@ Pinia가 그것들을 상태로 인식하게 하려면, 셋업 스토어에서 *
 ```ts
 import { inject } from 'vue'
 import { useRoute } from 'vue-router'
+import { defineStore } from 'pinia'
 
 export const useSearchFilters = defineStore('search-filters', () => {
   const route = useRoute()
