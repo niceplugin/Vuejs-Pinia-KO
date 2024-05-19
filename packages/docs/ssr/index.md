@@ -1,5 +1,10 @@
 # 서버 사이드 렌더링 (SSR) %{#server-side-rendering-ssr}%
 
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/ssr-friendly-state"
+  title="Learn about SSR best practices"
+/>
+
 :::tip
 **Nuxt.js**를 사용하는 경우, 이 섹션 대신 [**Nuxt.js**](nuxt.md)를 읽어야 합니다.
 :::

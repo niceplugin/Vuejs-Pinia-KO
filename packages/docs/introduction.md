@@ -1,8 +1,17 @@
+---
+title: 소개
+---
+
 # 소개 %{#introduction}%
 
-<VueSchoolLink
-href="https://vueschool.io/lessons/introduction-to-pinia"
-title="Get started with Pinia"
+<!-- <VueSchoolLink
+  href="https://vueschool.io/lessons/introduction-to-pinia"
+  title="Get started with Pinia"
+/> -->
+
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/the-what-and-why-of-state-management-and-stores"
+  title="Create your own Pinia from scratch"
 />
 
 피니아는 2019년 11월경에 [컴포지션 API](https://github.com/vuejs/composition-api)로 Vue용 스토어가 어떻게 생겼는지 재설계하기 위한 실험으로 [시작](https://github.com/vuejs/pinia/commit/06aeef54e2cad66696063c62829dac74e15fd19e)했습니다. 그 이후로 초기 원칙은 여전히 동일하지만, 피니아는 컴포지션 API를 사용할 필요가 없으며, Vue 2와 Vue 3 모두에서 작동합니다. API는 설치와 SSR을 제외하고 모두 동일하며, 이 문서는 Vue 2 및 Vue 3 사용자가 읽을 수 있도록 필요할 때마다 Vue 2에 대한 메모와 함께 Vue 3을 대상으로 합니다!

@@ -1,8 +1,13 @@
 # 스토어 정의하기 %{#defining-a-store}%
 
-<VueSchoolLink
-href="https://vueschool.io/lessons/define-your-first-pinia-store"
-title="Learn how to define and use stores in Pinia"
+<!-- <VueSchoolLink
+  href="https://vueschool.io/lessons/define-your-first-pinia-store"
+  title="Learn how to define and use stores in Pinia"
+/> -->
+
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/quick-start-with-pinia"
+  title="Get started with Pinia"
 />
 
 핵심 개념에 대해 알아보기 전에 스토어가 `defineStore()`를 사용해 정의되고, **고유한** 이름이 첫 번째 인자로 전달되어야 한다는 것을 알아야 합니다:
