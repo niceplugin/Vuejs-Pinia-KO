@@ -2,6 +2,16 @@
 title: 액션
 ---
 
+<!-- <VueSchoolLink
+  href="https://vueschool.io/lessons/synchronous-and-asynchronous-actions-in-pinia"
+  title="Learn all about actions in Pinia"
+/> -->
+
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions"
+  title="Learn all about actions in Pinia"
+/>
+
 # Actions (액션) %{#actions}%
 
 <VueSchoolLink
@@ -122,13 +132,13 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    count: 0
+    count: 0,
   }),
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 

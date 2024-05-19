@@ -4,6 +4,11 @@
 
 ## 옵션 스토어 %{#option-stores}%
 
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/using-composables-in-option-stores"
+  title="Using Composables in Option Stores"
+/>
+
 옵션 스토어를 정의할 때는 `state` 속성 내에서 Composable을 호출할 수 있습니다:
 
 ```ts
@@ -26,6 +31,11 @@ export const useAuthStore = defineStore('auth', {
 - [useEyeDropper](https://vueuse.org/core/useEyeDropper/): 읽기 전용 데이터와 함수를 노출합니다.
 
 ## Setup 스토어 %{#setup-stores}%
+
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/using-composables-in-setup-stores"
+  title="Using Composables in Setup Stores"
+/>
 
 반면에, Setup 스토어를 정의할 때는 각 속성이 상태(state), 액션(action), 또는 게터(getter)로 구분되므로 거의 모든 Composable을 사용할 수 있습니다:
 

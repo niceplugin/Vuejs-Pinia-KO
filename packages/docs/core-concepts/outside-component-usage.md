@@ -4,6 +4,12 @@ title: 컴포넌트 외부에서 스토어 사용
 
 # 컴포넌트 외부에서 스토어 사용 %{#using-a-store-outside-of-a-component}%
 
+<MasteringPiniaLink
+  href="https://play.gumlet.io/embed/651ed1ec4c2f339c6860fd06"
+  mp-link="https://masteringpinia.com/lessons/how-does-usestore-work"
+  title="Using stores outside of components"
+/>
+
 피니아 스토어는 모든 호출에서 동일한 스토어 인스턴스를 공유하기 위해 `pinia` 인스턴스에 의존합니다.
 대부분의 경우 이것은 `useStore()` 함수를 호출하는 것만으로도 작동합니다.
 예를 들어 `setup()`에서는 다른 작업을 수행할 필요가 없습니다.

@@ -8,6 +8,8 @@ import './styles/vars.css'
 import './styles/playground-links.css'
 import VueSchoolLink from './components/VueSchoolLink.vue'
 import VueMasteryLogoLink from './components/VueMasteryLogoLink.vue'
+import MasteringPiniaLink from './components/MasteringPiniaLink.vue'
+// import VuejsdeConfBanner from './components/VuejsdeConfBanner.vue'
 import status from '../translation-status.json'
 
 const i18nLabels = {
@@ -20,7 +22,7 @@ const theme: Theme = {
     return h(DefaultTheme.Layout, null, {
       // 'home-features-after': () => h(HomeSponsors),
       'aside-ads-before': () => h(AsideSponsors),
-      // 'layout-top': () => h(VueMasteryBanner),
+      // 'layout-top': () => h(VuejsdeConfBanner),
       'doc-before': () => h(TranslationStatus, { status, i18nLabels }),
     })
   },
@@ -28,6 +30,7 @@ const theme: Theme = {
   enhanceApp({ app }) {
     app.component('VueSchoolLink', VueSchoolLink)
     app.component('VueMasteryLogoLink', VueMasteryLogoLink)
+    app.component('MasteringPiniaLink', MasteringPiniaLink)
   },
 }
 

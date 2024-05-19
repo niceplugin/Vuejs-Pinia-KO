@@ -1,8 +1,13 @@
 # Getters (게터) %{#getters}%
 
-<VueSchoolLink
-href="https://vueschool.io/lessons/getters-in-pinia"
-title="Learn all about getters in Pinia"
+<!-- <VueSchoolLink
+  href="https://vueschool.io/lessons/getters-in-pinia"
+  title="Learn all about getters in Pinia"
+/> -->
+
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters"
+  title="Learn all about getters in Pinia"
 />
 
 게터는 스토어의 상태에 대한 [계산된 값](https://vuejs.kr/guide/essentials/computed.html)과 정확히 동일합니다. `defineStore()` 내에서 `getters` 속성으로 정의할 수 있습니다. 화살표 함수의 사용을 **권장하기 위해**, 첫 번째 인자로 `state`를 받습니다:

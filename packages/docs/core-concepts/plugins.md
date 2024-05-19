@@ -1,5 +1,10 @@
 # Plugins (플러그인) %{#plugins}%
 
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin"
+  title="Learn all about Pinia plugins"
+/>
+
 피니아 스토어는 저수준 API 덕분에 완전히 확장할 수 있습니다. 다음은 수행할 수 있는 작업 목록입니다:
 
 - 스토어에 새 속성 추가
