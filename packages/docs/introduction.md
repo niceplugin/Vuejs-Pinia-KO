@@ -1,7 +1,3 @@
----
-title: 소개
----
-
 # 소개 %{#introduction}%
 
 <VueSchoolLink
@@ -9,39 +5,36 @@ href="https://vueschool.io/lessons/introduction-to-pinia"
 title="Get started with Pinia"
 />
 
-피니아는 2019년 11월경에 [컴포지션 API](https://github.com/vuejs/composition-api)로 Vue용 스토어가 어떻게 생겼는지 재설계하기 위한 실험으로 [시작](https://github.com/vuejs/pinia/commit/06aeef54e2cad66696063c62829dac74e15fd19e)했습니다.
-그 이후로 초기 원칙은 여전히 동일하지만,
-피니아는 컴포지션 API를 사용할 필요가 없으며,
-Vue 2와 Vue 3 모두에서 작동합니다.
-API는 설치와 SSR을 제외하고 모두 동일하며,
-이 문서는 Vue 2 및 Vue 3 사용자가 읽을 수 있도록 필요할 때마다 Vue 2에 대한 메모와 함께 Vue 3을 대상으로 합니다!
+피니아는 2019년 11월경에 [컴포지션 API](https://github.com/vuejs/composition-api)로 Vue용 스토어가 어떻게 생겼는지 재설계하기 위한 실험으로 [시작](https://github.com/vuejs/pinia/commit/06aeef54e2cad66696063c62829dac74e15fd19e)했습니다. 그 이후로 초기 원칙은 여전히 동일하지만, 피니아는 컴포지션 API를 사용할 필요가 없으며, Vue 2와 Vue 3 모두에서 작동합니다. API는 설치와 SSR을 제외하고 모두 동일하며, 이 문서는 Vue 2 및 Vue 3 사용자가 읽을 수 있도록 필요할 때마다 Vue 2에 대한 메모와 함께 Vue 3을 대상으로 합니다!
 
 ## 왜 피니아를 사용해야 하나요? %{#why-should-i-use-pinia}%
 
-피니아는 Vue의 스토어 라이브러리로 컴포넌트/페이지 간에 상태를 공유할 수 있습니다.
-컴포지션 API에 익숙하다면 간단한 `export const state = reactive({})`로 전역 상태를 공유할 수 있다고 생각할 수 있습니다.
-이는 SPA에는 해당되지만 SSR의 경우,
-**앱이 [보안 취약성](https://vuejs.kr/guide/scaling-up/ssr.html#cross-request-state-pollution)에 노출됩니다.**
-그러나 작은 SPA에서도 피니아를 사용하면 많은 이점이 있습니다:
+<!-- 
+https://masteringpinia.com/lessons/why-use-pinia
+ -->
 
+피니아는 Vue의 스토어 라이브러리로 컴포넌트/페이지 간에 상태를 공유할 수 있습니다. 컴포지션 API에 익숙하다면 간단한 `export const state = reactive({})`로 전역 상태를 공유할 수 있다고 생각할 수 있습니다. 이는 SPA에는 해당되지만 SSR의 경우, **앱이 [보안 취약성](https://vuejs.kr/guide/scaling-up/ssr.html#cross-request-state-pollution)에 노출됩니다.** 그러나 작은 SPA에서도 피니아를 사용하면 많은 이점이 있습니다:
+
+- 테스트 유틸리티
+- 플러그인: 플러그인으로 Pinia 기능 확장
+- JS 사용자를 위한 적절한 TypeScript 지원 또는 **자동 완성**
+- 서버 사이드 렌더링 지원
 - Devtools 지원
-  - actions, mutations를 추적하는 타임라인
-  - 스토어는 사용되는 컴포넌트에 표시됨.
-  - 시간 추적 및 더 쉬운 디버깅
+  - 액션, 뮤테이션을 추적하는 타임라인
+  - 사용되는 컴포넌트에서 스토어가 나타남
+  - 타임 트래블 및 더 쉬운 디버깅
 - 핫 모듈 교체 (HMR)
   - 페이지를 새로고침하지 않고 스토어 수정
-  - 개발하는 동안 기존 상태 유지
-- 플러그인: 플러그인으로 피니아 기능 확장
-- TypeScript 지원 또는 JS 사용자를 위한 적절한 **자동 완성**
-- SSR 지원
+  - 개발 중 기존 상태 유지
+
+아직도 의문이 남아 있다면, [공식 Mastering Pinia 강좌](https://masteringpinia.com)를 확인하세요. 처음에는 `defineStore()` 함수를 직접 구축하는 방법을 다루고, 이후에는 공식 Pinia API로 이동합니다.
 
 <VueMasteryLogoLink for="pinia-cheat-sheet">
 </VueMasteryLogoLink>
 
 ## 기본 예제 %{#basic-example}%
 
-이것은 API 측면에서 피니아를 사용하는 것과 같습니다(전체 지침은 [시작하기](getting-started.md)를 확인하십시오).
-스토어를 만드는 것으로 시작합니다.
+이것은 API 측면에서 피니아를 사용하는 것과 같습니다(전체 지침은 [시작하기](getting-started.md)를 확인하십시오). 스토어를 만드는 것으로 시작합니다.
 
 ```js
 // stores/counter.js
@@ -53,7 +46,6 @@ export const useCounterStore = defineStore('counter', {
   },
   // 다음과 같이 정의할 수도 있음:
   // state: () => ({ count: 0 })
-
   actions: {
     increment() {
       this.count++
@@ -100,8 +92,7 @@ export const useCounterStore = defineStore('counter', () => {
 
 [Try it in the Playground](https://play.pinia.vuejs.org/#eNqNVEFu2zAQ/MpWKGAHscQGaXMwnCBpkEN7aIumR10Uah0zlUiCXCkuDP2kD+i7+pIuSVt20iLoSeJydnZ2yOUmu7K26DvM5tnCS6csgUfq7EWpVWuNI9hA5/HadJrQ3ZJxCAMsnWlhUgiZwsWDn5S61NJoT7ANwvnzxOlRAqWc+D0+LrUQ8KhoBVVHRprWNkjKaPj989ce/NpWJFfTTSKf72okEjiGExiYnJmM46pK30OloZKRSLEorOo9mdLSYYuagqCFSG1zw7wg5PoVIa8AFq/yHK6kRO+BVgieeAdq5VBS8yOZkOLBlTxPSbXqL64755gfYvdz2Gx1j4KHYSECLpQfS2azLFmet5VlS43mQ9kEznK74cuMyUIkxKzSqgqRMhPxv0Df5nfOPPp4JGU220Ev+YRFjT0Z0/i8siqlrYisnwsha834GhvVu0IjCW1b8VfO5VnxrjgRjboTXEgoXeP6aRnOyGts/4d9B718U5y8Lc4ia3+6JW0DayAdSj2wLeT5Zi3V/TNTwmVRDbrPNpzzU3OqpjGPH2OMXIejRLlC+f0f8Qe/Tqq/OGT7ejxoiyp3j5S2b24/4Zr/x83W1F3D6Bc2v6I3TRc0Jtj7Ttcs+wAX1X6IZ8x395u/WRNqv2sqCI1uRHy0+fqF1vdyT4vTAxf3w8oWjsPtcDkONBPzHI9bNS6VxqczHy9aHHZcR1ia+edPxPlh8nSyLT2ZwfQIzi+S1oPXgvGsY/qG5xFg2end4I5zuusuoou+ajoMT0fsLXwcv1lOs+YImO1TY/NH2fAHelGuuQ==)
 
-아직 `setup()` 및 컴포지션 API에 익숙하지 않더라도 피니아는 [Vuex와 같은 맵 헬퍼](https://vuex.vuejs.org/guide/state.html#the-mapstate-helper)와 같은 세트를 지원하므로 걱정하지 마십시오.
-스토어 정의 방식은 같지만, `mapStores()`, `mapState()` 또는 `mapActions()`를 사용합니다:
+아직 `setup()` 및 컴포지션 API에 익숙하지 않더라도 피니아는 [Vuex와 같은 맵 헬퍼](https://vuex.vuejs.org/guide/state.html#the-mapstate-helper)와 같은 세트를 지원하므로 걱정하지 마십시오. 스토어 정의 방식은 같지만, `mapStores()`, `mapState()` 또는 `mapActions()`를 사용합니다:
 
 ```js {22,24,28}
 const useCounterStore = defineStore('counter', {
@@ -140,19 +131,17 @@ export default defineComponent({
 
 핵심 개념에서 각 "맵 헬퍼"에 대한 자세한 정보를 찾을 수 있습니다.
 
+## 공식 강좌 %{Official-Course}%
+
+Pinia의 공식 강좌는 [Mastering Pinia](https://masteringpinia.com)입니다. Pinia의 저자가 작성한 이 강좌는 기본부터 플러그인, 테스트, 서버 사이드 렌더링과 같은 고급 주제까지 모두 다룹니다. Pinia를 시작하고 마스터하는 최고의 방법입니다.
+
 ## 왜 피니아인가? %{#why-pinia}%
 
-피니아(pinia)는 스페인어 _pineapple_의 영어 발음과 가장 유사한 _piña_입니다.
-파인애플은 실제로 각각의 꽃들이 하나의 그룹으로 된 과일입니다.
-꽃은 각각 피어나지만, 결국 모두 합쳐지는 모습이 마치 스토어 같습니다.
-남아메리카가 원산지인 맛있는 열대 과일이기도 합니다.
+피니아(pinia)는 스페인어 _pineapple_의 영어 발음과 가장 유사한 _piña_입니다. 파인애플은 실제로 각각의 꽃들이 하나의 그룹으로 된 과일입니다. 꽃은 각각 피어나지만, 결국 모두 합쳐지는 모습이 마치 스토어 같습니다. 남아메리카가 원산지인 맛있는 열대 과일이기도 합니다.
 
 ## 좀 더 현실적인 예졔 %{#a-more-realistic-example}%
 
-다음은 JavaScript에서도 유형이 있는 피니아를 사용할 수 있는 예제입니다.
-일부 개발자에게는 이 설명으로 충분할 수 있습니다.
-이해되지 않는다면,
-이 예제를 건너뛰고 다른 모든 핵심 개념에 대해 읽은 후에 다시 오는 것이 좋습니다.
+다음은 JavaScript에서도 유형이 있는 피니아를 사용할 수 있는 예제입니다. 일부 개발자에게는 이 설명으로 충분할 수 있습니다. 이해되지 않는다면, 이 예제를 건너뛰고 다른 모든 핵심 개념에 대해 읽은 후에 다시 오는 것이 좋습니다.
 
 ```js
 import { defineStore } from 'pinia'
@@ -201,25 +190,15 @@ export const useTodos = defineStore('todos', {
 
 ## Vuex와 비교 %{#comparison-with-vuex}%
 
-피니아는 Vuex 5에 대한 핵심 팀 토론의 많은 아이디어를 통합하여,
-Vuex의 다음 버전이 어떤 모습일지 탐구하는 것으로 시작했습니다.
-마침내 우리는 Vuex 5에서 우리가 원하는 대부분을 피니아가 이미 구현하고 있다는 것을 깨달았고,
-이것을 새로운 권장 사항으로 만들기로 결정했습니다.
+피니아는 Vuex 5에 대한 핵심 팀 토론의 많은 아이디어를 통합하여, Vuex의 다음 버전이 어떤 모습일지 탐구하는 것으로 시작했습니다. 마침내 우리는 Vuex 5에서 우리가 원하는 대부분을 피니아가 이미 구현하고 있다는 것을 깨달았고, 이것을 새로운 권장 사항으로 만들기로 결정했습니다.
 
-Vuex와 비교할 때,
-피니아는 더 간단한 API를 제공하고,
-컴포지션 API 스타일을 제공하며,
-가장 중요한 것은 TypeScript와 함께 사용할 때 견고한 유형 추론을 지원합니다.
+Vuex와 비교할 때, 피니아는 더 간단한 API를 제공하고, 컴포지션 API 스타일을 제공하며, 가장 중요한 것은 TypeScript와 함께 사용할 때 견고한 유형 추론을 지원합니다.
 
 ### RFCs %{#rfcs}%
 
-처음에 피니아는 RFC 프로세스를 거치지 않았습니다.
-나는 앱 개발, 다른 사람의 코드 읽기, 피니아를 사용하는 고객을 위해 일하고 디스코드에서 질문에 답변한 경험을 바탕으로 아이디어를 테스트했습니다.
-이를 통해 다양한 사례와 앱 크기에 적합한 솔루션을 제공할 수 있었습니다.
-나는 자주 퍼블리싱하고 핵심 API를 동일하게 유지하면서 라이브러리를 발전시켰습니다.
+처음에 피니아는 RFC 프로세스를 거치지 않았습니다. 나는 앱 개발, 다른 사람의 코드 읽기, 피니아를 사용하는 고객을 위해 일하고 디스코드에서 질문에 답변한 경험을 바탕으로 아이디어를 테스트했습니다. 이를 통해 다양한 사례와 앱 크기에 적합한 솔루션을 제공할 수 있었습니다. 나는 자주 퍼블리싱하고 핵심 API를 동일하게 유지하면서 라이브러리를 발전시켰습니다.
 
-이제 피니아는 기본 상태 관리 솔루션이 되었으며,
-Vue 생태계의 다른 핵심 라이브러리와 동일한 RFC 프로세스를 거치며 API는 안정적인 상태에 진입했습니다.
+이제 피니아는 기본 상태 관리 솔루션이 되었으며, Vue 생태계의 다른 핵심 라이브러리와 동일한 RFC 프로세스를 거치며 API는 안정적인 상태에 진입했습니다.
 
 ### Vuex 3.x/4.x와 비교 %{#comparison-with-vuex-3-x-4-x}%
 

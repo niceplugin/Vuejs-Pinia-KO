@@ -98,7 +98,7 @@ export const useSearchFilters = defineStore('search-filters', () => {
 
 ## 어떤 문법을 선택해야 합니까? %{#what-syntax-should-i-pick}%
 
-[Vue의 컴포지션 API 및 옵션 API](https://vuejs.kr/guide/introduction.html#which-to-choose)처럼 가장 편한 것을 선택하면 됩니다. 잘 모르겠다면 먼저 [옵션 스토어](#option-stores) 스타일로 사용해 보십시오.
+[Vue의 Composition API와 Options API](https://vuejs.org/guide/introduction.html#which-to-choose)와 마찬가지로, 가장 편안한 것을 선택하세요. 둘 다 장단점이 있습니다. Options 스토어는 작업하기 더 쉬운 반면 Setup 스토어는 더 유연하고 강력합니다. 차이점을 더 깊이 이해하고 싶다면 Mastering Pinia의 [Option Stores vs Setup Stores](https://masteringpinia.com/lessons/when-to-choose-one-syntax-over-the-other)를 확인하세요.
 
 ## 스토어 이용하기 %{#using-the-store}%
 

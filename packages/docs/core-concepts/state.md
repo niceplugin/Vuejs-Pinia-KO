@@ -2,6 +2,10 @@
 title: 상태
 ---
 
+<!--
+https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state
+ -->
+
 # State (상태) %{#state}%
 
 <VueSchoolLink

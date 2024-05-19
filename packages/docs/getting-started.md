@@ -79,3 +79,7 @@ devtools에는 훨씬 더 많은 기능이 있고,
 
 모든 앱이 글로벌 상태에 대한 접근를 필요로 하는 것은 아니지만,
 필요한 경우 피니아가 당신의 삶을 더 쉽게 만들어 줄 것입니다.
+
+## 스토어를 사용하지 말아야 할 때 %{When-should-I-not-use-a-Store}%
+
+때로는 너무 많은 것에 스토어를 사용하게 됩니다. 애플리케이션이 스토어를 과도하게 사용하고 있다고 느낀다면, 스토어의 목적을 다시 생각해 보세요. 즉, 일부 로직은 단순히 composables로 처리해야 하거나 일부 상태는 컴포넌트에 국한되어야 합니다. 이는 Mastering Pinia의 [(Not) Overusing stores](https://masteringpinia.com/lessons/not-overusing-stores) 수업에서 자세히 다룹니다.
