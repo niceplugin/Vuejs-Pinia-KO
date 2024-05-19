@@ -1,8 +1,8 @@
 # 스토어 테스트하기 %{#testing-stores}%
 
 <MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/introduction-to-testing-stores"
-  title="Learn how to test stores"
+  href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc"
+  title="Watch a free video of Mastering Pinia about testing stores"
 />
 
 스토어는 설계상 여러 곳에서 사용되며, 테스트를 어렵게 만들 수 있습니다. 다행히 이런 경우는 아닐 수도 있습니다. 스토어를 테스트할 때 세 가지를 고려해야 합니다:
@@ -64,6 +64,13 @@ beforeEach(() => {
 ```
 
 ## 컴포넌트의 단위 테스트 %{#unit-testing-components}%
+
+<!-- NOTE: too long maybe but good value -->
+<!-- <MasteringPiniaLink
+  href="https://play.gumlet.io/embed/6630f540c418f8419b73b2b2?t1=1715867840&t2=1715867570609?preload=false&autoplay=false&loop=false&disable_player_controls=false"
+  title="Watch a free video of Mastering Pinia about testing stores"
+/> -->
+
 
 `createTestingPinia()`를 사용하여 컴포넌트의 단위 테스트를 수행할 수 있습니다. 이 함수는 컴포넌트의 단위 테스트에 도움을 주기 위해 설계된 pinia 인스턴스를 반환합니다.
 
