@@ -1,5 +1,10 @@
 # 스토어 테스트하기 %{#testing-stores}%
 
+<MasteringPiniaLink
+  href="https://masteringpinia.com/lessons/introduction-to-testing-stores"
+  title="Learn how to test stores"
+/>
+
 스토어는 설계상 여러 곳에서 사용되며, 테스트를 어렵게 만들 수 있습니다. 다행히 이런 경우는 아닐 수도 있습니다. 스토어를 테스트할 때 세 가지를 고려해야 합니다:
 
 - `pinia` 인스턴스: 스토어는 이 없이는 동작하지 않습니다.
