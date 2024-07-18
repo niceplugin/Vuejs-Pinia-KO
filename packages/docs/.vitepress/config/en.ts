@@ -1,11 +1,11 @@
 import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 
-export const META_URL = 'https://pinia.vuejs.kr'
+export const META_URL = 'https://pinia.vuejs.org'
 export const META_TITLE = 'Pinia 🍍'
 export const META_DESCRIPTION =
-  '직관적이고 타입 안전한 가벼운 그리고 유연한 Vue 스토어'
+  'Intuitive, type safe, light and flexible Store for Vue'
 
-export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
+export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   description: META_DESCRIPTION,
   head: [
     ['meta', { property: 'og:url', content: META_URL }],
@@ -17,34 +17,33 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
 
   themeConfig: {
     editLink: {
-      pattern:
-        'https://github.com/niceplugin/Vuejs-Pinia-KO/edit/main-korean/docs/:path',
-      text: '이 페이지 편집 제안하기',
+      pattern: 'https://github.com/vuejs/pinia/edit/v2/packages/docs/:path',
+      text: 'Suggest changes to this page',
     },
 
     nav: [
       // { text: 'Config', link: '/config/' },
       // { text: 'Plugins', link: '/plugins/' },
       {
-        text: '가이드',
+        text: 'Guide',
         link: '/core-concepts/',
         activeMatch: '^/core-concepts/',
       },
       { text: 'API', link: '/api/', activeMatch: '^/api/' },
       { text: 'Cookbook', link: '/cookbook/', activeMatch: '^/cookbook/' },
       {
-        text: '링크',
+        text: 'Links',
         items: [
           {
-            text: '토론',
+            text: 'Discussions',
             link: 'https://github.com/vuejs/pinia/discussions',
           },
           {
-            text: '변경사항',
+            text: 'Changelog',
             link: 'https://github.com/vuejs/pinia/blob/v2/packages/pinia/CHANGELOG.md',
           },
           {
-            text: 'Vue.js 자격증',
+            text: 'Vue.js Certification',
             link: 'https://certificates.dev/vuejs/?friend=VUEROUTER&utm_source=pinia_vuejs&utm_medium=link&utm_campaign=pinia_vuejs_links&utm_content=navbar',
           },
         ],
@@ -56,11 +55,14 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         {
           text: 'packages',
           items: [
-            { text: 'pinia', link: '/api/modules/pinia.html' },
-            { text: '@pinia/nuxt', link: '/api/modules/pinia_nuxt.html' },
+            { text: 'pinia', link: '/api/pinia/' },
+            {
+              text: '@pinia/nuxt',
+              link: '/api/@pinia/nuxt/',
+            },
             {
               text: '@pinia/testing',
-              link: '/api/modules/pinia_testing.html',
+              link: '/api/@pinia/testing/',
             },
           ],
         },
@@ -68,37 +70,37 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       // catch-all fallback
       '/': [
         {
-          text: '소개',
+          text: 'Introduction',
           items: [
             {
-              text: '피니아란?',
+              text: 'What is Pinia?',
               link: '/introduction.html',
             },
             {
-              text: '시작하기',
+              text: 'Getting Started',
               link: '/getting-started.html',
             },
           ],
         },
         {
-          text: '핵심 개념',
+          text: 'Core Concepts',
           items: [
-            { text: 'Store (스토어) 다루기', link: '/core-concepts/' },
-            { text: 'State (상태)', link: '/core-concepts/state.html' },
-            { text: 'Getters (게터)', link: '/core-concepts/getters.html' },
-            { text: 'Actions (액션)', link: '/core-concepts/actions.html' },
-            { text: 'Plugins (플러그인)', link: '/core-concepts/plugins.html' },
+            { text: 'Defining a Store', link: '/core-concepts/' },
+            { text: 'State', link: '/core-concepts/state.html' },
+            { text: 'Getters', link: '/core-concepts/getters.html' },
+            { text: 'Actions', link: '/core-concepts/actions.html' },
+            { text: 'Plugins', link: '/core-concepts/plugins.html' },
             {
-              text: '컴포넌트 외부의 스토어',
+              text: 'Stores outside of components',
               link: '/core-concepts/outside-component-usage.html',
             },
           ],
         },
         {
-          text: '서버 사이드 렌더링 (SSR)',
+          text: 'Server-Side Rendering (SSR)',
           items: [
             {
-              text: 'Vue와 Vite',
+              text: 'Vue and Vite',
               link: '/ssr/',
             },
             {
@@ -112,39 +114,39 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           collapsed: false,
           items: [
             {
-              text: '개요',
+              text: 'Index',
               link: '/cookbook/',
             },
             {
-              text: 'Vuex ≤4에서 마이그레이션',
+              text: 'Migration from Vuex ≤4',
               link: '/cookbook/migration-vuex.html',
             },
             {
-              text: '핫 모듈 교체 (HMR)',
+              text: 'Hot Module Replacement',
               link: '/cookbook/hot-module-replacement.html',
             },
             {
-              text: '테스팅',
+              text: 'Testing',
               link: '/cookbook/testing.html',
             },
             {
-              text: 'setup() 없이 사용하는 방법',
+              text: 'Usage without setup()',
               link: '/cookbook/options-api.html',
             },
             {
-              text: '스토어 조합하기',
+              text: 'Composing Stores',
               link: '/cookbook/composing-stores.html',
             },
             {
-              text: 'VSCode 스니펫',
+              text: 'VSCode Snippets',
               link: '/cookbook/vscode-snippets.html',
             },
             {
-              text: 'v0/v1에서 v2로의 마이그레이션',
+              text: 'Migration from v0/v1 to v2',
               link: '/cookbook/migration-v1-v2.html',
             },
             {
-              text: '컴포저블 다루기',
+              text: 'Dealing with composables',
               link: '/cookbook/composables.html',
             },
           ],

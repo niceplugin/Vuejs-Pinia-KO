@@ -216,6 +216,9 @@ export function registerPiniaDevtools(app: DevtoolsApp, pinia: Pinia) {
         }
       })
 
+      // Expose pinia instance as $pinia to window
+      globalThis.$pinia = pinia
+
       api.on.getInspectorState((payload) => {
         if (payload.app === app && payload.inspectorId === INSPECTOR_ID) {
           const inspectedStore =
@@ -230,6 +233,9 @@ export function registerPiniaDevtools(app: DevtoolsApp, pinia: Pinia) {
           }
 
           if (inspectedStore) {
+            // Expose selected store as $store to window
+            if (payload.nodeId !== PINIA_ROOT_ID)
+              globalThis.$store = toRaw(inspectedStore as StoreGeneric)
             payload.state = formatStoreForInspectorState(inspectedStore)
           }
         }
@@ -566,21 +572,24 @@ export function devtoolsPlugin<
   // detect option api vs setup api
   store._isOptionsAPI = !!options.state
 
-  patchActionForGrouping(
-    store as StoreGeneric,
-    Object.keys(options.actions),
-    store._isOptionsAPI
-  )
-
-  // Upgrade the HMR to also update the new actions
-  const originalHotUpdate = store._hotUpdate
-  toRaw(store)._hotUpdate = function (newStore) {
-    originalHotUpdate.apply(this, arguments as any)
+  // Do not overwrite actions mocked by @pinia/testing (#2298)
+  if (!store._p._testing) {
     patchActionForGrouping(
       store as StoreGeneric,
-      Object.keys(newStore._hmrPayload.actions),
-      !!store._isOptionsAPI
+      Object.keys(options.actions),
+      store._isOptionsAPI
     )
+
+    // Upgrade the HMR to also update the new actions
+    const originalHotUpdate = store._hotUpdate
+    toRaw(store)._hotUpdate = function (newStore) {
+      originalHotUpdate.apply(this, arguments as any)
+      patchActionForGrouping(
+        store as StoreGeneric,
+        Object.keys(newStore._hmrPayload.actions),
+        !!store._isOptionsAPI
+      )
+    }
   }
 
   addStoreToDevtools(
@@ -588,4 +597,15 @@ export function devtoolsPlugin<
     // FIXME: is there a way to allow the assignment from Store<Id, S, G, A> to StoreGeneric?
     store as StoreGeneric
   )
+}
+
+declare global {
+  /**
+   * Exposes the `pinia` instance when Devtools are opened.
+   */
+  var $pinia: Pinia | undefined
+  /**
+   * Exposes the current store when Devtools are opened.
+   */
+  var $store: StoreGeneric | undefined
 }

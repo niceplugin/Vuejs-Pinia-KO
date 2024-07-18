@@ -1,4 +1,5 @@
 import { defineConfig, HeadConfig } from 'vitepress'
+import { koSearch } from './ko'
 
 export const META_IMAGE = 'https://pinia.vuejs.org/social.png'
 export const isProduction =
@@ -32,6 +33,7 @@ export const slugify = (str: string): string =>
 export const sharedConfig = defineConfig({
   title: 'Pinia',
   appearance: 'dark',
+  srcDir: 'ko',
 
   markdown: {
     theme: {
@@ -122,9 +124,8 @@ export const sharedConfig = defineConfig({
     ],
 
     footer: {
-      copyright:
-        'MIT Licensed | Copyright © 2019-present Eduardo San Martin Morote',
-      message: 'Translated by pinia.vuejs.kr',
+      copyright: 'Copyright © 2019-present Eduardo San Martin Morote',
+      message: 'Released under the MIT License.',
     },
 
     editLink: {
@@ -133,16 +134,15 @@ export const sharedConfig = defineConfig({
       text: '이 페이지 편집 제안하기',
     },
 
-    algolia: {
-      appId: 'PTO6MRQ22K',
-      apiKey: '0d5e8cf46df833b0dc402e94e5c22537',
-      indexName: 'pinia-vuejs',
+    search: {
+      provider: 'algolia',
+      options: { ...koSearch },
     },
 
-    carbonAds: {
-      code: 'CEBICK3I',
-      // custom: 'CEBICK3M',
-      placement: 'routervuejsorg',
-    },
+    // carbonAds: {
+    //   code: 'CEBICK3I',
+    //   // custom: 'CEBICK3M',
+    //   placement: 'routervuejsorg',
+    // },
   },
 })

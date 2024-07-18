@@ -12,7 +12,7 @@ test-dts/tsconfig.tsbuildinfo
 packages/*/LICENSE
 explorations
 docs-api
-#packages/docs/api
+packages/docs/api
 .yalc
 yalc.lock
 .idea

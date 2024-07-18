@@ -5,9 +5,9 @@
   title="Learn about SSR best practices"
 />
 
-[Nuxt.js](https://nuxtjs.com/)와 피니아를 함께 사용하는 것은 Nuxt가 SSR과 관련하여 많은 것을 처리하기 때문에 더 쉽습니다. 예를 들어 **직렬화나 XSS 공격에 신경 쓸 필요가 없습니다**. 피니아는 Nuxt Bridge 및 Nuxt 3를 지원합니다. Nuxt 2 지원은 [아래를 참조](#nuxt-2-without-bridge)합시다.
+Using Pinia with [Nuxt](https://nuxt.com/) is easier since Nuxt takes care of a lot of things when it comes to _server side rendering_. For instance, **you don't need to care about serialization nor XSS attacks**. Pinia supports Nuxt Bridge and Nuxt 3. For bare Nuxt 2 support, [see below](#nuxt-2-without-bridge).
 
-## 설치 %{#installation}%
+## Installation
 
 ```bash
 yarn add pinia @pinia/nuxt
@@ -16,22 +16,22 @@ npm install pinia @pinia/nuxt
 ```
 
 :::tip
-npm을 사용하는 경우, 종속성 트리 오류를 해결할 수 없는 ERESOLVE 가 발생할 수 있습니다. 이 경우 `package.json`에 다음을 추가합니다:
+If you're using npm, you might encounter an _ERESOLVE unable to resolve dependency tree_ error. In that case, add the following to your `package.json`:
 
 ```js
-"overrides": { 
+"overrides": {
   "vue": "latest"
 }
 ```
 
 :::
 
-모든 것을 처리할 수 있는 모듈을 제공하므로, `nuxt.config.js` 파일의 `modules`에 추가하기만 하면 됩니다:
+We supply a _module_ to handle everything for you, you only need to add it to `modules` in your `nuxt.config.js` file:
 
 ```js
 // nuxt.config.js
 export default defineNuxtConfig({
-  // ... 다른 옵션들
+  // ... other options
   modules: [
     // ...
     '@pinia/nuxt',
@@ -39,21 +39,21 @@ export default defineNuxtConfig({
 })
 ```
 
-이게 전부입니다, 평소처럼 스토어를 사용하세요!
+And that's it, use your store as usual!
 
-## 페이지에서 작업 대기 %{#awaiting-for-actions-in-pages}%
+## Awaiting for actions in pages
 
-`onServerPrefetch()`와 마찬가지로, `asyncData()` 내에서 스토어 액션을 호출할 수 있습니다. `useAsyncData()`의 작동 방식을 고려할 때, **반드시 값을 반환해야 합니다**. 이렇게 하면 Nuxt가 클라이언트 측에서 액션을 실행하지 않고 서버에서의 값을 재사용할 수 있습니다.
+As with `onServerPrefetch()`, you can call a store action within `asyncData()`. Given how `useAsyncData()` works, **make sure to return a value**. This will allow Nuxt to skip running the action on the client side and reuse the value from the server.
 
 ```vue{3-4}
 <script setup>
 const store = useStore()
-// 데이터를 추출할 수도 있지만, 이미 스토어에 존재합니다
+// we could also extract the data, but it's already present in the store
 await useAsyncData('user', () => store.fetchUser())
 </script>
 ```
 
-액션이 값을 반환하지 않는 경우, nullish하지 않은 값을 추가할 수 있습니다:
+If your action doesn't resolve a value, you can add any non nullish value:
 
 ```vue{3}
 <script setup>
@@ -64,7 +64,7 @@ await useAsyncData('user', () => store.fetchUser().then(() => true))
 
 ::: tip
 
-`setup()` 밖에서 스토어를 사용하고 싶다면, `useStore()`에 `pinia` 객체를 전달해야 합니다. 우리는 [컨텍스트](https://nuxtjs.org/docs/2.x/internals-glossary/context)에 그것을 추가했으므로 `asyncData()` 및 `fetch()`에서 그것에 접근할 수 있습니다:
+If you want to use a store outside of `setup()`, remember to pass the `pinia` object to `useStore()`. We added it to [the context](https://nuxtjs.org/docs/2.x/internals-glossary/context) so you have access to it in `asyncData()` and `fetch()`:
 
 ```js
 import { useStore } from '~/stores/myStore'
@@ -78,21 +78,21 @@ export default {
 
 :::
 
-## 오토 임포트 (import) %{#auto-imports}%
+## Auto imports
 
-기본적으로 `@pinia/nuxt`는 몇몇 자동 import를 제공합니다:
+By default `@pinia/nuxt` exposes a few auto imports:
 
-- `usePinia()`, 이것은 `getActivePinia()`와 유사하지만 Nuxt와 더 잘 동작합니다. 생활을 더 편리하게 하기 위해 자동 import를 추가할 수 있습니다:
-- 스토어를 정의하기 위한 `defineStore()`
-- 스토어에서 개별 refs를 추출할 필요가 있을 때 `storeToRefs()`
-- [핫 모듈 교체](../cookbook/hot-module-replacement.md)를 위한 `acceptHMRUpdate()`
+- `usePinia()`, which is similar to `getActivePinia()` but works better with Nuxt. You can add auto imports to make your life easier:
+- `defineStore()` to define stores
+- `storeToRefs()` when you need to extract individual refs from a store
+- `acceptHMRUpdate()` for [hot module replacement](../cookbook/hot-module-replacement.md)
 
-또한 자동으로 `stores` 폴더 내에 정의된 **모든 스토어**를 import합니다. 그러나 중첩된 스토어는 찾지 않습니다. `storesDirs` 옵션을 설정하여 이 행동을 사용자 정의 할 수 있습니다:
+It also automatically imports **all stores** defined within your `stores` folder. It doesn't lookup for nested stores though. You can customize this behavior by setting the `storesDirs` option:
 
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  // ... 다른 옵션들
+  // ... other options
   modules: ['@pinia/nuxt'],
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**'],
@@ -100,26 +100,26 @@ export default defineNuxtConfig({
 })
 ```
 
-폴더는 프로젝트의 루트에 상대적입니다. `srcDir` 옵션을 변경한다면, 경로를 그에 맞게 조정해야 합니다.
+Note the folders are relative to the root of your project. If you change the `srcDir` option, you need to adapt the paths accordingly.
 
-## Nuxt 2 without bridge %{#nuxt-2-without-bridge}%
+## Nuxt 2 without bridge
 
-피니아는 `@pinia/nuxt` v0.2.1부터 Nuxt 2를 지원합니다. `pinia`와 더불어 [`@nuxtjs/composition-api`](https://composition-api.nuxtjs.org/)도 설치해야 합니다:
+Pinia supports Nuxt 2 until `@pinia/nuxt` v0.2.1. Make sure to also install [`@nuxtjs/composition-api`](https://composition-api.nuxtjs.org/) alongside `pinia`:
 
 ```bash
 yarn add pinia @pinia/nuxt@0.2.1 @nuxtjs/composition-api
-# 또는 npm으로
+# or with npm
 npm install pinia @pinia/nuxt@0.2.1 @nuxtjs/composition-api
 ```
 
-모든 것을 처리할 수 있는 모듈을 제공하므로, `nuxt.config.js` 파일의 `buildModules`에 추가하기만 하면 됩니다:
+We supply a _module_ to handle everything for you, you only need to add it to `buildModules` in your `nuxt.config.js` file:
 
 ```js
 // nuxt.config.js
 export default {
-  // ... 다른 옵션들
+  // ... other options
   buildModules: [
-    // Nuxt 2 에서만:
+    // Nuxt 2 only:
     // https://composition-api.nuxtjs.org/getting-started/setup#quick-start
     '@nuxtjs/composition-api/module',
     '@pinia/nuxt',
@@ -127,9 +127,9 @@ export default {
 }
 ```
 
-## TypeScript
+### TypeScript
 
-TypeScript와 함께 Nuxt2(`@pinia/nuxt` < 0.3.0)를 사용하거나 `jsconfig.json`이 있는 경우, `context.pinia`에 대한 유형을 추가해야 합니다:
+If you are using Nuxt 2 (`@pinia/nuxt` < 0.3.0) with TypeScript or have a `jsconfig.json`, you should also add the types for `context.pinia`:
 
 ```json
 {
@@ -140,11 +140,11 @@ TypeScript와 함께 Nuxt2(`@pinia/nuxt` < 0.3.0)를 사용하거나 `jsconfig.j
 }
 ```
 
-이렇게 하면 자동 완성 기능이 보장됩니다 😉 .
+This will also ensure you have autocompletion 😉 .
 
-### Vuex와 함께 피니아 사용 %{#using-pinia-alongside-vuex}%
+### Using Pinia alongside Vuex
 
-**피니아와 Vuex를 함께 사용하지 않는 것이 좋지만** 둘 다 사용해야 하는 경우, 피니아가 Vuex를 비활성화하지 않도록 알려야 합니다:
+It is recommended to **avoid using both Pinia and Vuex** but if you need to use both, you need to tell pinia to not disable it:
 
 ```js
 // nuxt.config.js
@@ -153,6 +153,6 @@ export default {
     '@nuxtjs/composition-api/module',
     ['@pinia/nuxt', { disableVuex: false }],
   ],
-  // ... 다른 옵션들
+  // ... other options
 }
 ```
