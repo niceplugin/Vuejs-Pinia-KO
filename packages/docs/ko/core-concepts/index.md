@@ -78,7 +78,7 @@ Pinia가 `state`를 올바르게 인식하도록 하기 위해, Setup Store에�
 
 Setup Store는 [Option Store](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다. Store 내에서 감시자를 만들 수 있고, 자유롭게 [컴포저블](https://vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 하지만 SSR에서 컴포저블 사용시 더 복잡해질 수 있다는 점을 염두에 두어야 합니다.
 
-Setup Store는 Router나 Route처럼 전역적으로 제공된 프로퍼티가 필요할 수도 있습니다. [앱 레벨에서 제공된](https://vuejs.org/api/application.html#app-provide) 모든 프로퍼티는 컴포넌트에서처럼 `inject()`를 사용하여 Store에서 접근할 수 있습니다.
+Setup Store는 라우터나 라우트처럼 전역적으로 제공된 프로퍼티가 필요할 수도 있습니다. [앱 레벨에서 제공된](https://vuejs.org/api/application.html#app-provide) 모든 프로퍼티는 컴포넌트에서처럼 `inject()`를 사용하여 Store에서 접근할 수 있습니다.
 
 ```ts
 import { inject } from 'vue'
