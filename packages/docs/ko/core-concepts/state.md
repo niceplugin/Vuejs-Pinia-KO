@@ -253,13 +253,13 @@ cartStore.$subscribe((mutation, state) => {
 })
 ```
 
-기본적으로 *state 구독*은 컴포넌트에 추가한 경우에 바인딩됩니다 (Store가 컴포넌트의 `setup()` 내부에 있는 경우). 이는 해당 컴포넌트가 언마운트될 때 자동으로 제거됨을 의미합니다. 컴포넌트가 언마운트된 후에도 구독을 유지하려면 두 번째 인수로 `{ detached: true }`를 전달하여 *state 구독*을 현재 컴포넌트에서 *분리*하십시오:
+기본적으로 *state 구독*은 컴포넌트에 추가한 경우에 바인딩됩니다 (Store가 컴포넌트의 `setup()` 내부에 있는 경우). 이는 해당 컴포넌트가 마운트 해제될 때 자동으로 제거됨을 의미합니다. 컴포넌트가 마운트 해제된 후에도 구독을 유지하려면 두 번째 인수로 `{ detached: true }`를 전달하여 *state 구독*을 현재 컴포넌트에서 *분리*하십시오:
 
 ```vue
 <script setup>
 const someStore = useSomeStore()
 
-// 이 구독은 컴포넌트가 언마운트된 후에도 유지됩니다.
+// 이 구독은 컴포넌트가 마운트 해제된 후에도 유지됩니다.
 someStore.$subscribe(callback, { detached: true })
 </script>
 ```
