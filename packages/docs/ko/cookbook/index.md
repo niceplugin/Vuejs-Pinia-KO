@@ -1,8 +1,8 @@
 # Cookbook
 
-- [Vuex ≤4에서 마이그레이션하기](./migration-vuex.md): Vuex ≤4 프로젝트를 전환하기 위한 마이그레이션 가이드입니다.
-- [HMR](./hot-module-replacement.md): 핫 모듈 리플레이스먼트를 활성화하고 개발자 경험을 향상시키는 방법입니다.
-- [스토어 테스트 (작업 중)](./testing.md): 스토어를 유닛 테스트하고 컴포넌트 유닛 테스트에서 스토어를 모킹하는 방법입니다.
-- [스토어 조합하기](./composing-stores.md): 여러 스토어를 교차로 사용하는 방법입니다. 예를 들어, 카트 스토어에서 사용자 스토어를 사용하는 방법입니다.
-- [옵션 API](./options-api.md): `setup()` 이외의 영역에서 컴포지션 API 없이 Pinia를 사용하는 방법입니다.
-- [0.0.7에서 마이그레이션하기](./migration-0-0-7.md): 변경 내역보다 예제가 더 많은 마이그레이션 가이드입니다.
+- [Vuex ≤4에서 마이그레이션하기](./migration-vuex.md): Vuex ≤4 프로젝트를 변환하기 위한 마이그레이션 가이드입니다.
+- [HMR](./hot-module-replacement.md): 핫 모듈 교체를 활성화하고 개발자 경험을 개선하는 방법입니다.
+- [Store 테스트 (작업중)](./testing.md): Store를 단위 테스트하고 컴포넌트 단위 테스트에서 Store를 모킹하는 방법입니다.
+- [Store 구성하기](./composing-stores.md): 여러 Store를 교차 사용하는 방법입니다. 예를 들어 유저 Store를 장바구니 Store에서 사용하는 방법입니다.
+- [Options API](./options-api.md): `setup()` 외부에서 Composition API 없이 Pinia를 사용하는 방법입니다.
+- [0.0.7에서 마이그레이션하기](./migration-0-0-7.md): 변경 로그보다 더 많은 예제와 함께 제공되는 마이그레이션 가이드입니다.
