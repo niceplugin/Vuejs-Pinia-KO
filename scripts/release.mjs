@@ -20,15 +20,33 @@ let {
   tag: optionTag,
   dry: isDryRun,
   skipCleanCheck: skipCleanGitCheck,
+  noDepsUpdate,
+  noPublish,
 } = args
+
+if (args.h || args.help) {
+  console.log(
+    `
+Usage: node release.mjs [flags]
+       node release.mjs [ -h | --help ]
+
+Flags:
+  --skipBuild         Skip building packages
+  --tag               Publish under a given npm dist tag
+  --dry               Dry run
+  --skipCleanCheck    Skip checking if the git repo is clean
+  --noDepsUpdate      Skip updating dependencies in package.json files
+  --noPublish         Skip publishing packages
+`.trim()
+  )
+  process.exit(0)
+}
 
 // const preId =
 //   args.preid ||
 //   (semver.prerelease(currentVersion) && semver.prerelease(currentVersion)[0])
 const EXPECTED_BRANCH = 'v2'
 
-const incrementVersion = (increment) =>
-  semver.inc(currentVersion, increment, preId)
 const bin = (name) => resolve(__dirname, '../node_modules/.bin/' + name)
 /**
  * @param bin {string}
@@ -136,6 +154,11 @@ async function main() {
         message: `Select release type for ${chalk.bold.white(name)}`,
         choices: versionIncrements
           .map((i) => `${i}: ${name} (${semver.inc(version, i, preId)})`)
+          .concat(
+            optionTag === 'beta'
+              ? [`beta: ${name} (${semver.inc(version, 'prerelease', 'beta')})`]
+              : []
+          )
           .concat(['custom']),
       })
 
@@ -235,18 +258,27 @@ async function main() {
   step('\nCreating tags...')
   let versionsToPush = []
   for (const pkg of pkgWithVersions) {
-    versionsToPush.push(`refs/tags/${pkg.name}@${pkg.version}`)
-    await runIfNotDry('git', ['tag', `${pkg.name}@${pkg.version}`])
+    const tagName =
+      pkg.name === 'vue-router'
+        ? `v${pkg.version}`
+        : `${pkg.name}@${pkg.version}`
+
+    versionsToPush.push(`refs/tags/${tagName}`)
+    await runIfNotDry('git', ['tag', `${tagName}`])
   }
 
-  step('\nPublishing packages...')
-  for (const pkg of pkgWithVersions) {
-    await publishPackage(pkg)
-  }
+  if (!noPublish) {
+    step('\nPublishing packages...')
+    for (const pkg of pkgWithVersions) {
+      await publishPackage(pkg)
+    }
 
-  step('\nPushing to Github...')
-  await runIfNotDry('git', ['push', 'origin', ...versionsToPush])
-  await runIfNotDry('git', ['push'])
+    step('\nPushing to Github...')
+    await runIfNotDry('git', ['push', 'origin', ...versionsToPush])
+    await runIfNotDry('git', ['push'])
+  } else {
+    console.log(chalk.bold.white(`Skipping publishing...`))
+  }
 }
 
 /**
@@ -257,11 +289,14 @@ async function updateVersions(packageList) {
   return Promise.all(
     packageList.map(({ pkg, version, path, name }) => {
       pkg.version = version
-      updateDeps(pkg, 'dependencies', packageList)
-      updateDeps(pkg, 'peerDependencies', packageList)
+      if (!noDepsUpdate) {
+        updateDeps(pkg, 'dependencies', packageList)
+        updateDeps(pkg, 'peerDependencies', packageList)
+      }
       const content = JSON.stringify(pkg, null, 2) + '\n'
       return isDryRun
         ? dryRun('write', [name], {
+            version: pkg.version,
             dependencies: pkg.dependencies,
             peerDependencies: pkg.peerDependencies,
           })
@@ -302,7 +337,7 @@ async function publishPackage(pkg) {
         'public',
         // specific to pinia
         '--publish-branch',
-        'v2',
+        EXPECTED_BRANCH,
       ],
       {
         cwd: pkg.path,
@@ -344,9 +379,13 @@ async function getChangedPackages() {
     )
     lastTag = stdout
   }
-  const folders = await globby(join(__dirname, '../packages/*'), {
-    onlyFiles: false,
-  })
+  // globby expects `/` even on windows
+  const folders = await globby(
+    join(__dirname, '../packages/*').replace(/\\/g, '/'),
+    {
+      onlyFiles: false,
+    }
+  )
 
   const pkgs = await Promise.all(
     folders.map(async (folder) => {

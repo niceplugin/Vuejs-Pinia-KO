@@ -1,6 +1,4 @@
----
-title: 상태
----
+# State
 
 <!-- <VueSchoolLink
   href="https://vueschool.io/lessons/access-state-from-a-pinia-store"
@@ -12,25 +10,16 @@ title: 상태
   title="Learn all about state in Pinia"
 />
 
-# State (상태) %{#state}%
-
-<VueSchoolLink
-href="https://vueschool.io/lessons/access-state-from-a-pinia-store"
-title="Learn all about state in Pinia"
-/>
-
-상태는 대부분은, 스토어를 중심으로 이루어지며, 일반적으로 앱을 나타내는 상태를 정의하는 것으로 시작합니다.
-피니아에서 상태는 초기 상태를 반환하는 함수로 정의됩니다.
-이를 통해 피니아는 서버 측과 클라이언트 측 모두에서 작동할 수 있습니다.
+The state is, most of the time, the central part of your store. People often start by defining the state that represents their app. In Pinia the state is defined as a function that returns the initial state. This allows Pinia to work in both Server and Client Side.
 
 ```js
 import { defineStore } from 'pinia'
 
 export const useStore = defineStore('storeId', {
-  // 화살표 함수는 전체 유형 유추을 위해 권장됨. 
+  // arrow function recommended for full type inference
   state: () => {
     return {
-      // 이 모든 속성은 자동으로 유형이 유추됨.
+      // all these properties will have their type inferred automatically
       count: 0,
       name: 'Eduardo',
       isAdmin: true,
@@ -42,27 +31,20 @@ export const useStore = defineStore('storeId', {
 ```
 
 :::tip
-Vue 2를 사용하는 경우,
-`state`에서 생성한 데이터는 Vue 인스턴스의 `data`와 동일한 규칙을 따릅니다.
-즉, 상태 객체는 일반 객체여야 하며,
-새 속성을 추가할 때 `Vue.set()`을 호출해야 합니다.
-
-참조: [Vue#data](https://v2.vuejs.org/v2/api/#data).
+If you are using Vue 2, the data you create in `state` follows the same rules as the `data` in a Vue instance, i.e. the state object must be plain and you need to call `Vue.set()` when **adding new** properties to it. **See also: [Vue#data](https://v2.vuejs.org/v2/api/#data)**.
 :::
 
 ## TypeScript
 
-TS와 호환되는 상태를 만들기 위해 많은 작업을 수행할 필요가 없습니다:
-[`strict`](https://www.typescriptlang.org/tsconfig#strict) 또는 최소한 [`noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis)가 활성화되어 있는지 확인하고 피니아가 자동으로 상태 유형을 추론합니다!
-그러나 몇몇 경우에는 캐스팅으로 보조해야 합니다:
+You don't need to do much in order to make your state compatible with TS: make sure [`strict`](https://www.typescriptlang.org/tsconfig#strict), or at the very least, [`noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis), is enabled and Pinia will infer the type of your state automatically! However, there are a few cases where you should give it a hand with some casting:
 
 ```ts
 export const useUserStore = defineStore('user', {
   state: () => {
     return {
-      // 처음에 비어 있는 목록의 경우.
+      // for initially empty lists
       userList: [] as UserInfo[],
-      // 아직 로드되지 않은 데이터의 경우.
+      // for data that is not yet loaded
       user: null as UserInfo | null,
     }
   },
@@ -74,9 +56,7 @@ interface UserInfo {
 }
 ```
 
-원하는 경우,
-인터페이스로 상태를 정의하고,
-`state()`로 반환 값 유형을 정의할 수 있습니다:
+If you prefer, you can define the state with an interface and type the return value of `state()`:
 
 ```ts
 interface State {
@@ -99,9 +79,9 @@ interface UserInfo {
 }
 ```
 
-## `state`에 접근 %{#accessing-the-state}%
+## Accessing the `state`
 
-기본적으로 `store` 인스턴스로 상태에 접근하여 상태를 직접 읽고 쓸 수 있습니다:
+By default, you can directly read and write to the state by accessing it through the `store` instance:
 
 ```js
 const store = useStore()
@@ -109,12 +89,11 @@ const store = useStore()
 store.count++
 ```
 
-만약 `state()`에 상태를 정의해 두지 않았다면, 새 상태 속성을 추가할 수 없습니다.
-예를들어, `state()`에 `secondCount`가 정의되어 있지 않으면, `state.secondCount = 2`를 수행할 수 없습니다.
+Note you cannot add a new state property **if you don't define it in `state()`**. It must contain the initial state. e.g.: we can't do `store.secondCount = 2` if `secondCount` is not defined in `state()`.
 
-## 상태 재설정 %{#resetting-the-state}%
+## Resetting the state
 
-[Option Stores](/core-concepts/index.md#option-stores)에서 스토어에서 `$reset()` 메서드를 호출하여 상태를 초기 값으로 _재설정_할 수 있습니다.
+In [Option Stores](/core-concepts/index.md#option-stores), you can _reset_ the state to its initial value by calling the `$reset()` method on the store:
 
 ```js
 const store = useStore()
@@ -122,9 +101,9 @@ const store = useStore()
 store.$reset()
 ```
 
-내부적으로 이것은 `state()` 함수를 호출하여 새로운 상태 객체를 생성하고 현재 상태를 그것으로 대체합니다.
+Internally, this calls the `state()` function to create a new state object and replaces the current state with it.
 
-[Setup Stores](/core-concepts/index.md#setup-stores)에서 자신만의 `$reset()` 메서드를 만들어야 합니다.
+In [Setup Stores](/core-concepts/index.md#setup-stores), you need to create your own `$reset()` method:
 
 ```ts
 export const useCounterStore = defineStore('counter', () => {
@@ -138,17 +117,17 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-### 옵션 API와 함께 사용 %{#usage-with-the-options-api}%
+### Usage with the Options API
 
 <VueSchoolLink
-href="https://vueschool.io/lessons/access-pinia-state-in-the-options-api"
-title="Access Pinia State via the Options API"
+  href="https://vueschool.io/lessons/access-pinia-state-in-the-options-api"
+  title="Access Pinia State via the Options API"
 />
 
-다음 예제는 아래와 같은 스토어가 생성되었다고 가정합니다:
+For the following examples, you can assume the following store was created:
 
 ```js
-// 예제 파일 경로:
+// Example File Path:
 // ./src/stores/counter.js
 
 import { defineStore } from 'pinia'
@@ -160,8 +139,7 @@ export const useCounterStore = defineStore('counter', {
 })
 ```
 
-컴포지션 API를 사용하지 않고 `computed`, `methods`, ...를 사용하는 경우,
-`mapState()` 헬퍼를 사용하여 상태 속성을 읽기 전용 계산된 속성으로 매핑할 수 있습니다:
+If you are not using the Composition API, and you are using `computed`, `methods`, ..., you can use the `mapState()` helper to map state properties as readonly computed properties:
 
 ```js
 import { mapState } from 'pinia'
@@ -169,15 +147,15 @@ import { useCounterStore } from '../stores/counter'
 
 export default {
   computed: {
-    // 컴포넌트 내부에서 `this.count`로 접근할 수 있게 함.
-    // `store.count`로 읽는 것과 동일.
-    ...mapState(useCounterStore, ['counter']),
-    // 위와 같지만 `this.myOwnName`으로 등록.
+    // gives access to this.count inside the component
+    // same as reading from store.count
+    ...mapState(useCounterStore, ['count'])
+    // same as above but registers it as this.myOwnName
     ...mapState(useCounterStore, {
       myOwnName: 'count',
-      // 스토어에 접근하는 함수를 작성할 수도 있음
+      // you can also write a function that gets access to the store
       double: store => store.count * 2,
-      // `this`에 접근할 수 있지만, 올바르게 입력되지 않음...
+      // it can have access to `this` but it won't be typed correctly...
       magicValue(store) {
         return store.someGetter + this.count + this.double
       },
@@ -186,11 +164,9 @@ export default {
 }
 ```
 
-#### 수정 가능한 상태 %{#modifiable-state}%
+#### Modifiable state
 
-이러한 상태 속성을 쓸 수 있도록 하려면(예: form이 있는 경우),
-`mapWritableState()`를 사용해야 합니다.
-`mapState()`처럼 함수를 전달할 수 없습니다:
+If you want to be able to write to these state properties (e.g. if you have a form), you can use `mapWritableState()` instead. Note you cannot pass a function like with `mapState()`:
 
 ```js
 import { mapWritableState } from 'pinia'
@@ -198,11 +174,11 @@ import { useCounterStore } from '../stores/counter'
 
 export default {
   computed: {
-    // 컴포넌트 내부에서 `this.count`로 접근할 수 있게 하고,
-    // `this.count++`와 같이 수정도 허용함.
-    // `store.count`에서 읽는 것과 동일.
+    // gives access to this.count inside the component and allows setting it
+    // this.count++
+    // same as reading from store.count
     ...mapWritableState(useCounterStore, ['count']),
-    // 위와 같지만 `this.myOwnName`으로 등록.
+    // same as above but registers it as this.myOwnName
     ...mapWritableState(useCounterStore, {
       myOwnName: 'count',
     }),
@@ -211,18 +187,14 @@ export default {
 ```
 
 :::tip
-배열 전체를 `cartItems = []`처럼 바꾸지 않는 한,
-배열 컬렉션은 `mapWritableState()`가 필요하지 않습니다.
-`mapState()`를 사용하면 컬렉션에서 메서드를 호출할 수 있습니다.
+You don't need `mapWritableState()` for collections like arrays unless you are replacing the whole array with `cartItems = []`, `mapState()` still allows you to call methods on your collections.
 :::
 
-## 상태 변경하기 %{#mutating-the-state}%
+## Mutating the state
 
 <!-- TODO: disable this with `strictMode` -->
 
-`store.count++`로 스토어를 직접 변경하는 방법 외에도,
-`$patch` 메소드를 호출할 수도 있습니다.
-이것을 사용하여 `state` 객체의 일부분을 동시에 변경할 수 있습니다:
+Apart from directly mutating the store with `store.count++`, you can also call the `$patch` method. It allows you to apply multiple changes at the same time with a partial `state` object:
 
 ```js
 store.$patch({
@@ -232,10 +204,7 @@ store.$patch({
 })
 ```
 
-그러나 일부 `mutations`은 이러한 문법으로 적용하기가 정말 어렵거나 비용이 많이 듭니다.
-컬렉션을 수정(예: 배열에서 요소를 푸시, 제거, 스플라이스)하려면,
-새 컬렉션을 만들어야 합니다.
-이 때문에 `$patch` 메소드는 패치 객체로 적용하기 어려운 이러한 종류의 `mutations`를 그룹화하는 함수도 허용합니다:
+However, some mutations are really hard or costly to apply with this syntax: any collection modification (e.g. pushing, removing, splicing an element from an array) requires you to create a new collection. Because of this, the `$patch` method also accepts a function to group these kinds of mutations that are difficult to apply with a patch object:
 
 ```js
 store.$patch((state) => {
@@ -246,71 +215,62 @@ store.$patch((state) => {
 
 <!-- TODO: disable this with `strictMode`, `{ noDirectPatch: true }` -->
 
-여기서 주요 차이점은 `$patch()`를 사용하여 devtools에서 여러 변경 사항을 하나의 항목으로 그룹화할 수 있다는 것입니다.
-**`state`와 `$patch()`에 대한 직접적인 변경 사항은 모두 devtools에 나타나며**, 시간 추적이 가능합니다(아직 Vue 3에는 없음).
+The main difference here is that `$patch()` allows you to group multiple changes into one single entry in the devtools. Note that **both direct changes to `state` and `$patch()` appear in the devtools** and can be time traveled (not yet in Vue 3).
 
-## `state` 교체하기 %{#replacing-the-state}%
+## Replacing the `state`
 
-반응성을 깨뜨릴 수 있으므로 스토어의 상태를 **정확히 교체할 수 없습니다**.
-그러나 패치할 수 있습니다:
+You **cannot exactly replace** the state of a store as that would break reactivity. You can however _patch it_:
 
 ```js
-// 이것은 실제로 `$state`를 교체하지 않음.
+// this doesn't actually replace `$state`
 store.$state = { count: 24 }
-// 아래와 같이 내부적으로 `$patch()`를 호출함:
+// it internally calls `$patch()`:
 store.$patch({ count: 24 })
 ```
 
-피니아 인스턴스의 `state`를 변경하여,
-전체적으로 앱의 초기 상태를 설정할 수도 있습니다.
-[하이드레이션을 위한 SSR](/ssr/#state-hydration) 동안 사용합니다.
+You can also **set the initial state** of your whole application by changing the `state` of the `pinia` instance. This is used during [SSR for hydration](../ssr/#state-hydration).
 
 ```js
 pinia.state.value = {}
 ```
 
-## 상태 구독하기 %{#subscribing-to-the-state}%
+## Subscribing to the state
 
-Vuex의 [subscribe 메소드](https://vuex.vuejs.org/api/#subscribe)와 마찬가지로,
-스토어의 `$subscribe()` 메소드를 통해 상태의 변경 사항을 감시할 수 있습니다.
-일반 `watch()`보다 `$subscribe()` 사용시 장점은 구독이 여러 패치(예: 위에서 언급한 것처럼, `$patch`에 함수를 전달하고, 함수 내부에서 여러번의 패치가 실행됨) 이후에 한 번만 트리거된다는 것입니다.
+You can watch the state and its changes through the `$subscribe()` method of a store, similar to Vuex's [subscribe method](https://vuex.vuejs.org/api/#subscribe). The advantage of using `$subscribe()` over a regular `watch()` is that _subscriptions_ will trigger only once after _patches_ (e.g. when using the function version from above).
 
 ```js
 cartStore.$subscribe((mutation, state) => {
   // import { MutationType } from 'pinia'
   mutation.type // 'direct' | 'patch object' | 'patch function'
-  // `cartStore.$id`와 동일.
+  // same as cartStore.$id
   mutation.storeId // 'cart'
-  // `mutation.type === 'patch object'`에서만 사용 가능.
-  mutation.payload // cartStore.$patch()에 전달된 패치 객체
+  // only available with mutation.type === 'patch object'
+  mutation.payload // patch object passed to cartStore.$patch()
 
-  // 변경될 때마다 전체 상태를 로컬 스토리지에 유지
+  // persist the whole state to the local storage whenever it changes
   localStorage.setItem('cart', JSON.stringify(state))
 })
 ```
 
-기본적으로 상태 구독은 컴포넌트에 추가된(스토어가 컴포넌트의 `setup()` 내부에 있는) 경우에 바인딩됩니다.
-따라서 컴포넌트가 마운트 해제되면 자동으로 제거됩니다.
-컴포넌트가 마운트 해제된 후에도 이를 유지하려면,
-두 번째 인수로 현재 컴포넌트에서 상태 구독을 분리하는 `{ detached: true }`를 전달합니다:
+By default, _state subscriptions_ are bound to the component where they are added (if the store is inside a component's `setup()`). Meaning, they will be automatically removed when the component is unmounted. If you also want to keep them after the component is unmounted, pass `{ detached: true }` as the second argument to _detach_ the _state subscription_ from the current component:
 
 ```vue
 <script setup>
 const someStore = useSomeStore()
 
-// 이 구독은 컴포넌트가 마운트 해제된 후에도 유지됨.
+// this subscription will be kept even after the component is unmounted
 someStore.$subscribe(callback, { detached: true })
 </script>
 ```
 
 :::tip
-하나의 `watch()`를 사용하여 `pinia` 인스턴스의 전체 상태를 _감시_할 수 있습니다.
+You can _watch_ the whole state on the `pinia` instance with a single `watch()`:
 
 ```js
 watch(
   pinia.state,
   (state) => {
-    // 변경될 때마다 전체 상태를 로컬 스토리지에 유지
+    // persist the whole state to the local storage whenever it changes
     localStorage.setItem('piniaState', JSON.stringify(state))
   },
   { deep: true }
