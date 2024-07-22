@@ -61,13 +61,16 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     sidebar: {
       '/api/': [
         {
-          text: 'packages',
+          text: 'packages <span class="VPBadge danger non-translate-badge">영문</span>',
           items: [
-            { text: 'pinia', link: '/api/modules/pinia.html' },
-            { text: '@pinia/nuxt', link: '/api/modules/pinia_nuxt.html' },
+            { text: 'pinia', link: '/api/pinia/' },
+            {
+              text: '@pinia/nuxt',
+              link: '/api/@pinia/nuxt/',
+            },
             {
               text: '@pinia/testing',
-              link: '/api/modules/pinia_testing.html',
+              link: '/api/@pinia/testing/',
             },
           ],
         },
@@ -77,7 +80,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           text: '소개',
           items: [
             {
-              text: 'Pinia 란？',
+              text: 'Pinia가 뭔가요?',
               link: '/introduction.html',
             },
             {
@@ -122,7 +125,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/',
             },
             {
-              text: 'Vuex ≤4 → 마이그레이션',
+              text: 'Vuex ≤4 → 마이그레이션 <span class="VPBadge danger non-translate-badge">영문</span>',
               link: '/cookbook/migration-vuex.html',
             },
             {
@@ -130,7 +133,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/hot-module-replacement.html',
             },
             {
-              text: '테스팅',
+              text: '테스팅 <span class="VPBadge danger non-translate-badge">영문</span>',
               link: '/cookbook/testing.html',
             },
             {
@@ -142,11 +145,11 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/composing-stores.html',
             },
             {
-              text: 'VSCode 스니펫',
+              text: 'VSCode 스니펫 <span class="VPBadge danger non-translate-badge">영문</span>',
               link: '/cookbook/vscode-snippets.html',
             },
             {
-              text: 'v0/v1 → v2 마이그레이션',
+              text: 'v0/v1 → v2 마이그레이션 <span class="VPBadge danger non-translate-badge">영문</span>',
               link: '/cookbook/migration-v1-v2.html',
             },
             {

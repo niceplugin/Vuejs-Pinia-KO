@@ -1,8 +1,10 @@
-# VS Code 스니펫 %{#vs-code-snippets}%
+<NonTranslateDocumentNotice/>
 
-이것은 제가 VS Code에서 사용하는 몇 가지 스니펫입니다.
+# VS Code Snippets
 
-<kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd> / <kbd>⇧</kbd> <kbd>⌃</kbd> <kbd>P</kbd>를 눌러 `Snippets: Configure User Snippets`로 사용자 스니펫을 관리할 수 있습니다.
+These are some snippets that I use in VS Code to make my life easier.
+
+Manage user snippets with <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd> / <kbd>⇧</kbd> <kbd>⌃</kbd> <kbd>P</kbd> and then `Snippets: Configure User Snippets`.
 
 ```json
 {

@@ -8,11 +8,13 @@ import TranslationStatus from 'vitepress-translation-helper/ui/TranslationStatus
 import PiniaLogo from './components/PiniaLogo.vue'
 import './styles/vars.css'
 import './styles/playground-links.css'
+import './styles/non-translate-badge.css'
 import VueSchoolLink from './components/VueSchoolLink.vue'
 import VueMasteryLogoLink from './components/VueMasteryLogoLink.vue'
 import MasteringPiniaLink from './components/MasteringPiniaLink.vue'
 // import VuejsdeConfBanner from './components/VuejsdeConfBanner.vue'
 import status from '../translation-status.json'
+import NonTranslateDocumentNotice from './components/NonTranslateDocumentNotice.vue'
 
 const i18nLabels = {
   zh: '该翻译已同步到了 ${date} 的版本，其对应的 commit hash 是 <code>${hash}</code>。',
@@ -34,6 +36,7 @@ const theme: Theme = {
     app.component('VueSchoolLink', VueSchoolLink)
     app.component('VueMasteryLogoLink', VueMasteryLogoLink)
     app.component('MasteringPiniaLink', MasteringPiniaLink)
+    app.component('NonTranslateDocumentNotice', NonTranslateDocumentNotice)
   },
 }
 

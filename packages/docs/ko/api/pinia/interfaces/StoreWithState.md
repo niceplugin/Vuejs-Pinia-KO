@@ -2,54 +2,55 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / \_StoreWithState
+[**API Documentation**](../../index.md) • **Docs**
+
+***
+
+[API Documentation](../../index.md) / [pinia](../index.md) / \_StoreWithState
 
 # Interface: \_StoreWithState\<Id, S, G, A\>
 
-[pinia](../modules/pinia.md)._StoreWithState
-
 Base store with state and functions. Should not be used directly.
 
-## Type parameters
+## Extends
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#StateTree) |
-| `G` | `G` |
-| `A` | `A` |
+- [`StoreProperties`](StoreProperties.md)\<`Id`\>
 
-## Hierarchy
+## Type Parameters
 
-- [`StoreProperties`](pinia.StoreProperties.md)\<`Id`\>
+• **Id** *extends* `string`
 
-  ↳ **`_StoreWithState`**
+• **S** *extends* [`StateTree`](../type-aliases/StateTree.md)
+
+• **G**
+
+• **A**
 
 ## Properties
 
 ### $id
 
-• **$id**: `Id`
+> **$id**: `Id`
 
 Unique identifier of the store
 
 #### Inherited from
 
-[StoreProperties](pinia.StoreProperties.md).[$id](pinia.StoreProperties.md#$id)
+[`StoreProperties`](StoreProperties.md).[`$id`](StoreProperties.md#$id)
 
-___
+***
 
 ### $state
 
-• **$state**: `UnwrapRef`\<`S`\> & [`PiniaCustomStateProperties`](pinia.PiniaCustomStateProperties.md)\<`S`\>
+> **$state**: `UnwrapRef`\<`S`\> & [`PiniaCustomStateProperties`](PiniaCustomStateProperties.md)\<`S`\>
 
 State of the Store. Setting it will internally call `$patch()` to update the state.
 
-___
+***
 
 ### \_customProperties
 
-• **\_customProperties**: `Set`\<`string`\>
+> **\_customProperties**: `Set`\<`string`\>
 
 Used by devtools plugin to retrieve properties added with plugins. Removed
 in production. Can be used by the user to add property keys of the store
@@ -57,13 +58,13 @@ that should be displayed in devtools.
 
 #### Inherited from
 
-[StoreProperties](pinia.StoreProperties.md).[_customProperties](pinia.StoreProperties.md#_customProperties)
+[`StoreProperties`](StoreProperties.md).[`_customProperties`](StoreProperties.md#_customProperties)
 
 ## Methods
 
-### $dispose
+### $dispose()
 
-▸ **$dispose**(): `void`
+> **$dispose**(): `void`
 
 Stops the associated effect scope of the store and remove it from the store
 registry. Plugins can override this method to cleanup any added effects.
@@ -76,11 +77,11 @@ store is used again, it will reuse the previous state.
 
 `void`
 
-___
+***
 
-### $onAction
+### $onAction()
 
-▸ **$onAction**(`callback`, `detached?`): () => `void`
+> **$onAction**(`callback`, `detached`?): () => `void`
 
 Setups a callback to be called every time an action is about to get
 invoked. The callback receives an object with all the relevant information
@@ -98,24 +99,25 @@ up when the component gets unmounted unless `detached` is set to true.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | [`StoreOnActionListener`](../modules/pinia.md#StoreOnActionListener)\<`Id`, `S`, `G`, `A`\> | callback called before every action |
-| `detached?` | `boolean` | detach the subscription from the context this is called from |
+• **callback**: [`StoreOnActionListener`](../type-aliases/StoreOnActionListener.md)\<`Id`, `S`, `G`, `A`\>
+
+callback called before every action
+
+• **detached?**: `boolean`
+
+detach the subscription from the context this is called from
 
 #### Returns
 
-`fn`
+`Function`
 
 function that removes the watcher
-
-▸ (): `void`
 
 ##### Returns
 
 `void`
 
-**`Example`**
+#### Example
 
 ```js
 store.$onAction(({ after, onError }) => {
@@ -132,51 +134,53 @@ store.$onAction(({ after, onError }) => {
 })
 ```
 
-___
+***
 
-### $patch
+### $patch()
 
-▸ **$patch**(`partialState`): `void`
+#### $patch(partialState)
+
+> **$patch**(`partialState`): `void`
 
 Applies a state patch to current state. Allows passing nested values
 
-#### Parameters
+##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `partialState` | [`_DeepPartial`](../modules/pinia.md#_DeepPartial)\<`UnwrapRef`\<`S`\>\> | patch to apply to the state |
+• **partialState**: [`_DeepPartial`](../type-aliases/DeepPartial.md)\<`UnwrapRef`\<`S`\>\>
 
-#### Returns
+patch to apply to the state
+
+##### Returns
 
 `void`
 
-▸ **$patch**\<`F`\>(`stateMutator`): `void`
+#### $patch(stateMutator)
+
+> **$patch**\<`F`\>(`stateMutator`): `void`
 
 Group multiple changes into one function. Useful when mutating objects like
 Sets or arrays and applying an object patch isn't practical, e.g. appending
 to an array. The function passed to `$patch()` **must be synchronous**.
 
-#### Type parameters
+##### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `F` | extends (`state`: `UnwrapRef`\<`S`\>) => `any` |
+• **F** *extends* (`state`) => `any`
 
-#### Parameters
+##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `stateMutator` | `ReturnType`\<`F`\> extends `Promise`\<`any`\> ? `never` : `F` | function that mutates `state`, cannot be asynchronous |
+• **stateMutator**: `ReturnType`\<`F`\> *extends* `Promise`\<`any`\> ? `never` : `F`
 
-#### Returns
+function that mutates `state`, cannot be asynchronous
+
+##### Returns
 
 `void`
 
-___
+***
 
-### $reset
+### $reset()
 
-▸ **$reset**(): `void`
+> **$reset**(): `void`
 
 Resets the store to its initial state by building a new state object.
 
@@ -184,11 +188,11 @@ Resets the store to its initial state by building a new state object.
 
 `void`
 
-___
+***
 
-### $subscribe
+### $subscribe()
 
-▸ **$subscribe**(`callback`, `options?`): () => `void`
+> **$subscribe**(`callback`, `options`?): () => `void`
 
 Setups a callback to be called whenever the state changes. It also returns a function to remove the callback. Note
 that when calling `store.$subscribe()` inside of a component, it will be automatically cleaned up when the
@@ -196,18 +200,20 @@ component gets unmounted unless `detached` is set to true.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | [`SubscriptionCallback`](../modules/pinia.md#SubscriptionCallback)\<`S`\> | callback passed to the watcher |
-| `options?` | \{ `detached?`: `boolean`  } & `WatchOptions`\<`boolean`\> | `watch` options + `detached` to detach the subscription from the context (usually a component) this is called from. Note that the `flush` option does not affect calls to `store.$patch()`. |
+• **callback**: [`SubscriptionCallback`](../type-aliases/SubscriptionCallback.md)\<`S`\>
+
+callback passed to the watcher
+
+• **options?**: `object` & `WatchOptions`\<`boolean`\>
+
+`watch` options + `detached` to detach the subscription from the context (usually a component)
+this is called from. Note that the `flush` option does not affect calls to `store.$patch()`.
 
 #### Returns
 
-`fn`
+`Function`
 
 function that removes the watcher
-
-▸ (): `void`
 
 ##### Returns
 

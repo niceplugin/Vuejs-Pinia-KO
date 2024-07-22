@@ -158,7 +158,7 @@ export const useTodos = defineStore('todos', {
     todos: [],
     /** @type {'all' | 'finished' | 'unfinished'} */
     filter: 'all',
-    // 타입은 자동으로 숫자로 추론합니다.
+    // 타입은 자동으로 숫자로 유추됨
     nextId: 0,
   }),
   getters: {
