@@ -15,6 +15,7 @@
     "docs:translation:update": "pnpm run --filter ./packages/docs -r docs:translation:update",
     "docs:translation:status": "pnpm run --filter ./packages/docs -r docs:translation:status",
     "docs:build": "pnpm run docs:api && pnpm run --filter ./packages/docs -r docs:build",
+    "docs:build:ko": "pnpm run --filter ./packages/docs -r docs:build",
     "docs:preview": "pnpm run --filter ./packages/docs -r docs:preview",
     "play": "pnpm run -r play",
     "build:dts": "pnpm run -r --parallel build:dts",

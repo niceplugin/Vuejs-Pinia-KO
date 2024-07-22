@@ -1,18 +1,22 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const { page } = useData()
 
 const props = defineProps<{
-  fileName: string
+  fileName?: string
 }>()
 
-const name = window.location.pathname
-  .split('/')
-  .filter(segment => segment !== '')
-  .pop()
-  .replace(/\.html$/g, '')
+const name = computed<string>(() => {
+  return page.value.filePath
+    .split('/')
+    .filter(segment => segment !== '')
+    .pop() || ''
+})
 
-const fileName = computed(() => {
-  return props.fileName || name + '.md'
+const fileName = computed<string>(() => {
+  return props.fileName || name.value
 })
 </script>
 

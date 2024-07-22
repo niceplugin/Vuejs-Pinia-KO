@@ -1,6 +1,6 @@
 # 컴포넌트 외부에서 Store 사용 %{#using-a-store-outside-of-a-component}%
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://play.gumlet.io/embed/651ed1ec4c2f339c6860fd06"
   mp-link="https://masteringpinia.com/lessons/how-does-usestore-work"
   title="Using stores outside of components"

@@ -5,7 +5,7 @@
   title="Learn how to define and use stores in Pinia"
 /> -->
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af"
   mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia"
   title="Get started with Pinia"

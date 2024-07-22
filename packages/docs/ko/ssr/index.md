@@ -1,6 +1,6 @@
 # 서버 사이드 렌더링 (SSR) %{#server-side-rendering-ssr}%
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://masteringpinia.com/lessons/ssr-friendly-state"
   title="Learn about SSR best practices"
 />

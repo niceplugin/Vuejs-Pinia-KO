@@ -4,7 +4,7 @@
 
 ## Option Stores %{#option-stores}%
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://masteringpinia.com/lessons/using-composables-in-option-stores"
   title="Using Composables in Option Stores"
 />
@@ -32,7 +32,7 @@ Option Store에서 사용할 수 없는 컴포저블의 몇 가지 예는 다음
 
 ## Setup Stores %{#setup-stores}%
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://masteringpinia.com/lessons/using-composables-in-setup-stores"
   title="Using Composables in Setup Stores"
 />

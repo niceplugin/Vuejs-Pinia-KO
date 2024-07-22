@@ -1,6 +1,6 @@
 # Nuxt.js
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://masteringpinia.com/lessons/ssr-friendly-state"
   title="Learn about SSR best practices"
 />

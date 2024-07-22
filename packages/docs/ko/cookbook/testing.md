@@ -2,7 +2,7 @@
 
 # Testing stores
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
 href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc"
 title="Watch a free video of Mastering Pinia about testing stores"
 />
@@ -68,7 +68,7 @@ beforeEach(() => {
 ## Unit testing components
 
 <!-- NOTE: too long maybe but good value -->
-<!-- <MasteringPiniaLink
+<!-- <MasteringPiniaLink v-if="false"
   href="https://play.gumlet.io/embed/6630f540c418f8419b73b2b2?t1=1715867840&t2=1715867570609?preload=false&autoplay=false&loop=false&disable_player_controls=false"
   title="Watch a free video of Mastering Pinia about testing stores"
 /> -->

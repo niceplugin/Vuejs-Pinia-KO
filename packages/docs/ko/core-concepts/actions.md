@@ -5,7 +5,7 @@
   title="Learn all about actions in Pinia"
 /> -->
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions"
   title="Learn all about actions in Pinia"
 />

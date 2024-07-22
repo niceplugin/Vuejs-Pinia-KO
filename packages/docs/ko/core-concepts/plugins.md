@@ -1,6 +1,6 @@
 # Plugins (플러그인) %{#plugins}%
 
-<MasteringPiniaLink
+<MasteringPiniaLink v-if="false"
   href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin"
   title="Learn all about Pinia plugins"
 />
