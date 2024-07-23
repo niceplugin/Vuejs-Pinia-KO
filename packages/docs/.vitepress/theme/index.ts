@@ -8,7 +8,7 @@ import TranslationStatus from 'vitepress-translation-helper/ui/TranslationStatus
 import PiniaLogo from './components/PiniaLogo.vue'
 import './styles/vars.css'
 import './styles/playground-links.css'
-import './styles/non-translate-badge.css'
+import './styles/non-translate.css'
 import VueSchoolLink from './components/VueSchoolLink.vue'
 import VueMasteryLogoLink from './components/VueMasteryLogoLink.vue'
 import MasteringPiniaLink from './components/MasteringPiniaLink.vue'
