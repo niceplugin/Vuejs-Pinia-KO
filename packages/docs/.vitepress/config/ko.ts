@@ -165,7 +165,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
 
 export const koSearch: DefaultTheme.AlgoliaSearchOptions = {
   appId: 'PTO6MRQ22K',
-  apiKey: '0d5e8cf46df833b0dc402e94e5c22537',
+  apiKey: 'e0f61835af3061f18d9b9fdb0f49aa9f',
   indexName: 'pinia-vuejs',
   placeholder: '문서 검색',
   translations: {
