@@ -1,4 +1,4 @@
-<NonTranslateDocumentNotice/>
+<NonTranslateDocumentNotice></NonTranslateDocumentNotice>
 
 # Migrating from Vuex ≤4
 

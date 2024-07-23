@@ -1,4 +1,4 @@
-<NonTranslateDocumentNotice/>
+<NonTranslateDocumentNotice></NonTranslateDocumentNotice>
 
 # Migrating from 0.0.7
 
