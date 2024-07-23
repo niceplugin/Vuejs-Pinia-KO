@@ -144,7 +144,7 @@ pinia.use(({ store }) => {
 플러그인에서 state 변경 또는 추가(`store.$patch()` 호출 포함)는 store가 활성화되기 전에 발생하므로, **어떠한 구독 함수도 트리거되지 않습니다**.
 
 :::warning
-**Vue 2**를 사용하는 경우, Pinia는 Vue와 마찬가지로 [동일한 반응형 제한](https://v2.vuejs.org/v2/guide/reactivity.html#Change-Detection-Caveats)에 의해 제한됩니다. 새로운 state 속성인 `secret` 및 `hasError`를 만들 때 `Vue.set()` (Vue 2.7) 또는 `@vue/composition-api`의 `set()` (Vue < 2.7)를 사용해야 합니다:
+**Vue 2**를 사용하는 경우, Pinia는 Vue와 마찬가지로 [동일한 반응형 제한](https://v2.vuejs.org/v2/guide/reactivity.html#Change-Detection-Caveats)에 의해 제한됩니다. 새로운 state 프로퍼티인 `secret` 및 `hasError`를 만들 때 `Vue.set()` (Vue 2.7) 또는 `@vue/composition-api`의 `set()` (Vue < 2.7)를 사용해야 합니다:
 
 ```js
 import { set, toRef } from '@vue/composition-api'
@@ -408,7 +408,7 @@ import { PiniaPluginContext } from 'pinia'
 
 function MyPiniaPlugin({ store }: PiniaPluginContext) {
   store.$subscribe((mutation) => {
-    // 스토어 변경에 반응합니다.
+    // Store 변경에 반응합니다.
     console.log(`[🍍 ${mutation.storeId}]: ${mutation.type}.`)
   })
 
@@ -438,7 +438,7 @@ import { Plugin } from '@nuxt/types'
 
 function MyPiniaPlugin({ store }: PiniaPluginContext) {
   store.$subscribe((mutation) => {
-    // 스토어 변경에 반응합니다.
+    // Store 변경에 반응합니다.
     console.log(`[🍍 ${mutation.storeId}]: ${mutation.type}.`)
   })
 

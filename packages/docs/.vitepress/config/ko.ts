@@ -92,13 +92,13 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         {
           text: '핵심 개념',
           items: [
-            { text: 'Store 다루기', link: '/core-concepts/' },
+            { text: 'Store (스토어) 다루기', link: '/core-concepts/' },
             { text: 'State (상태)', link: '/core-concepts/state.html' },
-            { text: 'Getters', link: '/core-concepts/getters.html' },
-            { text: 'Actions', link: '/core-concepts/actions.html' },
-            { text: 'Plugins', link: '/core-concepts/plugins.html' },
+            { text: 'Getters (개터)', link: '/core-concepts/getters.html' },
+            { text: 'Actions (액션)', link: '/core-concepts/actions.html' },
+            { text: 'Plugins (플러그인)', link: '/core-concepts/plugins.html' },
             {
-              text: '컴포넌트 외부의 Store',
+              text: '컴포넌트 외부에서 Store 사용하기',
               link: '/core-concepts/outside-component-usage.html',
             },
           ],
@@ -137,7 +137,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/testing.html',
             },
             {
-              text: 'setup() 없이 사용하는 방법',
+              text: 'setup() 없이 사용하기',
               link: '/cookbook/options-api.html',
             },
             {

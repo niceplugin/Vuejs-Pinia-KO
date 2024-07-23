@@ -63,7 +63,7 @@ onServerPrefetch(async () => {
 
 ## State 하이드레이션 %{#state-hydration}%
 
-초기 상태를 수화(hydrate)하려면, Pinia가 나중에 state를 가져올 수 있도록 rootState가 HTML의 어딘가에 포함되어야 합니다. SSR에서 사용하는 방법에 따라, **보안상의 이유로 state를 이스케이프(escape)해야 합니다**. Nuxt.js에서 사용되는 있는 [@nuxt/devalue](https://github.com/nuxt-contrib/devalue) 사용을 추천합니다.
+초기 state를 하이드레이션 하려면, Pinia가 나중에 state를 가져올 수 있도록 rootState가 HTML의 어딘가에 포함되어야 합니다. SSR에서 사용하는 방법에 따라, **보안상의 이유로 state를 이스케이프(escape)해야 합니다**. Nuxt.js에서 사용되는 있는 [@nuxt/devalue](https://github.com/nuxt-contrib/devalue) 사용을 추천합니다.
 
 ```js
 import devalue from '@nuxt/devalue'
@@ -83,14 +83,14 @@ app.use(pinia)
 devalue(pinia.state.value)
 ```
 
-SSR에서 사용하는 방법에 따라, HTML에 직렬화될 *초기 state* 변수를 설정해야 합니다. 또한 XSS 공격으로부터 보호해야 합니다. 필요에 따라 `@nuxt/devalue` 외에도 [다른 대안](https://github.com/nuxt-contrib/devalue#see-also)을 사용할 수 있습니다. 예를 들어, `JSON.stringify()`/`JSON.parse()`를 사용하여 상태를 직렬화하고 파싱할 수 있다면, **성능을 크게 향상시킬 수 있습니다**.
+SSR에서 사용하는 방법에 따라, HTML에 직렬화될 *초기 state* 변수를 설정해야 합니다. 또한 XSS 공격으로부터 보호해야 합니다. 필요에 따라 `@nuxt/devalue` 외에도 [다른 대안](https://github.com/nuxt-contrib/devalue#see-also)을 사용할 수 있습니다. 예를 들어, `JSON.stringify()`/`JSON.parse()`를 사용하여 state를 직렬화하고 파싱할 수 있다면, **성능을 크게 향상시킬 수 있습니다**.
 
 Nuxt를 사용하지 않는 경우, state의 직렬화 및 하이드레이션을 직접 처리해야 합니다. 다음은 몇 가지 예시입니다:
 
 - [Vitesse template](https://github.com/antfu/vitesse/blob/main/src/modules/pinia.ts)
 - [vite-plugin-ssr](https://vite-plugin-ssr.com/pinia)
 
-이 전략을 당신의 환경에 맞게 조정해야 합니다. **클라이언트 측에서 `useStore()` 함수를 호출하기 전에 Pinia의 상태를 하이드레이션 하도록 하십시오**. 예를 들어, state를 `<script>` 태그에 직렬화하여 클라이언트 측에서 `window.__pinia`를 통해 전역적으로 접근할 수 있게 한다면, 다음과 같이 작성할 수 있습니다:
+이 전략을 당신의 환경에 맞게 조정해야 합니다. **클라이언트 측에서 `useStore()` 함수를 호출하기 전에 Pinia의 state를 하이드레이션 하도록 하십시오**. 예를 들어, state를 `<script>` 태그에 직렬화하여 클라이언트 측에서 `window.__pinia`를 통해 전역적으로 접근할 수 있게 한다면, 다음과 같이 작성할 수 있습니다:
 
 ```ts
 const pinia = createPinia()
