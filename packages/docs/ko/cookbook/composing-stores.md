@@ -42,7 +42,7 @@ const useY = defineStore('y', () => {
 
 ## 중첩된 Store %{#nested-stores}%
 
-한 Store가 다른 Store를 사용할 경우, *getter*와 *action* 내에서 `useStore()` 함수를 직접 불러오고 호출할 수 있습니다. 그런 다음 Vue 컴포넌트 내에서처럼 Store와 상호작용할 수 있습니다. [공유된 Getters](#Shared-Getters) 및 [공유된 Actions](#Shared-Actions)를 참조하세요.
+한 Store가 다른 Store를 사용할 경우, *getter*와 *action* 내에서 `useStore()` 함수를 직접 불러오고 호출할 수 있습니다. 그런 다음 Vue 컴포넌트 내에서처럼 Store와 상호작용할 수 있습니다. [공유된 Getters](#Shared-Getters) 및 [공유된 Actions](#Shared-Actions)를 참고하세요.
 
 *Setup Store*에 대해서는, Store 함수의 **최상단**에서 Store 중 하나를 간단히 사용할 수 있습니다:
 

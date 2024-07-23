@@ -1,6 +1,6 @@
 # 컴포저블 다루기 %{#dealing-with-composables}%
 
-[컴포저블(Composable)](https://vuejs.org/guide/reusability/composables.html#composables)은 Vue Composition API를 활용하여 상태 로직을 캡슐화하고 재사용하는 함수들입니다. 직접 작성하거나 [외부 라이브러리](https://vueuse.org/)를 사용할 때, Pinia Store에서 컴포저블의 모든 기능을 완전히 사용할 수 있습니다.
+[컴포저블(Composable)](https://vuejs.org/guide/reusability/composables.html#composables)은 Vue Composition API를 활용하여 state 로직을 캡슐화하고 재사용하는 함수들입니다. 직접 작성하거나 [외부 라이브러리](https://vueuse.org/)를 사용할 때, Pinia Store에서 컴포저블의 모든 기능을 완전히 사용할 수 있습니다.
 
 ## Option Stores %{#option-stores}%
 
@@ -75,7 +75,7 @@ export const useVideoPlayer = defineStore('video', () => {
 
 [서버 사이드 렌더링(SSR)](../ssr/index.md)을 다룰 때, Store 내에서 컴포저블을 사용하기 위해 몇 가지 추가 단계를 처리해야 합니다.
 
-[Option Store](#option-stores)에서는 `hydrate()` 함수를 정의해야 합니다. 이 함수는 클라이언트(브라우저)에서 Store가 인스턴스화될 때, Store 생성 시 사용 가능한 초기 상태가 있을 때 호출됩니다. 이런 경우 `state()`가 호출되지 않기 때문에 이 함수를 정의해야 합니다.
+[Option Store](#option-stores)에서는 `hydrate()` 함수를 정의해야 합니다. 이 함수는 클라이언트(브라우저)에서 Store가 인스턴스화될 때, Store 생성 시 사용 가능한 초기 state가 있을 때 호출됩니다. 이런 경우 `state()`가 호출되지 않기 때문에 이 함수를 정의해야 합니다.
 
 ```ts
 import { defineStore, skipHydrate } from 'pinia'
@@ -94,7 +94,7 @@ export const useAuthStore = defineStore('auth', {
 })
 ```
 
-[Setup Store](#setup-stores)에서 초기 state에서 가져오지 말아야 할 모든 state 프로퍼티에 `skipHydrate()`라는 헬퍼를 사용해야 합니다. Option Store와 달리, Setup Store는 단순히 *`state()` 호출을 생략할 수 없기* 때문에 `skipHydrate()`를 사용하여 하이드레이션할 수 없는 속성을 표시합니다. 이는 state 프로퍼티에만 적용된다는 점에 유의하세요.
+[Setup Store](#setup-stores)에서 초기 state에서 가져오지 말아야 할 모든 state 프로퍼티에 `skipHydrate()`라는 헬퍼를 사용해야 합니다. Option Store와 달리, Setup Store는 단순히 *`state()` 호출을 생략할 수 없기* 때문에 `skipHydrate()`를 사용하여 하이드레이션할 수 없는 프로퍼티를 표시합니다. 이는 state 프로퍼티에만 적용된다는 점에 유의하세요.
 
 ```ts
 import { defineStore, skipHydrate } from 'pinia'

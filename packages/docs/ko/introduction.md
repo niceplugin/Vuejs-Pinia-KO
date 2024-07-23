@@ -19,7 +19,7 @@ Pinia는 2019년 11월경 [Composition API](https://github.com/vuejs/composition
 https://masteringpinia.com/lessons/why-use-pinia
  -->
 
-Pinia는 Vue의 Store 라이브러리로, 컴포넌트/페이지 간 상태(state)를 공유할 수 있게 해줍니다. Composition API에 익숙하다면 이미 `export const state = reactive({})`와 같이 전역으로 상태(state)를 공유할 수 있다고 생각할 수 있습니다. 이는 단일 페이지 애플리케이션에서는 가능하지만, 서버 사이드 렌더링 시 애플리케이션이 [보안 취약점](https://vuejs.org/guide/scaling-up/ssr.html#cross-request-state-pollution)에 노출될 수 있습니다. 또한 작은 규모의 단일 페이지 애플리케이션에서도 Pinia를 사용하면 많은 이점을 얻을 수 있습니다:
+Pinia는 Vue의 Store 라이브러리로, 컴포넌트/페이지 간 state를 공유할 수 있게 해줍니다. Composition API에 익숙하다면 이미 `export const state = reactive({})`와 같이 전역으로 state를 공유할 수 있다고 생각할 수 있습니다. 이는 단일 페이지 애플리케이션에서는 가능하지만, 서버 사이드 렌더링 시 애플리케이션이 [보안 취약점](https://vuejs.org/guide/scaling-up/ssr.html#cross-request-state-pollution)에 노출될 수 있습니다. 또한 작은 규모의 단일 페이지 애플리케이션에서도 Pinia를 사용하면 많은 이점을 얻을 수 있습니다:
 
 - 테스트 유틸리티
 - 플러그인: Pinia 기능을 플러그인으로 확장
@@ -31,7 +31,7 @@ Pinia는 Vue의 Store 라이브러리로, 컴포넌트/페이지 간 상태(stat
   - 타임 트래블 및 쉬운 디버깅
 - 핫 모듈 교체(HMR)
   - 페이지를 새로고침하지 않고 Store 수정
-  - 개발 중에도 기존 상태(state) 유지
+  - 개발 중에도 기존 state 유지
 
 여전히 의문이 있다면 [**공식** Mastering Pinia 강좌](https://masteringpinia.com)를 확인해보세요. 처음에는 `defineStore()` 함수를 직접 작성하는 방법을 다루고, 그 후에 공식 Pinia API로 넘어갑니다.
 
@@ -119,7 +119,7 @@ const useUserStore = defineStore('user', {
 
 export default defineComponent({
   computed: {
-    // 기타 계산된 프로퍼티
+    // 기타 계산형 프로퍼티
     // ...
     // this.counterStore 및 this.userStore로 접근 가능.
     ...mapStores(useCounterStore, useUserStore),
@@ -141,7 +141,7 @@ export default defineComponent({
 
 Pinia의 공식 강좌는 [Mastering Pinia](https://masteringpinia.com)입니다. Pinia의 저자가 작성한 이 강좌는 기본부터 플러그인, 테스트, 서버 사이드 렌더링과 같은 고급 주제까지 모두 다룹니다. 이는 Pinia를 시작하고 마스터하기 위한 최고의 방법입니다.
 
-## 왜 Pinia인가? %{#why-pinia}%
+## 왜 Pinia인가요? %{#why-pinia}%
 
 Pinia(`/piːnjʌ/` 영어로 "피냐"와 유사)는 패키지 이름으로 스페인어로 _piña_(_파인애플_)에 가장 가까운 단어입니다. 파인애플은 개별 꽃들이 모여 여러 개의 열매를 만드는 식물입니다. 이는 각각 독립적으로 생성되지만 끝에서는 모두 연결되는 Store와 비슷합니다. 또한 파인애플은 남아메리카 원산의 맛있는 열대 과일입니다.
 
@@ -221,4 +221,4 @@ Pinia API는 Vuex ≤4와 매우 다릅니다. 주요 차이점은 다음과 같
 - 간의 교차 조합을 가능하게 합니다. **심지어 Store의 순환 종속성도 허용됩니다.**
 - 더 이상 *이름을 지정할 수 있는 모듈*이 없습니다. Store의 평면 아키텍처를 감안할 때, Store의 "네임스페이싱"은 정의 방식에 내재되어 있으며, 모든 Store는 네임스페이스가 있다고 할 수 있습니다.
 
-기존 Vuex ≤4 프로젝트를 Pinia로 변환하는 방법에 대한 자세한 지침은 [Vuex에서 마이그레이션 가이드](./cookbook/migration-vuex.md)를 참조하세요.
+기존 Vuex ≤4 프로젝트를 Pinia로 변환하는 방법에 대한 자세한 지침은 [Vuex에서 마이그레이션 가이드](./cookbook/migration-vuex.md)를 참고하세요.

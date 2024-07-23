@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-<NonTranslateDocumentNotice file-name="API 관련 모든"/>
+<NonTranslateDocumentNotice file-name="API 관련 모든"></NonTranslateDocumentNotice>
 
 **API Documentation** • **Docs**
 

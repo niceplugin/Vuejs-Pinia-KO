@@ -1,4 +1,4 @@
-# 컴포넌트 외부에서 Store 사용 %{#using-a-store-outside-of-a-component}%
+# 컴포넌트 외부에서 Store 사용하기 %{#using-a-store-outside-of-a-component}%
 
 <MasteringPiniaLink v-if="false"
   href="https://play.gumlet.io/embed/651ed1ec4c2f339c6860fd06"
@@ -27,13 +27,13 @@ const pinia = createPinia()
 const app = createApp(App)
 app.use(pinia)
 
-// ✅ pinia 인스턴스가 이제 활성 상태이므로 정상적으로 작동합니다.
+// ✅ pinia 인스턴스가 이제 활성화된 상태이므로 정상적으로 작동합니다.
 const userStore = useUserStore()
 ```
 
 Pinia 인스턴스가 활성화되도록 보장하는 가장 간단한 방법은 `useStore()` 호출을 항상 pinia가 설치된 후에 실행되는 함수 안에 두는 것입니다.
 
-다음은 Vue Router의 내비게이션 가드에서 Store를 사용하는 예제입니다:
+다음은 Vue Router의 탐색 가드에서 Store를 사용하는 예제입니다:
 
 ```js
 import { createRouter } from 'vue-router'
@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.beforeEach((to) => {
-  // ✅ 라우터가 설치된 이후에 내비게이션이 시작되며,
+  // ✅ 라우터가 설치된 이후에 탐색이 시작되며,
   // 이 시점에서 pinia도 이미 설치되어 있기 때문에, 정상적으로 작동합니다.
   const store = useStore()
 

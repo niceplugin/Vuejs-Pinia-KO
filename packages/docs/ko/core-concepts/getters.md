@@ -1,4 +1,4 @@
-# Getters %{#getters}%
+# Getters (개터) %{#getters}%
 
 <!-- <VueSchoolLink
   href="https://vueschool.io/lessons/getters-in-pinia"
@@ -10,7 +10,7 @@
   title="Learn all about getters in Pinia"
 />
 
-Getter는 Store의 state에 대한 [계산형 값](https://vuejs.org/guide/essentials/computed.html)과 정확히 동일합니다. `defineStore()`의 `getters` 속성을 사용하여 정의할 수 있습니다. 화살표 함수를 사용하는 것을 **권장하며**, `state`를 첫 번째 매개변수로 받습니다:
+Getter는 Store의 state에 대한 [계산형 값](https://vuejs.org/guide/essentials/computed.html)과 정확히 동일합니다. `defineStore()`의 `getters` 프로퍼티를 사용하여 정의할 수 있습니다. 화살표 함수를 사용하는 것을 **권장하며**, `state`를 첫 번째 매개변수로 받습니다:
 
 ```js
 export const useCounterStore = defineStore('counter', {
@@ -223,7 +223,7 @@ export default defineComponent({
   setup() {
     const counterStore = useCounterStore()
 
-    // 디스트럭쳐링 대신 store 전체를 반환합니다.
+    // 디스트럭처링 대신 store 전체를 반환합니다.
     return { counterStore }
   },
   computed: {

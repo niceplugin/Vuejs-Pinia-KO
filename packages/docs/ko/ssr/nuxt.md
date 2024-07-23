@@ -5,7 +5,7 @@
   title="Learn about SSR best practices"
 />
 
-Pinia를 [Nuxt](https://nuxt.com/)와 함께 사용하면, Nuxt가 *서버 사이드 렌더링*과 관련된 많은 사항을 처리하므로 더 쉽습니다. 예를 들어 **직렬화나 XSS 공격에 대해 신경 쓸 필요가 없습니다**. Pinia는 Nuxt Bridge와 Nuxt 3을 지원합니다. 순수 Nuxt 2 지원에 대해서는 [아래](#nuxt-2-without-bridge)를 참조하세요.
+Pinia를 [Nuxt](https://nuxt.com/)와 함께 사용하면, Nuxt가 *서버 사이드 렌더링*과 관련된 많은 사항을 처리하므로 더 쉽습니다. 예를 들어 **직렬화나 XSS 공격에 대해 신경 쓸 필요가 없습니다**. Pinia는 Nuxt Bridge와 Nuxt 3을 지원합니다. 순수 Nuxt 2 지원에 대해서는 [아래](#nuxt-2-without-bridge)를 참고하세요.
 
 ## 설치 %{#installation}%
 

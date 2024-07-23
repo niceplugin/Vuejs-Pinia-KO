@@ -10,7 +10,7 @@
   title="Learn all about state in Pinia"
 />
 
-대부분의 경우, Store는  state를 중심으로 이루어지며, 일반적으로 앱의 state를 정의하는 것부터 시작합니다. Pinia에서 state는 초기 상태를 반환하는 함수로 정의됩니다. 이것은 Pinia가 서버와 클라이언트 측에서 모두 작동할 수 있게 합니다.
+대부분의 경우, Store는  state를 중심으로 이루어지며, 일반적으로 앱의 state를 정의하는 것부터 시작합니다. Pinia에서 state는 초기 state를 반환하는 함수로 정의됩니다. 이것은 Pinia가 서버와 클라이언트 측에서 모두 작동할 수 있게 합니다.
 
 ```js
 import { defineStore } from 'pinia'
@@ -228,7 +228,7 @@ store.$state = { count: 24 }
 store.$patch({ count: 24 })
 ```
 
-`pinia` 인스턴스의 `state`를 변경하여, 전체 애플리케이션의 **초기 state를 설정**할 수도 있습니다. 이는 [SSR 상태 하이드레이션](../ssr/#state-hydration)에서 일반적으로 사용됩니다.
+`pinia` 인스턴스의 `state`를 변경하여, 전체 애플리케이션의 **초기 state를 설정**할 수도 있습니다. 이는 [SSR State 하이드레이션](../ssr/#state-hydration)에서 일반적으로 사용됩니다.
 
 ```js
 pinia.state.value = {}

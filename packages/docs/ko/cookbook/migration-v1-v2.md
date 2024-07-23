@@ -1,4 +1,4 @@
-<NonTranslateDocumentNotice/>
+<NonTranslateDocumentNotice></NonTranslateDocumentNotice>
 
 # Migrating from 0.x (v1) to v2
 

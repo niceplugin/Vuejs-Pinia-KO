@@ -1,4 +1,4 @@
-# Store 정의하기 %{#defining-a-store}%
+# Store (스토어) 정의하기 %{#defining-a-store}%
 
 <!-- <VueSchoolLink
   href="https://vueschool.io/lessons/define-your-first-pinia-store"
@@ -78,7 +78,7 @@ Pinia가 `state`를 올바르게 인식하도록 하기 위해, Setup Store에�
 
 Setup Store는 [Option Store](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다. Store 내에서 감시자를 만들 수 있고, 자유롭게 [컴포저블](https://vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 하지만 SSR에서 컴포저블 사용시 더 복잡해질 수 있다는 점을 염두에 두어야 합니다.
 
-Setup Store는 Router나 Route처럼 전역적으로 제공된 프로퍼티가 필요할 수도 있습니다. [앱 레벨에서 제공된](https://vuejs.org/api/application.html#app-provide) 모든 프로퍼티는 컴포넌트에서처럼 `inject()`를 사용하여 Store에서 접근할 수 있습니다.
+Setup Store는 라우터나 라우트처럼 전역적으로 제공된 프로퍼티가 필요할 수도 있습니다. [앱 레벨에서 제공된](https://vuejs.org/api/application.html#app-provide) 모든 프로퍼티는 컴포넌트에서처럼 `inject()`를 사용하여 Store에서 접근할 수 있습니다.
 
 ```ts
 import { inject } from 'vue'
@@ -104,7 +104,7 @@ Store 자체에 속하지 않는 `route`나 `appProvided` 같은 프로퍼티는
 
 ## 어떤 문법을 선택해야 할까요? %{#what-syntax-should-i-pick}%
 
-[Vue의 Composition API와 Options API](https://vuejs.org/guide/introduction.html#which-to-choose)의 내용처럼, 자신에게 가장 편한 문법을 선택하세요. 둘 다 장단점이 있습니다. Options Store는 더 쉽게 작업할 수 있는 반면, Setup Store는 더 유연하고 강력합니다. 둘의 차이점에 대해 더 깊이 알고 싶다면, Mastering Pinia의 [Option Stores vs Setup Stores 챕터](https://masteringpinia.com/lessons/when-to-choose-one-syntax-over-the-other)를 참조하세요.
+[Vue의 Composition API와 Options API](https://vuejs.org/guide/introduction.html#which-to-choose)의 내용처럼, 자신에게 가장 편한 문법을 선택하세요. 둘 다 장단점이 있습니다. Options Store는 더 쉽게 작업할 수 있는 반면, Setup Store는 더 유연하고 강력합니다. 둘의 차이점에 대해 더 깊이 알고 싶다면, Mastering Pinia의 [Option Stores vs Setup Stores 챕터](https://masteringpinia.com/lessons/when-to-choose-one-syntax-over-the-other)를 참고하세요.
 
 ## Store 사용하기 %{#using-the-store}%
 
@@ -127,14 +127,14 @@ const store = useCounterStore()
 
 Store가 인스턴스화되면, Store의 `state`, `getters`, `actions`에 정의된 모든 프로퍼티에 직접 접근할 수 있습니다. 이러한 세부 사항은 다음 페이지에서 자세히 다룰 것이며 자동 완성이 이를 도와줄 것입니다.
 
-`store`는 `reactive`로 래핑된 객체이므로, getters 뒤에 `.value`가 필요 없습니다. `setup`의 `props`처럼 **디스트럭쳐링(destructuring : 구조 분해 할당)을 할 수 없습니다**:
+`store`는 `reactive`로 래핑된 객체이므로, getters 뒤에 `.value`가 필요 없습니다. `setup`의 `props`처럼 **디스트럭처링(destructuring : 구조 분해 할당)을 할 수 없습니다**:
 
 ```vue
 <script setup>
 import { useCounterStore } from '@/stores/counter'
 const store = useCounterStore()
 // ❌ 이렇게 하면 반응성이 깨져서 작동하지 않습니다
-// `props`를 디스트럭쳐링 하는 것과 같습니다
+// `props`를 디스트럭처링 하는 것과 같습니다
 const { name, doubleCount } = store // [!code warning]
 name // 항상 "Eduardo" 입니다 // [!code warning]
 doubleCount // 항상 0 입니다 // [!code warning]
@@ -149,9 +149,9 @@ const doubleValue = computed(() => store.doubleCount)
 </script>
 ```
 
-## Store에서 디스트럭쳐링 %{#destructuring-from-a-store}%
+## Store에서 디스트럭처링 %{#destructuring-from-a-store}%
 
-Store에서 프로퍼티를 추출하면서 반응성을 유지하려면 `storeToRefs()`를 사용해야 합니다. 이는 모든 반응형 프로퍼티에 대한 ref를 생성합니다. Store의 state만 사용하고 action을 호출하지 않을 때 유용합니다. action은 Store 자체에 바인딩되므로 Store에서 직접 디스트럭쳐링 할 수 있습니다:
+Store에서 프로퍼티를 추출하면서 반응성을 유지하려면 `storeToRefs()`를 사용해야 합니다. 이는 모든 반응형 프로퍼티에 대한 ref를 생성합니다. Store의 state만 사용하고 action을 호출하지 않을 때 유용합니다. action은 Store 자체에 바인딩되므로 Store에서 직접 디스트럭처링 할 수 있습니다:
 
 ```vue
 <script setup>
@@ -163,7 +163,7 @@ const store = useCounterStore()
 // 플러그인에 의해 추가된 프로퍼티도 ref로 추출됩니다.
 // 모든 action 또는 비반응형(ref/reactive가 아닌) 프로퍼티는 건너뜁니다.
 const { name, doubleCount } = storeToRefs(store)
-// action의 increment는 직접 디스트럭쳐링 할 수 있습니다.
+// action의 increment는 직접 디스트럭처링 할 수 있습니다.
 const { increment } = store
 </script>
 ```

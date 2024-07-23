@@ -1,4 +1,4 @@
-<NonTranslateDocumentNotice/>
+<NonTranslateDocumentNotice></NonTranslateDocumentNotice>
 
 # VS Code Snippets
 
