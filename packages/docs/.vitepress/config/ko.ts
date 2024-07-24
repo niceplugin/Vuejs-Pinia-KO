@@ -38,7 +38,11 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         link: '/core-concepts/',
         activeMatch: '^/core-concepts/',
       },
-      { text: 'API', link: '/api/', activeMatch: '^/api/' },
+      {
+        text: 'API <span class="VPBadge danger non-translate-badge-inline">영문</span>',
+        link: '/api/',
+        activeMatch: '^/api/',
+      },
       { text: 'Cookbook', link: '/cookbook/', activeMatch: '^/cookbook/' },
       {
         text: '링크',
@@ -61,7 +65,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     sidebar: {
       '/api/': [
         {
-          text: 'packages <span class="VPBadge danger non-translate-badge">영문</span>',
+          text: 'packages',
           items: [
             { text: 'pinia', link: '/api/pinia/' },
             {

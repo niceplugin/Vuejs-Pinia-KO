@@ -53,7 +53,7 @@ Option Store는 직관적이고 간단하게 시작할 수 있습니다.
 
 ## Setup Store %{#setup-stores}%
 
-Store를 정의하는 또 다른 문법도 있습니다. Vue Composition API의 [setup 함수](https://vuejs.org/api/composition-api-setup.html)와 유사하게, 반응형 프로퍼티와 메서드를 정의하는 함수를 전달하고, 노출하려는 프로퍼티와 메서드를 포함한 객체를 반환할 수 있습니다.
+Store를 정의하는 또 다른 문법도 있습니다. Vue Composition API의 [setup 함수](https://ko.vuejs.org/api/composition-api-setup.html)와 유사하게, 반응형 프로퍼티와 메서드를 정의하는 함수를 전달하고, 노출하려는 프로퍼티와 메서드를 포함한 객체를 반환할 수 있습니다.
 
 ```js
 export const useCounterStore = defineStore('counter', () => {
@@ -76,9 +76,9 @@ _Setup Store_ 내에서:
 
 Pinia가 `state`를 올바르게 인식하도록 하기 위해, Setup Store에서는 **모든 state 프로퍼티**를 반환해야 합니다. 즉, Store에 [_비공개_ state 프로퍼티](https://masteringpinia.com/blog/how-to-create-private-state-in-stores)를 가질 수 없습니다. 모든 state를 프로퍼티로 반환하지 않거나 **읽기 전용**으로 만들면 [SSR](../cookbook/composables.md), 개발 도구 및 기타 플러그인이 제대로 작동하지 않습니다.
 
-Setup Store는 [Option Store](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다. Store 내에서 감시자를 만들 수 있고, 자유롭게 [컴포저블](https://vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 하지만 SSR에서 컴포저블 사용시 더 복잡해질 수 있다는 점을 염두에 두어야 합니다.
+Setup Store는 [Option Store](#option-stores)보다 훨씬 더 많은 유연성을 제공합니다. Store 내에서 감시자를 만들 수 있고, 자유롭게 [컴포저블](https://ko.vuejs.org/guide/reusability/composables.html#composables)을 사용할 수 있습니다. 하지만 SSR에서 컴포저블 사용시 더 복잡해질 수 있다는 점을 염두에 두어야 합니다.
 
-Setup Store는 라우터나 라우트처럼 전역적으로 제공된 프로퍼티가 필요할 수도 있습니다. [앱 레벨에서 제공된](https://vuejs.org/api/application.html#app-provide) 모든 프로퍼티는 컴포넌트에서처럼 `inject()`를 사용하여 Store에서 접근할 수 있습니다.
+Setup Store는 라우터나 라우트처럼 전역적으로 제공된 프로퍼티가 필요할 수도 있습니다. [앱 레벨에서 제공된](https://ko.vuejs.org/api/application.html#app-provide) 모든 프로퍼티는 컴포넌트에서처럼 `inject()`를 사용하여 Store에서 접근할 수 있습니다.
 
 ```ts
 import { inject } from 'vue'
@@ -104,7 +104,7 @@ Store 자체에 속하지 않는 `route`나 `appProvided` 같은 프로퍼티는
 
 ## 어떤 문법을 선택해야 할까요? %{#what-syntax-should-i-pick}%
 
-[Vue의 Composition API와 Options API](https://vuejs.org/guide/introduction.html#which-to-choose)의 내용처럼, 자신에게 가장 편한 문법을 선택하세요. 둘 다 장단점이 있습니다. Options Store는 더 쉽게 작업할 수 있는 반면, Setup Store는 더 유연하고 강력합니다. 둘의 차이점에 대해 더 깊이 알고 싶다면, Mastering Pinia의 [Option Stores vs Setup Stores 챕터](https://masteringpinia.com/lessons/when-to-choose-one-syntax-over-the-other)를 참고하세요.
+[Vue의 Composition API와 Options API](https://ko.vuejs.org/guide/introduction.html#which-to-choose)의 내용처럼, 자신에게 가장 편한 문법을 선택하세요. 둘 다 장단점이 있습니다. Options Store는 더 쉽게 작업할 수 있는 반면, Setup Store는 더 유연하고 강력합니다. 둘의 차이점에 대해 더 깊이 알고 싶다면, Mastering Pinia의 [Option Stores vs Setup Stores 챕터](https://masteringpinia.com/lessons/when-to-choose-one-syntax-over-the-other)를 참고하세요.
 
 ## Store 사용하기 %{#using-the-store}%
 

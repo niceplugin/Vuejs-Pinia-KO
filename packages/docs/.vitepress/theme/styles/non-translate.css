@@ -8,6 +8,13 @@
   padding: 4px 6px;
 }
 
+.non-translate-badge-inline {
+  display: inline;
+  font-size: .675rem;
+  line-height: 1;
+  padding: 4px 6px;
+}
+
 .non-translate-note {
   margin-top: 0 !important;
   margin-bottom: 32px !important;
