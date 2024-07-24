@@ -1,6 +1,6 @@
 # 컴포저블 다루기 %{#dealing-with-composables}%
 
-[컴포저블(Composable)](https://vuejs.org/guide/reusability/composables.html#composables)은 Vue Composition API를 활용하여 state 로직을 캡슐화하고 재사용하는 함수들입니다. 직접 작성하거나 [외부 라이브러리](https://vueuse.org/)를 사용할 때, Pinia Store에서 컴포저블의 모든 기능을 완전히 사용할 수 있습니다.
+[컴포저블(Composable)](https://ko.vuejs.org/guide/reusability/composables.html#composables)은 Vue Composition API를 활용하여 state 로직을 캡슐화하고 재사용하는 함수들입니다. 직접 작성하거나 [외부 라이브러리](https://vueuse.org/)를 사용할 때, Pinia Store에서 컴포저블의 모든 기능을 완전히 사용할 수 있습니다.
 
 ## Option Stores %{#option-stores}%
 

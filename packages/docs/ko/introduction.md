@@ -19,7 +19,7 @@ Pinia는 2019년 11월경 [Composition API](https://github.com/vuejs/composition
 https://masteringpinia.com/lessons/why-use-pinia
  -->
 
-Pinia는 Vue의 Store 라이브러리로, 컴포넌트/페이지 간 state를 공유할 수 있게 해줍니다. Composition API에 익숙하다면 이미 `export const state = reactive({})`와 같이 전역으로 state를 공유할 수 있다고 생각할 수 있습니다. 이는 단일 페이지 애플리케이션에서는 가능하지만, 서버 사이드 렌더링 시 애플리케이션이 [보안 취약점](https://vuejs.org/guide/scaling-up/ssr.html#cross-request-state-pollution)에 노출될 수 있습니다. 또한 작은 규모의 단일 페이지 애플리케이션에서도 Pinia를 사용하면 많은 이점을 얻을 수 있습니다:
+Pinia는 Vue의 Store 라이브러리로, 컴포넌트/페이지 간 state를 공유할 수 있게 해줍니다. Composition API에 익숙하다면 이미 `export const state = reactive({})`와 같이 전역으로 state를 공유할 수 있다고 생각할 수 있습니다. 이는 단일 페이지 애플리케이션에서는 가능하지만, 서버 사이드 렌더링 시 애플리케이션이 [보안 취약점](https://ko.vuejs.org/guide/scaling-up/ssr.html#cross-request-state-pollution)에 노출될 수 있습니다. 또한 작은 규모의 단일 페이지 애플리케이션에서도 Pinia를 사용하면 많은 이점을 얻을 수 있습니다:
 
 - 테스트 유틸리티
 - 플러그인: Pinia 기능을 플러그인으로 확장

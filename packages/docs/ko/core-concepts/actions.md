@@ -10,7 +10,7 @@
   title="Learn all about actions in Pinia"
 />
 
-Actions는 컴포넌트의 [메서드](https://vuejs.org/api/options-state.html#methods)와 동일합니다. `defineStore()`에서 `actions` 프로퍼티로 정의할 수 있으며, **처리해야 할 작업의 로직을 정의하는 데 완벽합니다**:
+Actions는 컴포넌트의 [메서드](https://ko.vuejs.org/api/options-state.html#methods)와 동일합니다. `defineStore()`에서 `actions` 프로퍼티로 정의할 수 있으며, **처리해야 할 작업의 로직을 정의하는 데 완벽합니다**:
 
 ```js
 export const useCounterStore = defineStore('counter', {
@@ -171,7 +171,7 @@ export default {
 
 ## Actions 구독하기 %{#subscribing-to-actions}%
 
-`store.$onAction()`을 사용하여 actions와 그 결과를 감시할 수 있습니다. 전달된 콜백 함수는 action 보다 먼저 실행됩니다. `after` 훅 함수는 action에서 return 또는 promise 완료(resolve) 이후 실행됩니다. 비슷하게 `onError` 훅 함수는 action이 오류를 발생(throw)시키거나 promise 실패(reject)할 때 실행됩니다. 이는 [Vue 문서의 팁](https://vuejs.org/guide/best-practices/production-deployment#tracking-runtime-errors)처럼 런타임 오류를 추적하는 데 유용합니다.
+`store.$onAction()`을 사용하여 actions와 그 결과를 감시할 수 있습니다. 전달된 콜백 함수는 action 보다 먼저 실행됩니다. `after` 훅 함수는 action에서 return 또는 promise 완료(resolve) 이후 실행됩니다. 비슷하게 `onError` 훅 함수는 action이 오류를 발생(throw)시키거나 promise 실패(reject)할 때 실행됩니다. 이는 [Vue 문서의 팁](https://ko.vuejs.org/guide/best-practices/production-deployment#tracking-runtime-errors)처럼 런타임 오류를 추적하는 데 유용합니다.
 
 여기 실행 전과 action이 resolve/reject된 후에 로그를 기록하는 예제가 있습니다.
 

@@ -10,7 +10,7 @@
   title="Learn all about getters in Pinia"
 />
 
-Getter는 Store의 state에 대한 [계산형 값](https://vuejs.org/guide/essentials/computed.html)과 정확히 동일합니다. `defineStore()`의 `getters` 프로퍼티를 사용하여 정의할 수 있습니다. 화살표 함수를 사용하는 것을 **권장하며**, `state`를 첫 번째 매개변수로 받습니다:
+Getter는 Store의 state에 대한 [계산형 값](https://ko.vuejs.org/guide/essentials/computed.html)과 정확히 동일합니다. `defineStore()`의 `getters` 프로퍼티를 사용하여 정의할 수 있습니다. 화살표 함수를 사용하는 것을 **권장하며**, `state`를 첫 번째 매개변수로 받습니다:
 
 ```js
 export const useCounterStore = defineStore('counter', {
