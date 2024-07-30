@@ -149,7 +149,7 @@ export const koConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/composing-stores.html',
             },
             {
-              text: 'VSCode 스니펫 <span class="VPBadge danger non-translate-badge">영문</span>',
+              text: 'VSCode 스니펫',
               link: '/cookbook/vscode-snippets.html',
             },
             {
