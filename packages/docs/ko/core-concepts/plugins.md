@@ -452,3 +452,7 @@ const myPlugin: Plugin = ({ $pinia }) => {
 
 export default myPlugin
 ```
+
+## 현재 사용되는 플러그인 %{#Existing-plugins}%
+
+GitHub에서 *pinia-plugin* 주제로 [현재 사용되는 Pinia 플러그인](https://github.com/topics/pinia-plugin)을 확인할 수 있습니다.
