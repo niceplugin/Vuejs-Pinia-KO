@@ -128,12 +128,6 @@ export const sharedConfig = defineConfig({
       message: 'Released under the MIT License.',
     },
 
-    editLink: {
-      pattern:
-        'https://github.com/niceplugin/Vuejs-Pinia-KO/edit/main-korean/docs/:path',
-      text: '이 페이지 편집 제안하기',
-    },
-
     search: {
       provider: 'algolia',
       options: { ...koSearch },
