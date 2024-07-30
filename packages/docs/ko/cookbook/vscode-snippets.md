@@ -1,6 +1,4 @@
-<NonTranslateDocumentNotice></NonTranslateDocumentNotice>
-
-# VS Code Snippets
+# VS Code 스니펫 %{#VS-Code-Snippets}%
 
 아래는 내 삶을 더 쉽게 만들기 위해 VS Code에서 사용하는 스니펫들입니다.
 
